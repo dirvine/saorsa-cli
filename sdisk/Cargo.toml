@@ -1,0 +1,31 @@
+[package]
+name = "sdisk"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Cross-platform CLI to analyze disk usage and suggest safe cleanups"
+homepage = "https://github.com/dirvine/saorsa-cli"
+repository = "https://github.com/dirvine/saorsa-cli"
+keywords = ["disk", "cleanup", "cli", "cross-platform"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4.5", features = ["derive"] }
+walkdir = "2.5"
+filetime = "0.2"
+humansize = { version = "2", features = ["impl_style"] }
+sysinfo = { version = "0.30" }
+indicatif = "0.17"
+console = "0.15"
+thiserror = "1"
+dialoguer = "0.11"
+
+[dev-dependencies]
+assert_cmd = "2"
+
+[package.metadata.release]
+release = false
+
+[package.metadata.docs.rs]
+all-features = true

@@ -1,0 +1,89 @@
+[package]
+name = "sb"
+version = "0.3.12"
+edition = "2021"
+authors = ["David Irvine <david.irvine@saorsa.net>"]
+description = "Terminal Markdown Browser/Editor with Git integration, syntax highlighting, and media support"
+repository = "https://github.com/dirvine/saorsa-cli"
+homepage = "https://github.com/dirvine/saorsa-cli"
+documentation = "https://github.com/dirvine/saorsa-cli"
+readme = "README.md"
+keywords = ["markdown", "terminal", "tui", "editor", "git"]
+categories = ["command-line-utilities", "text-editors"]
+license = "MIT OR Apache-2.0"
+
+#[features]
+# All graphics and video are built-in by default now.
+
+[dependencies]
+anyhow = "1"
+thiserror = "2"
+regex = "1"
+
+# Async runtime and utilities
+tokio = { version = "1", features = ["full"] }
+
+# Logging and tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# TUI + input
+ratatui = "0.29"         # UI framework
+crossterm = "0.29"       # cross‑platform terminal backend
+
+# Editor widget (aligned to ratatui 0.29)
+# NOTE: ensure the `ratatui` feature is on for compatibility
+tui-textarea = { version = "0.7", features = ["ratatui"] }
+
+# File tree widget
+tui-tree-widget = "0.23"
+
+# Markdown parsing/rendering to Ratatui Text
+tui-markdown = "0.3"
+
+# Filesystem utilities
+walkdir = "2"
+notify = "8"
+pathdiff = "0.2"
+
+# Open files/URLs in the OS default app (images/video/etc.)
+opener = "0.8"
+
+# Optional image rendering (enabled via `--features graphics`)
+ratatui-image = { version = "8", default-features = false, features = ["crossterm"] }
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+
+# Syntax highlighting & diff
+syntect = { version = "5", default-features = false, features = ["default-fancy"] }
+once_cell = "1"
+similar = "2"
+
+# Git support
+git2 = "0.20"
+
+[dev-dependencies]
+tempfile = "3.8"
+serde_json = "1.0"
+criterion = { version = "0.7", features = ["html_reports"] }
+proptest = "1.4"
+quickcheck = "1.0"
+quickcheck_macros = "1.0"
+assert_fs = "1.1"
+assert_cmd = "2.0"
+predicates = "3.0"
+serial_test = "3.0"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "z"
+strip = true
+
+# RPM package metadata
+[package.metadata.generate-rpm]
+assets = [
+    { source = "target/release/sb", dest = "/usr/bin/sb", mode = "755" },
+    { source = "README.md", dest = "/usr/share/doc/sb/README.md", doc = true },
+]
+summary = "Terminal Markdown Browser/Editor with Git integration"
+license = "MIT OR Apache-2.0"
