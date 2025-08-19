@@ -1,5 +1,5 @@
 [workspace]
-members = ["sb", "sdisk"]
+members = ["sb", "sdisk", "cli"]
 resolver = "2"
 
 [workspace.package]

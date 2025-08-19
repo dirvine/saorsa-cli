@@ -4,6 +4,26 @@ A collection of powerful command-line tools for developers and system administra
 
 ## 🛠️ Available Tools
 
+### saorsa - Interactive CLI Menu
+An interactive menu system for all Saorsa tools with automatic binary management.
+
+**Features:**
+- 📱 Interactive terminal UI menu
+- 🔄 Automatic binary downloads from GitHub releases
+- 🖥️ Platform detection (macOS, Linux, Windows)
+- 📦 Binary caching and version management
+- ⚡ Direct tool execution mode
+
+**Usage:**
+```bash
+# Interactive menu
+saorsa
+
+# Run tool directly
+saorsa --run sb
+saorsa --run sdisk
+```
+
 ### sb - Terminal Markdown Browser/Editor
 A terminal-based Markdown browser and editor with Git integration, syntax highlighting, and media support.
 
@@ -62,7 +82,14 @@ sdisk --interactive
 
 ## 🚀 Installation
 
-### Install All Tools
+### Quick Install (Recommended)
+Download the latest release from [GitHub Releases](https://github.com/dirvine/saorsa-cli/releases):
+
+1. Download the `cli-<platform>` archive for your system
+2. Extract and run `saorsa` (or `saorsa.exe` on Windows)
+3. The menu will automatically download other tools as needed
+
+### Install All Tools from Source
 ```bash
 # Clone the repository
 git clone https://github.com/dirvine/saorsa-cli
@@ -71,6 +98,7 @@ cd saorsa-cli
 # Build and install all tools
 cargo install --path sb
 cargo install --path sdisk
+cargo install --path cli
 ```
 
 ### Install from crates.io
@@ -99,6 +127,7 @@ cargo build --release
 # Build specific tool
 cargo build --release -p sb
 cargo build --release -p sdisk
+cargo build --release -p cli
 
 # Run tests
 cargo test --all
@@ -106,6 +135,7 @@ cargo test --all
 # Run with cargo
 cargo run --bin sb
 cargo run --bin sdisk
+cargo run --bin saorsa
 ```
 
 ## 📦 Project Structure
@@ -114,14 +144,24 @@ cargo run --bin sdisk
 saorsa-cli/
 ├── Cargo.toml          # Workspace configuration
 ├── README.md           # This file
+├── .github/
+│   └── workflows/
+│       ├── ci.yml      # Continuous Integration
+│       └── release.yml # Release automation
+├── cli/                # Interactive CLI Menu
+│   ├── Cargo.toml
+│   ├── src/
+│   └── README.md
 ├── sb/                 # Terminal Markdown Browser/Editor
 │   ├── Cargo.toml
 │   ├── src/
 │   └── README.md
-└── sdisk/              # Disk Usage Analyzer
-    ├── Cargo.toml
-    ├── src/
-    └── README.md
+├── sdisk/              # Disk Usage Analyzer
+│   ├── Cargo.toml
+│   ├── src/
+│   └── README.md
+└── scripts/
+    └── create-release.sh # Release helper script
 ```
 
 ## 🤝 Contributing
@@ -157,8 +197,36 @@ You may choose either license for your use.
 ## 📚 More Information
 
 For detailed documentation on each tool, see their respective README files:
+- [CLI Menu README](./cli/README.md)
 - [sb README](./sb/README.md)
 - [sdisk README](./sdisk/README.md)
+
+## 🚢 Releases
+
+### Creating a Release
+
+1. **Update version numbers** in `Cargo.toml` files
+2. **Run the release script**:
+   ```bash
+   ./scripts/create-release.sh v0.1.0
+   ```
+3. **Push the tag** to trigger GitHub Actions:
+   ```bash
+   git push origin v0.1.0
+   ```
+
+GitHub Actions will automatically:
+- Build binaries for all platforms
+- Create individual and combined archives
+- Generate SHA256 checksums
+- Create a GitHub release with all assets
+
+### Supported Platforms
+
+Releases include pre-built binaries for:
+- **macOS**: Apple Silicon (M1/M2) and Intel
+- **Linux**: x86_64 and ARM64
+- **Windows**: x86_64
 
 ## 🔮 Future Tools
 
