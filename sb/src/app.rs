@@ -999,39 +999,6 @@ impl App {
         }
     }
 
-    /// Bulk delete selected files in tree
-    pub fn tree_delete_selected(&mut self) -> Result<()> {
-        if !self.tree_selection.is_empty() {
-            let selected_files: Vec<PathBuf> = self
-                .tree_selection
-                .iter()
-                .map(PathBuf::from)
-                .filter(|p| p.is_file())
-                .collect();
-
-            if !selected_files.is_empty() {
-                let git_files = selected_files.iter().any(|p| self.is_in_git_repo(p));
-                let count = selected_files.len();
-
-                if git_files {
-                    self.status = format!(
-                        "Delete {} files (some with git rm). Press 'd' again to confirm.",
-                        count
-                    );
-                } else {
-                    self.status = format!("Delete {} files. Press 'd' again to confirm.", count);
-                }
-
-                self.confirming_delete = true;
-            } else {
-                self.status = "No files selected for deletion".to_string();
-            }
-        } else {
-            // No selection, delete current item
-            self.begin_delete();
-        }
-        Ok(())
-    }
 
     /// Bulk open selected files in tree
     pub fn tree_open_selected(&mut self) -> Result<()> {
@@ -1896,7 +1863,8 @@ fn build_tree_with_selection_cached(
 
         // Create new TreeItem with updated text and children
         if path.is_dir() && !updated_children.is_empty() {
-            TreeItem::new(path_str.to_string(), new_text, updated_children).expect("unique ids")
+            TreeItem::new(path_str.to_string(), new_text.clone(), updated_children)
+                .unwrap_or_else(|_| TreeItem::new_leaf(path_str.to_string(), new_text))
         } else {
             TreeItem::new_leaf(path_str.to_string(), new_text)
         }
@@ -1935,7 +1903,8 @@ fn build_tree(root: &Path) -> Result<Vec<TreeItem<'static, String>>> {
                 .map(|s| s.to_string_lossy().to_string())
                 .unwrap_or_else(|| dir.display().to_string()),
         );
-        TreeItem::new(dir.display().to_string(), text, children).expect("unique ids")
+        TreeItem::new(dir.display().to_string(), text.clone(), children)
+            .unwrap_or_else(|_| TreeItem::new_leaf(dir.display().to_string(), text))
     }
 
     let root_item = build_node(root);
@@ -1992,7 +1961,8 @@ fn build_tree_with_selection(
             Line::from(vec!["📁 ".fg(Color::Blue), dir_name.into()])
         };
 
-        TreeItem::new(path_str, text, children).expect("unique ids")
+        TreeItem::new(path_str.clone(), text.clone(), children)
+            .unwrap_or_else(|_| TreeItem::new_leaf(path_str, text))
     }
 
     let root_item = build_node(root, selection);

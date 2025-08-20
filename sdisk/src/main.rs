@@ -1,5 +1,7 @@
 use std::path::PathBuf;
 
+
+
 use anyhow::{Context, Result};
 use clap::{Parser, Subcommand};
 use console::style;
@@ -8,6 +10,9 @@ use humansize::{format_size, BINARY};
 use indicatif::{ProgressBar, ProgressStyle};
 use sysinfo::Disks;
 use walkdir::WalkDir;
+
+mod error;
+use error::SdiskError;
 
 /// sdisk: Analyze disk usage and suggest cleanups
 #[derive(Parser, Debug)]
@@ -132,7 +137,8 @@ fn cmd_top(
     for root in &roots {
         println!("{} {}", style("Scanning").bold(), root.display());
     }
-    let pb = spinner();
+    let pb = spinner().context("Failed to create progress bar")?;
+    pb.set_message("Scanning directories...");
     let mut entries: Vec<(PathBuf, u64)> = Vec::new();
     for root in &roots {
         for entry in WalkDir::new(root)
@@ -217,7 +223,8 @@ fn cmd_stale(
             days
         );
     }
-    let pb = spinner();
+    let pb = spinner().context("Failed to create progress bar")?;
+    pb.set_message("Finding stale files...");
     let mut items: Vec<(PathBuf, u64, SystemTime)> = Vec::new();
     for root in &roots {
         for entry in WalkDir::new(root).into_iter().filter_map(|e| e.ok()) {
@@ -332,11 +339,14 @@ fn cmd_stale(
     Ok(())
 }
 
-fn spinner() -> ProgressBar {
+fn spinner() -> Result<ProgressBar> {
     let pb = ProgressBar::new_spinner();
-    pb.set_style(ProgressStyle::with_template("{spinner} {msg}").unwrap());
+    pb.set_style(
+        ProgressStyle::with_template("{spinner} {msg}")
+            .map_err(|e| SdiskError::progress_bar(format!("Failed to create progress bar style: {}", e)))?
+    );
     pb.enable_steady_tick(std::time::Duration::from_millis(100));
-    pb
+    Ok(pb)
 }
 
 fn dir_size(path: &PathBuf) -> Result<u64> {

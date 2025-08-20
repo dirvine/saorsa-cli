@@ -21,6 +21,7 @@ pub enum MenuChoice {
     RunSDisk,
     UpdateBinaries,
     Settings,
+    Plugins,
     Exit,
 }
 
@@ -38,6 +39,7 @@ impl Menu {
             ("💾 Run Saorsa Disk (sdisk)", MenuChoice::RunSDisk),
             ("🔄 Update Binaries", MenuChoice::UpdateBinaries),
             ("⚙️  Settings", MenuChoice::Settings),
+            ("🔌 Plugins", MenuChoice::Plugins),
             ("🚪 Exit", MenuChoice::Exit),
         ];
 

@@ -1,12 +1,21 @@
 use anyhow::{Context, Result};
+
+
 use serde::{Deserialize, Serialize};
 use std::fs;
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 
+/// Main configuration structure for the Saorsa CLI
+///
+/// This struct contains all configurable options for the CLI application,
+/// organized into logical sections for GitHub integration, caching, and behavior.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Config {
+    /// GitHub repository configuration for binary downloads
     pub github: GitHubConfig,
+    /// Cache directory and binary storage configuration
     pub cache: CacheConfig,
+    /// User behavior preferences and settings
     pub behavior: BehaviorConfig,
 }
 

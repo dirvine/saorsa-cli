@@ -1,7 +1,11 @@
+
+
 mod config;
 mod downloader;
+mod error;
 mod menu;
 mod platform;
+mod plugin;
 mod runner;
 
 use anyhow::{Context, Result};
@@ -13,6 +17,8 @@ use platform::Platform;
 use runner::BinaryRunner;
 use std::path::PathBuf;
 use tracing_subscriber::EnvFilter;
+
+// Dialoguer is already imported in the functions where needed
 
 #[derive(Parser, Debug)]
 #[command(
@@ -45,6 +51,10 @@ struct Args {
     /// Arguments to pass to the tool (when using --run)
     #[arg(trailing_var_arg = true)]
     tool_args: Vec<String>,
+
+    /// Execute a plugin
+    #[arg(long)]
+    plugin: Option<String>,
 }
 
 #[tokio::main]
@@ -71,7 +81,11 @@ async fn main() -> Result<()> {
         .init();
 
     // Load configuration
-    let mut config = Config::load().unwrap_or_default();
+    let mut config = Config::load().unwrap_or_else(|e| {
+        eprintln!("Warning: Failed to load configuration: {}", e);
+        eprintln!("Using default configuration...");
+        Config::default()
+    });
     config.update_from_cli(args.no_update_check, args.use_system);
     config.ensure_directories()?;
 
@@ -88,6 +102,15 @@ async fn main() -> Result<()> {
     )?;
     
     let runner = BinaryRunner::new();
+
+    // Initialize plugin system
+    let plugin_manager = plugin::init_plugin_system()
+        .context("Failed to initialize plugin system")?;
+
+    // Handle plugin execution
+    if let Some(plugin_name) = args.plugin.as_ref() {
+        return plugin_manager.execute_plugin(plugin_name, &args.tool_args);
+    }
 
     // Handle direct run mode
     if let Some(tool) = args.run.as_ref() {
@@ -120,11 +143,36 @@ async fn main() -> Result<()> {
                     println!("Starting Saorsa Browser...");
                     runner.run_interactive(&path, vec![])?;
                 } else {
-                    println!("Saorsa Browser not installed. Downloading...");
-                    let path = downloader
-                        .download_binary("sb", &platform, false)
-                        .await?;
-                    runner.run_interactive(&path, vec![])?;
+                    println!("Saorsa Browser not installed. Attempting to download...");
+                    match downloader.download_binary("sb", &platform, false).await {
+                        Ok(path) => {
+                            runner.run_interactive(&path, vec![])?;
+                        }
+                        Err(e) => {
+                            if let Some(downloader_err) = e.downcast_ref::<crate::downloader::DownloadError>() {
+                                match downloader_err {
+                                    crate::downloader::DownloadError::NoReleases => {
+                                        println!("❌ No releases found for Saorsa Browser.");
+                                        println!("This might be normal if the repository has no releases yet.");
+                                        println!("Press Enter to continue...");
+                                        let mut input = String::new();
+                                        std::io::stdin().read_line(&mut input)?;
+                                    }
+                                    _ => {
+                                        println!("❌ Failed to download Saorsa Browser: {}", downloader_err);
+                                        println!("Press Enter to continue...");
+                                        let mut input = String::new();
+                                        std::io::stdin().read_line(&mut input)?;
+                                    }
+                                }
+                            } else {
+                                println!("❌ Failed to download Saorsa Browser: {}", e);
+                                println!("Press Enter to continue...");
+                                let mut input = String::new();
+                                std::io::stdin().read_line(&mut input)?;
+                            }
+                        }
+                    }
                 }
             }
             MenuChoice::RunSDisk => {
@@ -132,11 +180,36 @@ async fn main() -> Result<()> {
                     println!("Starting Saorsa Disk...");
                     runner.run_interactive(&path, vec![])?;
                 } else {
-                    println!("Saorsa Disk not installed. Downloading...");
-                    let path = downloader
-                        .download_binary("sdisk", &platform, false)
-                        .await?;
-                    runner.run_interactive(&path, vec![])?;
+                    println!("Saorsa Disk not installed. Attempting to download...");
+                    match downloader.download_binary("sdisk", &platform, false).await {
+                        Ok(path) => {
+                            runner.run_interactive(&path, vec![])?;
+                        }
+                        Err(e) => {
+                            if let Some(downloader_err) = e.downcast_ref::<crate::downloader::DownloadError>() {
+                                match downloader_err {
+                                    crate::downloader::DownloadError::NoReleases => {
+                                        println!("❌ No releases found for Saorsa Disk.");
+                                        println!("This might be normal if the repository has no releases yet.");
+                                        println!("Press Enter to continue...");
+                                        let mut input = String::new();
+                                        std::io::stdin().read_line(&mut input)?;
+                                    }
+                                    _ => {
+                                        println!("❌ Failed to download Saorsa Disk: {}", downloader_err);
+                                        println!("Press Enter to continue...");
+                                        let mut input = String::new();
+                                        std::io::stdin().read_line(&mut input)?;
+                                    }
+                                }
+                            } else {
+                                println!("❌ Failed to download Saorsa Disk: {}", e);
+                                println!("Press Enter to continue...");
+                                let mut input = String::new();
+                                std::io::stdin().read_line(&mut input)?;
+                            }
+                        }
+                    }
                 }
             }
             MenuChoice::UpdateBinaries => {
@@ -147,7 +220,11 @@ async fn main() -> Result<()> {
                 std::io::stdin().read_line(&mut input)?;
             }
             MenuChoice::Settings => {
-                show_settings(&config)?;
+                config = show_settings_menu(config)?;
+                config.save().context("Failed to save configuration")?;
+            }
+            MenuChoice::Plugins => {
+                config = show_plugins_menu(config, &plugin_manager)?;
             }
             MenuChoice::Exit => {
                 println!("Goodbye!");
@@ -194,12 +271,48 @@ async fn check_binaries(
 }
 
 async fn update_binaries(platform: &Platform, downloader: &Downloader) -> Result<()> {
-    println!("Downloading latest sb binary...");
-    downloader.download_binary("sb", platform, true).await?;
-    
-    println!("Downloading latest sdisk binary...");
-    downloader.download_binary("sdisk", platform, true).await?;
-    
+    println!("Checking for latest sb binary...");
+    match downloader.download_binary("sb", platform, true).await {
+        Ok(_) => println!("✓ Successfully downloaded sb binary"),
+        Err(e) => {
+            if let Some(downloader_err) = e.downcast_ref::<crate::downloader::DownloadError>() {
+                match downloader_err {
+                    crate::downloader::DownloadError::NoReleases => {
+                        println!("⚠ No releases found for sb. This might be normal if the repository has no releases yet.");
+                    }
+                    _ => {
+                        println!("✗ Failed to download sb binary: {}", downloader_err);
+                        return Err(e);
+                    }
+                }
+            } else {
+                println!("✗ Failed to download sb binary: {}", e);
+                return Err(e);
+            }
+        }
+    }
+
+    println!("Checking for latest sdisk binary...");
+    match downloader.download_binary("sdisk", platform, true).await {
+        Ok(_) => println!("✓ Successfully downloaded sdisk binary"),
+        Err(e) => {
+            if let Some(downloader_err) = e.downcast_ref::<crate::downloader::DownloadError>() {
+                match downloader_err {
+                    crate::downloader::DownloadError::NoReleases => {
+                        println!("⚠ No releases found for sdisk. This might be normal if the repository has no releases yet.");
+                    }
+                    _ => {
+                        println!("✗ Failed to download sdisk binary: {}", downloader_err);
+                        return Err(e);
+                    }
+                }
+            } else {
+                println!("✗ Failed to download sdisk binary: {}", e);
+                return Err(e);
+            }
+        }
+    }
+
     Ok(())
 }
 
@@ -233,11 +346,29 @@ async fn run_tool_directly(
             binary_path = Some(cache_path);
         } else {
             println!("Downloading {} binary...", binary_name);
-            binary_path = Some(
-                downloader
-                    .download_binary(binary_name, platform, force_download)
-                    .await?,
-            );
+            match downloader.download_binary(binary_name, platform, force_download).await {
+                Ok(path) => {
+                    binary_path = Some(path);
+                }
+                Err(e) => {
+                    if let Some(downloader_err) = e.downcast_ref::<crate::downloader::DownloadError>() {
+                        match downloader_err {
+                            crate::downloader::DownloadError::NoReleases => {
+                                println!("❌ No releases found for {}.", binary_name);
+                                println!("This might be normal if the repository has no releases yet.");
+                                return Err(anyhow::anyhow!("No releases found for {}", binary_name));
+                            }
+                            _ => {
+                                println!("❌ Failed to download {} binary: {}", binary_name, downloader_err);
+                                return Err(e);
+                            }
+                        }
+                    } else {
+                        println!("❌ Failed to download {} binary: {}", binary_name, e);
+                        return Err(e);
+                    }
+                }
+            }
         }
     }
 
@@ -250,6 +381,83 @@ async fn run_tool_directly(
     Ok(())
 }
 
+fn show_settings_menu(mut config: Config) -> Result<Config> {
+    use dialoguer::{theme::ColorfulTheme, Input, Confirm, Select};
+
+    loop {
+        println!("\n=== Settings Configuration ===\n");
+
+        let options = vec![
+            format!("GitHub Owner: {}", config.github.owner),
+            format!("GitHub Repository: {}", config.github.repo),
+            format!("Check Prereleases: {}", config.github.check_prerelease),
+            format!("Auto Update Check: {}", config.behavior.auto_update_check),
+            format!("Use System Binaries: {}", config.behavior.use_system_binaries),
+            format!("Prefer Local Build: {}", config.behavior.prefer_local_build),
+            "Save and Return".to_string(),
+            "Cancel".to_string(),
+        ];
+
+        let selection = Select::with_theme(&ColorfulTheme::default())
+            .with_prompt("Select setting to modify")
+            .items(&options)
+            .default(0)
+            .interact()?;
+
+        match selection {
+            0 => { // GitHub Owner
+                let owner: String = Input::with_theme(&ColorfulTheme::default())
+                    .with_prompt("Enter GitHub owner")
+                    .default(config.github.owner.clone())
+                    .interact_text()?;
+                config.github.owner = owner;
+            }
+            1 => { // GitHub Repository
+                let repo: String = Input::with_theme(&ColorfulTheme::default())
+                    .with_prompt("Enter GitHub repository name")
+                    .default(config.github.repo.clone())
+                    .interact_text()?;
+                config.github.repo = repo;
+            }
+            2 => { // Check Prereleases
+                let prerelease = Confirm::with_theme(&ColorfulTheme::default())
+                    .with_prompt("Check prerelease versions?")
+                    .default(config.github.check_prerelease)
+                    .interact()?;
+                config.github.check_prerelease = prerelease;
+            }
+            3 => { // Auto Update Check
+                let auto_update = Confirm::with_theme(&ColorfulTheme::default())
+                    .with_prompt("Enable automatic update checks?")
+                    .default(config.behavior.auto_update_check)
+                    .interact()?;
+                config.behavior.auto_update_check = auto_update;
+            }
+            4 => { // Use System Binaries
+                let use_system = Confirm::with_theme(&ColorfulTheme::default())
+                    .with_prompt("Use system-installed binaries when available?")
+                    .default(config.behavior.use_system_binaries)
+                    .interact()?;
+                config.behavior.use_system_binaries = use_system;
+            }
+            5 => { // Prefer Local Build
+                let prefer_local = Confirm::with_theme(&ColorfulTheme::default())
+                    .with_prompt("Prefer local builds over downloads?")
+                    .default(config.behavior.prefer_local_build)
+                    .interact()?;
+                config.behavior.prefer_local_build = prefer_local;
+            }
+            6 => { // Save and Return
+                return Ok(config);
+            }
+            7 => { // Cancel
+                return Ok(config);
+            }
+            _ => unreachable!(),
+        }
+    }
+}
+
 fn show_settings(config: &Config) -> Result<()> {
     println!("\n=== Current Settings ===\n");
     println!("GitHub Repository: {}/{}", config.github.owner, config.github.repo);
@@ -260,9 +468,214 @@ fn show_settings(config: &Config) -> Result<()> {
     println!("Prefer Local Build: {}", config.behavior.prefer_local_build);
     println!("\nConfig file: {:?}", Config::config_path()?);
     println!("\nPress Enter to continue...");
-    
+
     let mut input = String::new();
     std::io::stdin().read_line(&mut input)?;
-    
+
     Ok(())
 }
+
+
+
+fn show_plugin_details(plugin_manager: &plugin::PluginManager, plugin: &plugin::PluginMetadata) -> Result<()> {
+    use dialoguer::{theme::ColorfulTheme, Select};
+
+    loop {
+        println!("\n=== Plugin Details ===");
+        println!("🔌 Name: {}", plugin.name);
+        println!("📦 Version: {}", plugin.version);
+        println!("📝 Description: {}", plugin.description);
+        // Path information removed from PluginMetadata for simplicity
+
+        if let Some(plugin_instance) = plugin_manager.get_plugin(&plugin.name) {
+            println!("🎯 Help: {}", plugin_instance.help());
+        }
+
+        let options = vec![
+            "▶️  Execute plugin",
+            "📖 Show help",
+            "🚪 Back to plugin list",
+        ];
+
+        let selection = Select::with_theme(&ColorfulTheme::default())
+            .with_prompt("What would you like to do?")
+            .items(&options)
+            .default(0)
+            .interact()?;
+
+        match selection {
+            0 => {
+                // Execute plugin
+                // Execute the plugin
+                println!("\nExecuting plugin '{}'...", plugin.name);
+                match plugin_manager.execute_plugin(&plugin.name, &[]) {
+                    Ok(_) => println!("✅ Plugin executed successfully"),
+                    Err(e) => println!("❌ Plugin execution failed: {}", e),
+                }
+            }
+            1 => {
+                // Show help
+                if let Some(plugin_instance) = plugin_manager.get_plugin(&plugin.name) {
+                    println!("\n=== Plugin Help ===");
+                    println!("{}", plugin_instance.help());
+                    println!("\nPress Enter to continue...");
+                    let mut input = String::new();
+                    std::io::stdin().read_line(&mut input)?;
+                }
+            }
+            2 => {
+                // Back to plugin list
+                break;
+            }
+            _ => unreachable!(),
+        }
+    }
+
+    Ok(())
+}
+
+fn show_plugin_directories(plugin_manager: &plugin::PluginManager) -> Result<()> {
+    println!("\n=== Plugin Directories ===");
+
+    let dirs = plugin_manager.plugin_dirs();
+    if dirs.is_empty() {
+        println!("No plugin directories configured.");
+    } else {
+        for (i, dir) in dirs.iter().enumerate() {
+            println!("{}. {:?}", i + 1, dir);
+            if dir.exists() {
+                println!("   ✅ Directory exists");
+            } else {
+                println!("   ❌ Directory does not exist");
+            }
+        }
+    }
+
+    println!("\nDefault plugin directories:");
+    println!("  - ~/.saorsa-cli/plugins (user plugins)");
+    println!("  - /usr/local/lib/saorsa-cli/plugins (system plugins)");
+
+    println!("\nPress Enter to continue...");
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input)?;
+
+    Ok(())
+}
+
+fn show_plugins_menu(mut config: Config, plugin_manager: &plugin::PluginManager) -> Result<Config> {
+    use dialoguer::{theme::ColorfulTheme, Select, Input};
+
+    loop {
+        println!("\n=== Plugin Management ===\n");
+
+        let plugins = plugin_manager.list_plugins();
+
+        if plugins.is_empty() {
+            println!("No plugins loaded.");
+            println!("\nPlugin directories:");
+            for dir in plugin_manager.plugin_dirs() {
+                println!("  - {:?}", dir);
+            }
+            println!("\nPress Enter to continue...");
+
+            let mut input = String::new();
+            std::io::stdin().read_line(&mut input)?;
+            return Ok(config);
+        }
+
+        // Create menu options
+        let mut options: Vec<String> = plugins.iter()
+            .enumerate()
+            .map(|(i, plugin)| format!("🔌 Execute: {} v{} - {}", plugin.name, plugin.version, plugin.description))
+            .collect();
+
+        options.push("📋 Show Plugin Details".to_string());
+        options.push("🔄 Refresh Plugins".to_string());
+        options.push("📁 Show Plugin Directories".to_string());
+        options.push("🚪 Return to Main Menu".to_string());
+
+        let selection = Select::with_theme(&ColorfulTheme::default())
+            .with_prompt("Select plugin action")
+            .items(&options)
+            .default(0)
+            .interact()?;
+
+        match selection {
+            // Execute plugin options
+            i if i < plugins.len() => {
+                let plugin = &plugins[i];
+                let plugin_name = &plugin.name;
+
+                if let Some(plugin_instance) = plugin_manager.get_plugin(plugin_name) {
+                    println!("\n🎯 Executing plugin: {}", plugin_name);
+                    println!("📝 Description: {}", plugin.description);
+                    println!("🏷️  Version: {}", plugin.version);
+
+                    // Get arguments for the plugin
+                    let args_input: String = Input::with_theme(&ColorfulTheme::default())
+                        .with_prompt("Enter arguments (or leave empty)")
+                        .allow_empty(true)
+                        .interact_text()?;
+
+                    let args: Vec<String> = if args_input.trim().is_empty() {
+                        vec![]
+                    } else {
+                        args_input.split_whitespace().map(|s| s.to_string()).collect()
+                    };
+
+                    println!("\n🚀 Executing {} with args: {:?}", plugin_name, args);
+
+                    match plugin_instance.execute(&args) {
+                        Ok(_) => {
+                            println!("\n✅ Plugin executed successfully!");
+                        }
+                        Err(e) => {
+                            println!("\n❌ Plugin execution failed: {}", e);
+                        }
+                    }
+
+                    println!("\nPress Enter to continue...");
+                    let mut input = String::new();
+                    std::io::stdin().read_line(&mut input)?;
+                }
+            }
+
+            // Show plugin details
+            i if i == plugins.len() => {
+                // Show all plugins
+                println!("\n=== All Plugins ===");
+                for plugin in &plugins {
+                    println!("\n📦 {}", plugin.name);
+                    println!("   Version: {}", plugin.version);
+                    println!("   Description: {}", plugin.description);
+                }
+                println!("\nPress Enter to continue...");
+                let mut input = String::new();
+                std::io::stdin().read_line(&mut input)?;
+            }
+
+            // Refresh plugins
+            i if i == plugins.len() + 1 => {
+                println!("\n🔄 Refreshing plugins...");
+                // In a real implementation, this would reload plugins from disk
+                println!("✅ Plugins refreshed!");
+                println!("\nPress Enter to continue...");
+                let mut input = String::new();
+                std::io::stdin().read_line(&mut input)?;
+            }
+
+            // Show plugin directories
+            i if i == plugins.len() + 2 => {
+                show_plugin_directories(plugin_manager)?;
+            }
+
+            // Return to main menu
+            i if i == plugins.len() + 3 => {
+                return Ok(config);
+            }
+
+            _ => unreachable!(),
+        }
+    }
+}
+

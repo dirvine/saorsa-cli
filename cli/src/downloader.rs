@@ -2,7 +2,6 @@ use anyhow::{Context, Result};
 use indicatif::{ProgressBar, ProgressStyle};
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
-use sha2::{Digest, Sha256};
 use std::fs::{self, File};
 use std::io;
 use std::path::{Path, PathBuf};
@@ -22,8 +21,7 @@ pub enum DownloadError {
     NoMatchingAsset,
     #[error("No releases found")]
     NoReleases,
-    #[error("Checksum verification failed")]
-    ChecksumMismatch,
+
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -258,12 +256,5 @@ impl Downloader {
         }
     }
 
-    pub async fn verify_checksum(&self, file_path: &Path, expected: &str) -> Result<bool> {
-        let mut file = File::open(file_path)?;
-        let mut hasher = Sha256::new();
-        io::copy(&mut file, &mut hasher)?;
-        let result = hasher.finalize();
-        let calculated = hex::encode(result);
-        Ok(calculated == expected)
-    }
+
 }

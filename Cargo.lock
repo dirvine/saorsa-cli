@@ -455,6 +455,7 @@ dependencies = [
  "anyhow",
  "clap",
  "crossterm 0.29.0",
+ "dialoguer",
  "dirs",
  "flate2",
  "futures",

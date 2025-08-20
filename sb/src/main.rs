@@ -1,3 +1,5 @@
+
+
 use anyhow::Result;
 use std::io::{self};
 use std::path::{Path, PathBuf};
@@ -16,6 +18,7 @@ use tui_textarea::TextArea;
 
 mod app;
 use app::*;
+mod error;
 mod preview;
 use preview::*;
 mod fs;
@@ -52,7 +55,7 @@ fn run(app: &mut App) -> Result<()> {
 
     // Main loop
     loop {
-        terminal.draw(|f| ui(f, app))?;
+        terminal.draw(|f| ui(f, app).expect("Failed to render UI"))?;
         if event::poll(Duration::from_millis(200))? {
             match event::read()? {
                 Event::Key(k) => {
@@ -689,7 +692,7 @@ fn run(app: &mut App) -> Result<()> {
     Ok(())
 }
 
-fn ui(f: &mut Frame, app: &mut App) {
+fn ui(f: &mut Frame, app: &mut App) -> Result<()> {
     // First split vertically to reserve space for status bar
     let main_chunks = Layout::default()
         .direction(Direction::Vertical)
@@ -722,7 +725,7 @@ fn ui(f: &mut Frame, app: &mut App) {
             .borders(Borders::ALL)
             .border_style(Style::default().fg(left_border));
         let left_tree = tui_tree_widget::Tree::new(&app.left_tree)
-            .expect("unique ids")
+            .map_err(|e| error::SbError::tree_widget(format!("Failed to create file tree widget: {}", e)))?
             .block(left_block)
             .highlight_style(Style::default().add_modifier(Modifier::REVERSED));
         f.render_stateful_widget(left_tree, chunks[0], &mut app.left_state);
@@ -1037,6 +1040,8 @@ fn ui(f: &mut Frame, app: &mut App) {
     if app.showing_git_status {
         draw_git_status(f, f.area(), app);
     }
+
+    Ok(())
 }
 
 fn draw_centered_help(f: &mut Frame, area: Rect) {

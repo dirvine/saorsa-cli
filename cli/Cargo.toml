@@ -48,6 +48,9 @@ hex = "0.4"
 # Progress indication
 indicatif = "0.17"
 
+# Interactive prompts
+dialoguer = "0.11"
+
 # Configuration
 toml = "0.8"
 
