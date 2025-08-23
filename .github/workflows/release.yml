@@ -1,4 +1,4 @@
-name: Release
+name: Release-v2
 
 on:
   push:
@@ -24,52 +24,62 @@ jobs:
     strategy:
       matrix:
         include:
-          # Linux x86_64
           - os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
-            use-cross: false
-          
-          # Linux ARM64
-          - os: ubuntu-latest
+            binary_ext: ""
+            archive_ext: ".tar.gz"
+          - os: ubuntu-24.04-arm
             target: aarch64-unknown-linux-gnu
-            use-cross: true
-          
-          # Windows x86_64
+            binary_ext: ""
+            archive_ext: ".tar.gz"
           - os: windows-latest
             target: x86_64-pc-windows-msvc
-            use-cross: false
-          
-          # macOS x86_64 (Intel)
-          - os: macos-13
+            binary_ext: ".exe"
+            archive_ext: ".zip"
+          - os: macos-latest
             target: x86_64-apple-darwin
-            use-cross: false
-          
-          # macOS ARM64 (Apple Silicon)
+            binary_ext: ""
+            archive_ext: ".tar.gz"
           - os: macos-latest
             target: aarch64-apple-darwin
-            use-cross: false
-    
+            binary_ext: ""
+            archive_ext: ".tar.gz"
+
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Install Rust
       uses: dtolnay/rust-toolchain@stable
       with:
         targets: ${{ matrix.target }}
-    
-    - name: Install cross
-      if: matrix.use-cross == true
-      run: cargo install cross --git https://github.com/cross-rs/cross
-    
+
+    - name: Install system dependencies (ARM64)
+      if: matrix.target == 'aarch64-unknown-linux-gnu'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y pkg-config libssl-dev libssl3 openssl ca-certificates build-essential
+        # Debug: show OpenSSL info
+        echo "=== OpenSSL Debug Info ==="
+        which openssl || echo "openssl not found"
+        openssl version || echo "openssl version failed"
+        pkg-config --list-all | grep ssl || echo "no ssl packages found"
+        ls -la /usr/lib/aarch64-linux-gnu/ | grep ssl || echo "no ssl libs found"
+        ls -la /usr/include/ | grep ssl || echo "no ssl includes found"
+        echo "=========================="
+
     - name: Build all binaries
       shell: bash
       run: |
-        if [[ "${{ matrix.use-cross }}" == "true" ]]; then
-          cross build --release --target ${{ matrix.target }} --workspace
+        if [[ "${{ matrix.target }}" == "aarch64-unknown-linux-gnu" ]]; then
+          echo "=== Building for ARM64 ==="
+          export OPENSSL_ROOT_DIR=/usr
+          export OPENSSL_LIBRARIES=/usr/lib/aarch64-linux-gnu
+          export PKG_CONFIG_PATH=/usr/lib/aarch64-linux-gnu/pkgconfig:$PKG_CONFIG_PATH
+          cargo build --release --target ${{ matrix.target }} --workspace --verbose
         else
           cargo build --release --target ${{ matrix.target }} --workspace
         fi
-    
+
     - name: Package binaries (Unix)
       if: matrix.os != 'windows-latest'
       shell: bash
@@ -87,33 +97,40 @@ jobs:
         cd ../../../
         
         # Generate checksums
-        sha256sum sb-${{ matrix.target }}.tar.gz > sb-${{ matrix.target }}.tar.gz.sha256
-        sha256sum sdisk-${{ matrix.target }}.tar.gz > sdisk-${{ matrix.target }}.tar.gz.sha256
-        sha256sum cli-${{ matrix.target }}.tar.gz > cli-${{ matrix.target }}.tar.gz.sha256
-        sha256sum saorsa-cli-${{ matrix.target }}.tar.gz > saorsa-cli-${{ matrix.target }}.tar.gz.sha256
-    
+        if command -v sha256sum >/dev/null 2>&1; then
+          sha256sum sb-${{ matrix.target }}.tar.gz > sb-${{ matrix.target }}.tar.gz.sha256
+          sha256sum sdisk-${{ matrix.target }}.tar.gz > sdisk-${{ matrix.target }}.tar.gz.sha256
+          sha256sum cli-${{ matrix.target }}.tar.gz > cli-${{ matrix.target }}.tar.gz.sha256
+          sha256sum saorsa-cli-${{ matrix.target }}.tar.gz > saorsa-cli-${{ matrix.target }}.tar.gz.sha256
+        else
+          shasum -a 256 sb-${{ matrix.target }}.tar.gz > sb-${{ matrix.target }}.tar.gz.sha256
+          shasum -a 26 sdisk-${{ matrix.target }}.tar.gz > sdisk-${{ matrix.target }}.tar.gz.sha256
+          shasum -a 256 cli-${{ matrix.target }}.tar.gz > cli-${{ matrix.target }}.tar.gz.sha256
+          shasum -a 256 saorsa-cli-${{ matrix.target }}.tar.gz > saorsa-cli-${{ matrix.target }}.tar.gz.sha256
+        fi
+
     - name: Package binaries (Windows)
       if: matrix.os == 'windows-latest'
       shell: bash
       run: |
         cd target/${{ matrix.target }}/release
-        
+
         # Create individual archives for each binary
         7z a ../../../sb-${{ matrix.target }}.zip sb.exe
         7z a ../../../sdisk-${{ matrix.target }}.zip sdisk.exe
         7z a ../../../cli-${{ matrix.target }}.zip saorsa.exe
-        
+
         # Create combined archive with all binaries
         7z a ../../../saorsa-cli-${{ matrix.target }}.zip sb.exe sdisk.exe saorsa.exe
-        
+
         cd ../../../
-        
+
         # Generate checksums (using certutil on Windows)
-        certutil -hashfile sb-${{ matrix.target }}.zip SHA256 | findstr /v ":" > sb-${{ matrix.target }}.zip.sha256
-        certutil -hashfile sdisk-${{ matrix.target }}.zip SHA256 | findstr /v ":" > sdisk-${{ matrix.target }}.zip.sha256
-        certutil -hashfile cli-${{ matrix.target }}.zip SHA256 | findstr /v ":" > cli-${{ matrix.target }}.zip.sha256
-        certutil -hashfile saorsa-cli-${{ matrix.target }}.zip SHA256 | findstr /v ":" > saorsa-cli-${{ matrix.target }}.zip.sha256
-    
+        certutil -hashfile sb-${{ matrix.target }}.zip SHA256 > sb-${{ matrix.target }}.zip.sha256
+        certutil -hashfile sdisk-${{ matrix.target }}.zip SHA256 > sdisk-${{ matrix.target }}.zip.sha256
+        certutil -hashfile cli-${{ matrix.target }}.zip SHA256 > cli-${{ matrix.target }}.zip.sha256
+        certutil -hashfile saorsa-cli-${{ matrix.target }}.zip SHA256 > saorsa-cli-${{ matrix.target }}.zip.sha256
+
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
@@ -130,67 +147,68 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Download artifacts
       uses: actions/download-artifact@v4
       with:
         path: artifacts
         merge-multiple: true
-    
+
     - name: Generate release notes
       run: |
         cat > RELEASE_NOTES.md << 'EOF'
         ## Saorsa CLI Tools
-        
+
         This release includes three tools:
-        
+
         ### 🔍 sb (Saorsa Browser)
         Terminal Markdown Browser/Editor with Git integration, syntax highlighting, and media support.
-        
+
         ### 💾 sdisk (Saorsa Disk)
         Cross-platform CLI to analyze disk usage and suggest safe cleanups.
-        
+
         ### 📱 saorsa (CLI Menu)
         Interactive menu system for Saorsa tools with automatic binary management.
-        
+
         ## Installation
-        
+
         ### Quick Install (using the CLI menu)
         1. Download `cli-<platform>` archive for your system
         2. Extract and run `saorsa` (or `saorsa.exe` on Windows)
         3. The menu will automatically download other tools as needed
-        
+
         ### Manual Install (all tools)
         1. Download `saorsa-cli-<platform>` archive for your system
         2. Extract all binaries
         3. Move to a directory in your PATH (e.g., `/usr/local/bin` on Unix)
-        
+
         ### Platform Archives
-        
+
         - **macOS Apple Silicon (M1/M2)**: `*-aarch64-apple-darwin.tar.gz`
         - **macOS Intel**: `*-x86_64-apple-darwin.tar.gz`
         - **Linux x86_64**: `*-x86_64-unknown-linux-gnu.tar.gz`
         - **Linux ARM64**: `*-aarch64-unknown-linux-gnu.tar.gz`
         - **Windows x86_64**: `*-x86_64-pc-windows-msvc.zip`
-        
+
         ## Checksums
-        
+
         SHA256 checksums are provided for each archive (`.sha256` files).
-        
+
         ## Usage
-        
+
         ```bash
         # Interactive menu
         saorsa
-        
+
         # Run tools directly
         sb                    # Markdown browser
         sdisk                 # Disk utility
         saorsa --run sb       # Run sb through menu
         saorsa --run sdisk    # Run sdisk through menu
         ```
+
         EOF
-    
+
     - name: Create Release
       uses: softprops/action-gh-release@v2
       with:
@@ -213,23 +231,23 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Install Rust
       uses: dtolnay/rust-toolchain@stable
-    
+
     - name: Publish sb to crates.io
       if: contains(github.ref, 'sb-v') || startsWith(github.ref, 'refs/tags/v')
       run: |
         cd sb
-        cargo publish --token ${{ secrets.CRATES_IO_TOKEN }} || true
+        cargo publish --token ${{ secrets.CRATES_IO_TOKEN }}
       continue-on-error: true
-    
+
     - name: Wait between publishes
       run: sleep 30
-    
+
     - name: Publish sdisk to crates.io
       if: contains(github.ref, 'sdisk-v') || startsWith(github.ref, 'refs/tags/v')
       run: |
         cd sdisk
-        cargo publish --token ${{ secrets.CRATES_IO_TOKEN }} || true
+        cargo publish --token ${{ secrets.CRATES_IO_TOKEN }}
       continue-on-error: true
