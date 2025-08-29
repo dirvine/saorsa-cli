@@ -24,27 +24,30 @@ impl BinaryRunner {
 
         tracing::info!("Running interactive binary: {:?}", binary_path);
 
-        let status = if cfg!(unix) {
+        #[cfg(unix)]
+        {
             use std::os::unix::process::CommandExt;
             let _ = Command::new(binary_path).args(args).exec();
             // This part is tricky because exec replaces the current process.
             // We might not get here if exec is successful.
             // Consider using a different approach if you need to get the status.
             return Ok(());
-        } else {
-            // On Windows, just run normally
-            Command::new(binary_path)
+        }
+
+        #[cfg(not(unix))]
+        {
+            let status = Command::new(binary_path)
                 .args(args)
                 .status()
-                .with_context(|| format!("Failed to execute binary: {}", binary_path.display()))?
-        };
+                .with_context(|| format!("Failed to execute binary: {}", binary_path.display()))?;
 
-        if !status.success() {
-            // The process has exited with a non-zero status code.
-            if let Some(code) = status.code() {
-                if code != 0 && code != 130 {
-                    // 130 is SIGINT (Ctrl+C)
-                    tracing::warn!("Binary exited with code: {}", code);
+            if !status.success() {
+                // The process has exited with a non-zero status code.
+                if let Some(code) = status.code() {
+                    if code != 0 && code != 130 {
+                        // 130 is SIGINT (Ctrl+C)
+                        tracing::warn!("Binary exited with code: {}", code);
+                    }
                 }
             }
         }
