@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ main, master ]
 
+permissions:
+  contents: read
+
 env:
   CARGO_TERM_COLOR: always
   # Isolate cargo/rustup to temp so self-hosted/act don't touch user installs
