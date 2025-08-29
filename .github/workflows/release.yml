@@ -229,7 +229,8 @@ jobs:
     - name: Create Release
       uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8
       with:
-        tag_name: ${{ inputs.tag_name != '' && inputs.tag_name || github.ref_name }}
+        # Use provided tag when dispatched manually; otherwise use the current ref name
+        tag_name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag_name || github.ref_name }}
         files: |
           artifacts/sb-*
           artifacts/sdisk-*

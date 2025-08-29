@@ -87,7 +87,7 @@ jobs:
 
     - name: Install Zig (for musl builds)
       if: contains(matrix.target, 'linux-musl')
-      uses: goto-bus-stop/setup-zig@v2
+      uses: goto-bus-stop/setup-zig@abea47f85e598557f500fa1fd2ab7464fcb39406
 
     - name: Install cargo-zigbuild
       if: contains(matrix.target, 'linux-musl')
