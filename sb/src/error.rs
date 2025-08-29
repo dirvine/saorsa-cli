@@ -22,8 +22,18 @@ pub enum SbError {
 impl fmt::Display for SbError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            SbError::Io { operation, path, source } => {
-                write!(f, "File system error during '{}' on '{}': {}", operation, path.display(), source)
+            SbError::Io {
+                operation,
+                path,
+                source,
+            } => {
+                write!(
+                    f,
+                    "File system error during '{}' on '{}': {}",
+                    operation,
+                    path.display(),
+                    source
+                )
             }
             SbError::Git { operation, source } => {
                 write!(f, "Git error during '{}': {}", operation, source)

@@ -1,7 +1,5 @@
 use std::path::PathBuf;
 
-
-
 use anyhow::{Context, Result};
 use clap::{Parser, Subcommand};
 use console::style;
@@ -342,8 +340,9 @@ fn cmd_stale(
 fn spinner() -> Result<ProgressBar> {
     let pb = ProgressBar::new_spinner();
     pb.set_style(
-        ProgressStyle::with_template("{spinner} {msg}")
-            .map_err(|e| SdiskError::progress_bar(format!("Failed to create progress bar style: {}", e)))?
+        ProgressStyle::with_template("{spinner} {msg}").map_err(|e| {
+            SdiskError::progress_bar(format!("Failed to create progress bar style: {}", e))
+        })?,
     );
     pb.enable_steady_tick(std::time::Duration::from_millis(100));
     Ok(pb)

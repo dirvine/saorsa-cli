@@ -121,12 +121,13 @@ impl Menu {
 
     fn draw_header(&self, f: &mut Frame, area: Rect) {
         let header = Paragraph::new(vec![
-            Line::from(vec![
-                Span::styled("Saorsa CLI", Style::default().fg(Color::Cyan).add_modifier(Modifier::BOLD)),
-            ]),
-            Line::from(vec![
-                Span::raw("Interactive menu for Saorsa tools"),
-            ]),
+            Line::from(vec![Span::styled(
+                "Saorsa CLI",
+                Style::default()
+                    .fg(Color::Cyan)
+                    .add_modifier(Modifier::BOLD),
+            )]),
+            Line::from(vec![Span::raw("Interactive menu for Saorsa tools")]),
         ])
         .alignment(Alignment::Center)
         .block(Block::default().borders(Borders::BOTTOM));
@@ -169,8 +170,7 @@ impl Menu {
                     style = style.add_modifier(Modifier::REVERSED);
                 }
 
-                ListItem::new(format!("{}{}", label, suffix))
-                    .style(style)
+                ListItem::new(format!("{}{}", label, suffix)).style(style)
             })
             .collect();
 
@@ -188,16 +188,14 @@ impl Menu {
     }
 
     fn draw_footer(&self, f: &mut Frame, area: Rect) {
-        let footer = Paragraph::new(vec![
-            Line::from(vec![
-                Span::styled("Navigation: ", Style::default().fg(Color::DarkGray)),
-                Span::styled("↑↓/jk", Style::default().fg(Color::Cyan)),
-                Span::styled(" | Select: ", Style::default().fg(Color::DarkGray)),
-                Span::styled("Enter/Space", Style::default().fg(Color::Cyan)),
-                Span::styled(" | Quit: ", Style::default().fg(Color::DarkGray)),
-                Span::styled("q/Esc", Style::default().fg(Color::Cyan)),
-            ]),
-        ])
+        let footer = Paragraph::new(vec![Line::from(vec![
+            Span::styled("Navigation: ", Style::default().fg(Color::DarkGray)),
+            Span::styled("↑↓/jk", Style::default().fg(Color::Cyan)),
+            Span::styled(" | Select: ", Style::default().fg(Color::DarkGray)),
+            Span::styled("Enter/Space", Style::default().fg(Color::Cyan)),
+            Span::styled(" | Quit: ", Style::default().fg(Color::DarkGray)),
+            Span::styled("q/Esc", Style::default().fg(Color::Cyan)),
+        ])])
         .alignment(Alignment::Center)
         .block(Block::default().borders(Borders::TOP));
 

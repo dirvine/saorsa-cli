@@ -1,5 +1,3 @@
-
-
 mod config;
 mod downloader;
 mod error;
@@ -90,22 +88,18 @@ async fn main() -> Result<()> {
     config.ensure_directories()?;
 
     // Detect platform
-    let platform = Platform::detect()
-        .context("Failed to detect platform")?;
-    
+    let platform = Platform::detect().context("Failed to detect platform")?;
+
     tracing::debug!("Detected platform: {:?}", platform);
 
     // Initialize components
-    let downloader = Downloader::new(
-        config.github.owner.clone(),
-        config.github.repo.clone(),
-    )?;
-    
+    let downloader = Downloader::new(config.github.owner.clone(), config.github.repo.clone())?;
+
     let runner = BinaryRunner::new();
 
     // Initialize plugin system
-    let plugin_manager = plugin::init_plugin_system()
-        .context("Failed to initialize plugin system")?;
+    let plugin_manager =
+        plugin::init_plugin_system().context("Failed to initialize plugin system")?;
 
     // Handle plugin execution
     if let Some(plugin_name) = args.plugin.as_ref() {
@@ -128,10 +122,11 @@ async fn main() -> Result<()> {
 
     // Main menu loop
     let mut menu = Menu::new();
-    
+
     loop {
         // Check for binaries and update menu
-        let (sb_path, sdisk_path) = check_binaries(&config, &platform, &downloader, &runner).await?;
+        let (sb_path, sdisk_path) =
+            check_binaries(&config, &platform, &downloader, &runner).await?;
         menu.set_binary_paths(sb_path.clone(), sdisk_path.clone());
 
         // Show menu and get choice
@@ -149,7 +144,9 @@ async fn main() -> Result<()> {
                             runner.run_interactive(&path, vec![])?;
                         }
                         Err(e) => {
-                            if let Some(downloader_err) = e.downcast_ref::<crate::downloader::DownloadError>() {
+                            if let Some(downloader_err) =
+                                e.downcast_ref::<crate::downloader::DownloadError>()
+                            {
                                 match downloader_err {
                                     crate::downloader::DownloadError::NoReleases => {
                                         println!("❌ No releases found for Saorsa Browser.");
@@ -159,7 +156,10 @@ async fn main() -> Result<()> {
                                         std::io::stdin().read_line(&mut input)?;
                                     }
                                     _ => {
-                                        println!("❌ Failed to download Saorsa Browser: {}", downloader_err);
+                                        println!(
+                                            "❌ Failed to download Saorsa Browser: {}",
+                                            downloader_err
+                                        );
                                         println!("Press Enter to continue...");
                                         let mut input = String::new();
                                         std::io::stdin().read_line(&mut input)?;
@@ -186,7 +186,9 @@ async fn main() -> Result<()> {
                             runner.run_interactive(&path, vec![])?;
                         }
                         Err(e) => {
-                            if let Some(downloader_err) = e.downcast_ref::<crate::downloader::DownloadError>() {
+                            if let Some(downloader_err) =
+                                e.downcast_ref::<crate::downloader::DownloadError>()
+                            {
                                 match downloader_err {
                                     crate::downloader::DownloadError::NoReleases => {
                                         println!("❌ No releases found for Saorsa Disk.");
@@ -196,7 +198,10 @@ async fn main() -> Result<()> {
                                         std::io::stdin().read_line(&mut input)?;
                                     }
                                     _ => {
-                                        println!("❌ Failed to download Saorsa Disk: {}", downloader_err);
+                                        println!(
+                                            "❌ Failed to download Saorsa Disk: {}",
+                                            downloader_err
+                                        );
                                         println!("Press Enter to continue...");
                                         let mut input = String::new();
                                         std::io::stdin().read_line(&mut input)?;
@@ -335,31 +340,44 @@ async fn run_tool_directly(
 
     // Try to find the binary
     let mut binary_path = None;
-    
+
     if config.behavior.use_system_binaries && !force_download {
         binary_path = runner.which(binary_name);
     }
-    
+
     if binary_path.is_none() {
         let cache_path = downloader.binary_path(binary_name, platform);
         if runner.check_binary_exists(&cache_path) && !force_download {
             binary_path = Some(cache_path);
         } else {
             println!("Downloading {} binary...", binary_name);
-            match downloader.download_binary(binary_name, platform, force_download).await {
+            match downloader
+                .download_binary(binary_name, platform, force_download)
+                .await
+            {
                 Ok(path) => {
                     binary_path = Some(path);
                 }
                 Err(e) => {
-                    if let Some(downloader_err) = e.downcast_ref::<crate::downloader::DownloadError>() {
+                    if let Some(downloader_err) =
+                        e.downcast_ref::<crate::downloader::DownloadError>()
+                    {
                         match downloader_err {
                             crate::downloader::DownloadError::NoReleases => {
                                 println!("❌ No releases found for {}.", binary_name);
-                                println!("This might be normal if the repository has no releases yet.");
-                                return Err(anyhow::anyhow!("No releases found for {}", binary_name));
+                                println!(
+                                    "This might be normal if the repository has no releases yet."
+                                );
+                                return Err(anyhow::anyhow!(
+                                    "No releases found for {}",
+                                    binary_name
+                                ));
                             }
                             _ => {
-                                println!("❌ Failed to download {} binary: {}", binary_name, downloader_err);
+                                println!(
+                                    "❌ Failed to download {} binary: {}",
+                                    binary_name, downloader_err
+                                );
                                 return Err(e);
                             }
                         }
@@ -382,7 +400,7 @@ async fn run_tool_directly(
 }
 
 fn show_settings_menu(mut config: Config) -> Result<Config> {
-    use dialoguer::{theme::ColorfulTheme, Input, Confirm, Select};
+    use dialoguer::{theme::ColorfulTheme, Confirm, Input, Select};
 
     loop {
         println!("\n=== Settings Configuration ===\n");
@@ -392,7 +410,10 @@ fn show_settings_menu(mut config: Config) -> Result<Config> {
             format!("GitHub Repository: {}", config.github.repo),
             format!("Check Prereleases: {}", config.github.check_prerelease),
             format!("Auto Update Check: {}", config.behavior.auto_update_check),
-            format!("Use System Binaries: {}", config.behavior.use_system_binaries),
+            format!(
+                "Use System Binaries: {}",
+                config.behavior.use_system_binaries
+            ),
             format!("Prefer Local Build: {}", config.behavior.prefer_local_build),
             "Save and Return".to_string(),
             "Cancel".to_string(),
@@ -405,52 +426,60 @@ fn show_settings_menu(mut config: Config) -> Result<Config> {
             .interact()?;
 
         match selection {
-            0 => { // GitHub Owner
+            0 => {
+                // GitHub Owner
                 let owner: String = Input::with_theme(&ColorfulTheme::default())
                     .with_prompt("Enter GitHub owner")
                     .default(config.github.owner.clone())
                     .interact_text()?;
                 config.github.owner = owner;
             }
-            1 => { // GitHub Repository
+            1 => {
+                // GitHub Repository
                 let repo: String = Input::with_theme(&ColorfulTheme::default())
                     .with_prompt("Enter GitHub repository name")
                     .default(config.github.repo.clone())
                     .interact_text()?;
                 config.github.repo = repo;
             }
-            2 => { // Check Prereleases
+            2 => {
+                // Check Prereleases
                 let prerelease = Confirm::with_theme(&ColorfulTheme::default())
                     .with_prompt("Check prerelease versions?")
                     .default(config.github.check_prerelease)
                     .interact()?;
                 config.github.check_prerelease = prerelease;
             }
-            3 => { // Auto Update Check
+            3 => {
+                // Auto Update Check
                 let auto_update = Confirm::with_theme(&ColorfulTheme::default())
                     .with_prompt("Enable automatic update checks?")
                     .default(config.behavior.auto_update_check)
                     .interact()?;
                 config.behavior.auto_update_check = auto_update;
             }
-            4 => { // Use System Binaries
+            4 => {
+                // Use System Binaries
                 let use_system = Confirm::with_theme(&ColorfulTheme::default())
                     .with_prompt("Use system-installed binaries when available?")
                     .default(config.behavior.use_system_binaries)
                     .interact()?;
                 config.behavior.use_system_binaries = use_system;
             }
-            5 => { // Prefer Local Build
+            5 => {
+                // Prefer Local Build
                 let prefer_local = Confirm::with_theme(&ColorfulTheme::default())
                     .with_prompt("Prefer local builds over downloads?")
                     .default(config.behavior.prefer_local_build)
                     .interact()?;
                 config.behavior.prefer_local_build = prefer_local;
             }
-            6 => { // Save and Return
+            6 => {
+                // Save and Return
                 return Ok(config);
             }
-            7 => { // Cancel
+            7 => {
+                // Cancel
                 return Ok(config);
             }
             _ => unreachable!(),
@@ -460,11 +489,17 @@ fn show_settings_menu(mut config: Config) -> Result<Config> {
 
 fn show_settings(config: &Config) -> Result<()> {
     println!("\n=== Current Settings ===\n");
-    println!("GitHub Repository: {}/{}", config.github.owner, config.github.repo);
+    println!(
+        "GitHub Repository: {}/{}",
+        config.github.owner, config.github.repo
+    );
     println!("Check Prereleases: {}", config.github.check_prerelease);
     println!("Cache Directory: {:?}", config.cache_dir()?);
     println!("Auto Update Check: {}", config.behavior.auto_update_check);
-    println!("Use System Binaries: {}", config.behavior.use_system_binaries);
+    println!(
+        "Use System Binaries: {}",
+        config.behavior.use_system_binaries
+    );
     println!("Prefer Local Build: {}", config.behavior.prefer_local_build);
     println!("\nConfig file: {:?}", Config::config_path()?);
     println!("\nPress Enter to continue...");
@@ -475,9 +510,10 @@ fn show_settings(config: &Config) -> Result<()> {
     Ok(())
 }
 
-
-
-fn show_plugin_details(plugin_manager: &plugin::PluginManager, plugin: &plugin::PluginMetadata) -> Result<()> {
+fn show_plugin_details(
+    plugin_manager: &plugin::PluginManager,
+    plugin: &plugin::PluginMetadata,
+) -> Result<()> {
     use dialoguer::{theme::ColorfulTheme, Select};
 
     loop {
@@ -563,7 +599,7 @@ fn show_plugin_directories(plugin_manager: &plugin::PluginManager) -> Result<()>
 }
 
 fn show_plugins_menu(mut config: Config, plugin_manager: &plugin::PluginManager) -> Result<Config> {
-    use dialoguer::{theme::ColorfulTheme, Select, Input};
+    use dialoguer::{theme::ColorfulTheme, Input, Select};
 
     loop {
         println!("\n=== Plugin Management ===\n");
@@ -584,9 +620,15 @@ fn show_plugins_menu(mut config: Config, plugin_manager: &plugin::PluginManager)
         }
 
         // Create menu options
-        let mut options: Vec<String> = plugins.iter()
+        let mut options: Vec<String> = plugins
+            .iter()
             .enumerate()
-            .map(|(i, plugin)| format!("🔌 Execute: {} v{} - {}", plugin.name, plugin.version, plugin.description))
+            .map(|(i, plugin)| {
+                format!(
+                    "🔌 Execute: {} v{} - {}",
+                    plugin.name, plugin.version, plugin.description
+                )
+            })
             .collect();
 
         options.push("📋 Show Plugin Details".to_string());
@@ -620,7 +662,10 @@ fn show_plugins_menu(mut config: Config, plugin_manager: &plugin::PluginManager)
                     let args: Vec<String> = if args_input.trim().is_empty() {
                         vec![]
                     } else {
-                        args_input.split_whitespace().map(|s| s.to_string()).collect()
+                        args_input
+                            .split_whitespace()
+                            .map(|s| s.to_string())
+                            .collect()
                     };
 
                     println!("\n🚀 Executing {} with args: {:?}", plugin_name, args);
@@ -678,4 +723,3 @@ fn show_plugins_menu(mut config: Config, plugin_manager: &plugin::PluginManager)
         }
     }
 }
-

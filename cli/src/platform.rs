@@ -97,10 +97,7 @@ mod tests {
             os: OS::MacOS,
             arch: Arch::Aarch64,
         };
-        assert_eq!(
-            platform.asset_name("sb"),
-            "sb-aarch64-apple-darwin.tar.gz"
-        );
+        assert_eq!(platform.asset_name("sb"), "sb-aarch64-apple-darwin.tar.gz");
 
         let platform = Platform {
             os: OS::Windows,

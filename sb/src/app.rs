@@ -999,7 +999,6 @@ impl App {
         }
     }
 
-
     /// Bulk open selected files in tree
     pub fn tree_open_selected(&mut self) -> Result<()> {
         if !self.tree_selection.is_empty() {

@@ -8,7 +8,6 @@ pub enum RunnerError {
     #[error("Binary not found: {0}")]
     BinaryNotFound(String),
     #[error("Failed to execute binary: {0}")]
-
     NonZeroExit(i32),
 }
 
@@ -19,14 +18,9 @@ impl BinaryRunner {
         Self
     }
 
-
-
     pub fn run_interactive(&self, binary_path: &Path, args: Vec<String>) -> Result<()> {
         if !binary_path.exists() {
-            return Err(RunnerError::BinaryNotFound(
-                binary_path.display().to_string(),
-            )
-            .into());
+            return Err(RunnerError::BinaryNotFound(binary_path.display().to_string()).into());
         }
 
         tracing::info!("Running interactive binary: {:?}", binary_path);
@@ -39,28 +33,19 @@ impl BinaryRunner {
             Command::new(binary_path)
                 .args(args)
                 .status()
-                .with_context(|| {
-                    format!(
-                        "Failed to execute binary: {}",
-                        binary_path.display()
-                    )
-                })?
+                .with_context(|| format!("Failed to execute binary: {}", binary_path.display()))?
         } else {
             // On Windows, just run normally
             Command::new(binary_path)
                 .args(args)
                 .status()
-                .with_context(|| {
-                    format!(
-                        "Failed to execute binary: {}",
-                        binary_path.display()
-                    )
-                })?
+                .with_context(|| format!("Failed to execute binary: {}", binary_path.display()))?
         };
 
         if !status.success() {
             if let Some(code) = status.code() {
-                if code != 0 && code != 130 { // 130 is SIGINT (Ctrl+C)
+                if code != 0 && code != 130 {
+                    // 130 is SIGINT (Ctrl+C)
                     tracing::warn!("Binary exited with code: {}", code);
                 }
             }

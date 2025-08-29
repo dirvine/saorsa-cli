@@ -53,6 +53,10 @@ jobs:
       with:
         targets: ${{ matrix.target }}
 
+    - name: Install OpenSSL (macOS)
+      if: runner.os == 'macOS'
+      run: brew install openssl
+
     - name: Install system dependencies (ARM64)
       if: matrix.target == 'aarch64-unknown-linux-gnu'
       run: |
@@ -69,6 +73,8 @@ jobs:
 
     - name: Build all binaries
       shell: bash
+      env:
+        OPENSSL_DIR: /usr/local/opt/openssl
       run: |
         if [[ "${{ matrix.target }}" == "aarch64-unknown-linux-gnu" ]]; then
           echo "=== Building for ARM64 ==="

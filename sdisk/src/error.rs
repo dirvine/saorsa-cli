@@ -22,14 +22,29 @@ pub enum SdiskError {
 impl fmt::Display for SdiskError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            SdiskError::Io { operation, path, source } => {
-                write!(f, "File system error during '{}' on '{}': {}", operation, path.display(), source)
+            SdiskError::Io {
+                operation,
+                path,
+                source,
+            } => {
+                write!(
+                    f,
+                    "File system error during '{}' on '{}': {}",
+                    operation,
+                    path.display(),
+                    source
+                )
             }
             SdiskError::ProgressBar(msg) => {
                 write!(f, "Progress bar error: {}", msg)
             }
             SdiskError::WalkDir { path, source } => {
-                write!(f, "Directory traversal error at '{}': {}", path.display(), source)
+                write!(
+                    f,
+                    "Directory traversal error at '{}': {}",
+                    path.display(),
+                    source
+                )
             }
         }
     }

@@ -1,6 +1,5 @@
 use anyhow::{Context, Result};
 
-
 use serde::{Deserialize, Serialize};
 use std::fs;
 use std::path::PathBuf;
@@ -69,7 +68,7 @@ impl Config {
         if config_path.exists() {
             let contents = fs::read_to_string(&config_path)
                 .with_context(|| format!("Failed to read config from {:?}", config_path))?;
-            
+
             toml::from_str(&contents)
                 .with_context(|| format!("Failed to parse config from {:?}", config_path))
         } else {
@@ -81,14 +80,13 @@ impl Config {
 
     pub fn save(&self) -> Result<()> {
         let config_path = Self::config_path()?;
-        
+
         if let Some(parent) = config_path.parent() {
             fs::create_dir_all(parent)
                 .with_context(|| format!("Failed to create config directory: {:?}", parent))?;
         }
 
-        let contents = toml::to_string_pretty(self)
-            .context("Failed to serialize config")?;
+        let contents = toml::to_string_pretty(self).context("Failed to serialize config")?;
 
         fs::write(&config_path, contents)
             .with_context(|| format!("Failed to write config to {:?}", config_path))?;
@@ -97,9 +95,8 @@ impl Config {
     }
 
     pub fn config_path() -> Result<PathBuf> {
-        let config_dir = dirs::config_dir()
-            .context("Failed to find config directory")?;
-        
+        let config_dir = dirs::config_dir().context("Failed to find config directory")?;
+
         Ok(config_dir.join("saorsa-cli").join("config.toml"))
     }
 
@@ -124,7 +121,7 @@ impl Config {
             .parent()
             .map(|p| p.to_path_buf())
             .unwrap_or_default();
-        
+
         if !config_dir.as_os_str().is_empty() {
             fs::create_dir_all(&config_dir)
                 .with_context(|| format!("Failed to create config directory: {:?}", config_dir))?;

@@ -1,5 +1,3 @@
-
-
 use anyhow::Result;
 use std::io::{self};
 use std::path::{Path, PathBuf};
@@ -725,7 +723,9 @@ fn ui(f: &mut Frame, app: &mut App) -> Result<()> {
             .borders(Borders::ALL)
             .border_style(Style::default().fg(left_border));
         let left_tree = tui_tree_widget::Tree::new(&app.left_tree)
-            .map_err(|e| error::SbError::tree_widget(format!("Failed to create file tree widget: {}", e)))?
+            .map_err(|e| {
+                error::SbError::tree_widget(format!("Failed to create file tree widget: {}", e))
+            })?
             .block(left_block)
             .highlight_style(Style::default().add_modifier(Modifier::REVERSED));
         f.render_stateful_widget(left_tree, chunks[0], &mut app.left_state);

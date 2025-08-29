@@ -18,8 +18,6 @@ pub trait Plugin: Send + Sync {
 
     /// Execute the plugin with given arguments
     fn execute(&self, args: &[String]) -> Result<()>;
-
-
 }
 
 /// Plugin metadata
@@ -158,7 +156,6 @@ impl PluginManager {
     }
 }
 
-
 /// Example plugin implementation
 pub struct ExamplePlugin {
     name: String,
@@ -198,8 +195,6 @@ impl Plugin for ExamplePlugin {
         println!("Hello from the example plugin!");
         Ok(())
     }
-
-
 }
 
 /// Plugin system initialization
