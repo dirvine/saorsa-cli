@@ -17,6 +17,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
     name: Lint and Format
@@ -41,24 +45,14 @@ jobs:
         include:
           - os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
-            binary_ext: ""
-            archive_ext: ".tar.gz"
           - os: ubuntu-24.04-arm
             target: aarch64-unknown-linux-gnu
-            binary_ext: ""
-            archive_ext: ".tar.gz"
           - os: windows-latest
             target: x86_64-pc-windows-msvc
-            binary_ext: ".exe"
-            archive_ext: ".zip"
           - os: macos-latest
             target: x86_64-apple-darwin
-            binary_ext: ""
-            archive_ext: ".tar.gz"
           - os: macos-latest
             target: aarch64-apple-darwin
-            binary_ext: ""
-            archive_ext: ".tar.gz"
 
     steps:
     - uses: actions/checkout@v4
@@ -118,11 +112,11 @@ jobs:
 
         cd ../../../
 
-        # Generate checksums (using certutil on Windows)
-        certutil -hashfile sb-${{ matrix.target }}.zip SHA256 > sb-${{ matrix.target }}.zip.sha256
-        certutil -hashfile sdisk-${{ matrix.target }}.zip SHA256 > sdisk-${{ matrix.target }}.zip.sha256
-        certutil -hashfile cli-${{ matrix.target }}.zip SHA256 > cli-${{ matrix.target }}.zip.sha256
-        certutil -hashfile saorsa-cli-${{ matrix.target }}.zip SHA256 > saorsa-cli-${{ matrix.target }}.zip.sha256
+        # Generate checksums (PowerShell, plain hash output)
+        pwsh -Command "(Get-FileHash 'sb-${{ matrix.target }}.zip' -Algorithm SHA256).Hash | Out-File -Encoding ascii 'sb-${{ matrix.target }}.zip.sha256'"
+        pwsh -Command "(Get-FileHash 'sdisk-${{ matrix.target }}.zip' -Algorithm SHA256).Hash | Out-File -Encoding ascii 'sdisk-${{ matrix.target }}.zip.sha256'"
+        pwsh -Command "(Get-FileHash 'cli-${{ matrix.target }}.zip' -Algorithm SHA256).Hash | Out-File -Encoding ascii 'cli-${{ matrix.target }}.zip.sha256'"
+        pwsh -Command "(Get-FileHash 'saorsa-cli-${{ matrix.target }}.zip' -Algorithm SHA256).Hash | Out-File -Encoding ascii 'saorsa-cli-${{ matrix.target }}.zip.sha256'"
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
@@ -133,6 +127,7 @@ jobs:
           sdisk-${{ matrix.target }}.*
           cli-${{ matrix.target }}.*
           saorsa-cli-${{ matrix.target }}.*
+        retention-days: 7
 
   release:
     name: Create Release
@@ -205,6 +200,7 @@ jobs:
     - name: Create Release
       uses: softprops/action-gh-release@v2
       with:
+        tag_name: ${{ inputs.tag_name != '' && inputs.tag_name || github.ref_name }}
         files: |
           artifacts/sb-*
           artifacts/sdisk-*
@@ -221,7 +217,11 @@ jobs:
     name: Publish to crates.io
     needs: build
     runs-on: ubuntu-22.04
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: |
+      startsWith(github.ref, 'refs/tags/v') ||
+      startsWith(github.ref, 'refs/tags/sb-v') ||
+      startsWith(github.ref, 'refs/tags/sdisk-v') ||
+      startsWith(github.ref, 'refs/tags/cli-v')
     steps:
     - uses: actions/checkout@v4
 

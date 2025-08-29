@@ -9,6 +9,10 @@ on:
 env:
   CARGO_TERM_COLOR: always
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: Test
@@ -21,7 +25,7 @@ jobs:
     - uses: actions/checkout@v4
     
     - name: Install Rust
-      uses: dtolnay/rust-toolchain@master
+      uses: dtolnay/rust-toolchain@stable
       with:
         toolchain: ${{ matrix.rust }}
         components: rustfmt, clippy
@@ -33,7 +37,7 @@ jobs:
           ~/.cargo/registry
           ~/.cargo/git
           target
-        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        key: ${{ runner.os }}-${{ matrix.rust }}-cargo-${{ hashFiles('**/Cargo.lock') }}
     
     - name: Check formatting
       run: cargo fmt --all -- --check
@@ -51,6 +55,7 @@ jobs:
 
   release:
     name: Release Build
+    if: github.event_name != 'pull_request'
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -88,3 +93,4 @@ jobs:
       with:
         name: saorsa-cli-${{ matrix.target }}
         path: saorsa-cli-${{ matrix.target }}.*
+        retention-days: 7
