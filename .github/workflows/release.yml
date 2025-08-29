@@ -25,6 +25,11 @@ jobs:
   lint:
     name: Lint and Format
     runs-on: ubuntu-22.04
+    env:
+      # Isolate rustup/cargo to temp so local installs aren't modified on self-hosted/act
+      CARGO_HOME: ${{ runner.temp }}/cargo
+      RUSTUP_HOME: ${{ runner.temp }}/rustup
+      RUSTUP_TOOLCHAIN: stable
     steps:
       - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
       - name: Install Rust
@@ -41,6 +46,10 @@ jobs:
     name: Build Release - ${{ matrix.os }}
     needs: lint
     runs-on: ${{ matrix.os }}
+    env:
+      CARGO_HOME: ${{ runner.temp }}/cargo
+      RUSTUP_HOME: ${{ runner.temp }}/rustup
+      RUSTUP_TOOLCHAIN: stable
     strategy:
       matrix:
         include:
@@ -150,6 +159,9 @@ jobs:
     name: Create Release
     needs: build
     runs-on: ubuntu-22.04
+    env:
+      CARGO_HOME: ${{ runner.temp }}/cargo
+      RUSTUP_HOME: ${{ runner.temp }}/rustup
     steps:
     - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
 
