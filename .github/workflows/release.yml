@@ -44,9 +44,9 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            target: x86_64-unknown-linux-gnu
-          - os: ubuntu-24.04-arm
-            target: aarch64-unknown-linux-gnu
+            target: x86_64-unknown-linux-musl
+          - os: ubuntu-latest
+            target: aarch64-unknown-linux-musl
           - os: windows-latest
             target: x86_64-pc-windows-msvc
           - os: macos-latest
@@ -62,7 +62,22 @@ jobs:
       with:
         targets: ${{ matrix.target }}
 
-    - name: Build all binaries
+    - name: Install Zig (for musl builds)
+      if: contains(matrix.target, 'linux-musl')
+      uses: goto-bus-stop/setup-zig@v2
+
+    - name: Install cargo-zigbuild
+      if: contains(matrix.target, 'linux-musl')
+      run: cargo install cargo-zigbuild
+
+    - name: Build all binaries (musl)
+      if: contains(matrix.target, 'linux-musl')
+      shell: bash
+      run: |
+        cargo zigbuild --release --target ${{ matrix.target }} --workspace
+
+    - name: Build all binaries (non-musl)
+      if: ${{ !contains(matrix.target, 'linux-musl') }}
       shell: bash
       run: |
         cargo build --release --target ${{ matrix.target }} --workspace
@@ -174,8 +189,8 @@ jobs:
 
         - **macOS Apple Silicon (M1/M2)**: `*-aarch64-apple-darwin.tar.gz`
         - **macOS Intel**: `*-x86_64-apple-darwin.tar.gz`
-        - **Linux x86_64**: `*-x86_64-unknown-linux-gnu.tar.gz`
-        - **Linux ARM64**: `*-aarch64-unknown-linux-gnu.tar.gz`
+        - **Linux x86_64 (musl)**: `*-x86_64-unknown-linux-musl.tar.gz`
+        - **Linux ARM64 (musl)**: `*-aarch64-unknown-linux-musl.tar.gz`
         - **Windows x86_64**: `*-x86_64-pc-windows-msvc.zip`
 
         ## Checksums
