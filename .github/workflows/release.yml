@@ -30,6 +30,7 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
         with:
+          toolchain: stable
           components: clippy, rustfmt
       - name: Check formatting
         run: cargo fmt --all -- --check
@@ -60,6 +61,7 @@ jobs:
     - name: Install Rust
       uses: dtolnay/rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
       with:
+        toolchain: stable
         targets: ${{ matrix.target }}
 
     - name: Install Zig (for musl builds)
@@ -242,6 +244,8 @@ jobs:
 
     - name: Install Rust
       uses: dtolnay/rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
+      with:
+        toolchain: stable
 
     - name: Publish sb
       if: startsWith(github.ref, 'refs/tags/v') || contains(github.ref, 'sb-v')
