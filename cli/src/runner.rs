@@ -1,11 +1,8 @@
 use anyhow::{Context, Result};
-#[allow(dead_code)]
-use anyhow::{Context, Result};
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::process::Command;
-use thiserror::Error;
 
-#[derive(Debug, Error)]
+#[derive(Debug, thiserror::Error)]
 pub enum RunnerError {
     #[error("Binary not found: {0}")]
     BinaryNotFound(String),
@@ -29,7 +26,7 @@ impl BinaryRunner {
 
         let status = if cfg!(unix) {
             use std::os::unix::process::CommandExt;
-            Command::new(binary_path).args(args).exec();
+            let _ = Command::new(binary_path).args(args).exec();
             // This part is tricky because exec replaces the current process.
             // We might not get here if exec is successful.
             // Consider using a different approach if you need to get the status.
@@ -61,7 +58,6 @@ impl BinaryRunner {
 
     pub fn which(&self, binary_name: &str) -> Option<PathBuf> {
         use std::env;
-        use std::path::PathBuf;
 
         env::var_os("PATH").and_then(|paths| {
             env::split_paths(&paths).find_map(|dir| {

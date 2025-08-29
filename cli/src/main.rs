@@ -99,7 +99,7 @@ async fn main() -> Result<()> {
     let runner = BinaryRunner::new();
 
     // Initialize plugin system
-    let plugin_manager =
+    let mut plugin_manager =
         plugin::init_plugin_system().context("Failed to initialize plugin system")?;
 
     // Handle plugin execution
@@ -230,7 +230,7 @@ async fn main() -> Result<()> {
                 config.save().context("Failed to save configuration")?;
             }
             MenuChoice::Plugins => {
-                config = show_plugins_menu(config, &plugin_manager)?;
+                show_plugins_menu(&mut plugin_manager)?;
             }
             MenuChoice::Exit => {
                 println!("Goodbye!");
@@ -524,8 +524,8 @@ fn show_plugin_details(
         println!("📝 Description: {}", plugin.description);
         // Path information removed from PluginMetadata for simplicity
 
-        if let Some(plugin_instance) = plugin_manager.get_plugin(&plugin.name) {
-            println!("🎯 Help: {}", plugin_instance.help());
+        if let Some(plugin_instance) = plugin_manager.get_plugin_info(&plugin.name) {
+            println!("🎯 Help: {}", plugin_instance.help);
         }
 
         let options = vec![
@@ -552,9 +552,9 @@ fn show_plugin_details(
             }
             1 => {
                 // Show help
-                if let Some(plugin_instance) = plugin_manager.get_plugin(&plugin.name) {
+                if let Some(plugin_instance) = plugin_manager.get_plugin_info(&plugin.name) {
                     println!("\n=== Plugin Help ===");
-                    println!("{}", plugin_instance.help());
+                    println!("{}", plugin_instance.help);
                     println!("\nPress Enter to continue...");
                     let mut input = String::new();
                     std::io::stdin().read_line(&mut input)?;
@@ -574,17 +574,12 @@ fn show_plugin_details(
 fn show_plugin_directories(plugin_manager: &plugin::PluginManager) -> Result<()> {
     println!("\n=== Plugin Directories ===");
 
-    let dirs = plugin_manager.plugin_dirs();
+    let dirs = plugin_manager.get_plugin_names();
     if dirs.is_empty() {
         println!("No plugin directories configured.");
     } else {
         for (i, dir) in dirs.iter().enumerate() {
             println!("{}. {:?}", i + 1, dir);
-            if dir.exists() {
-                println!("   ✅ Directory exists");
-            } else {
-                println!("   ❌ Directory does not exist");
-            }
         }
     }
 
@@ -599,32 +594,32 @@ fn show_plugin_directories(plugin_manager: &plugin::PluginManager) -> Result<()>
     Ok(())
 }
 
-fn show_plugins_menu(mut config: Config, plugin_manager: &plugin::PluginManager) -> Result<Config> {
+fn show_plugins_menu(plugin_manager: &mut plugin::PluginManager) -> Result<()> {
     use dialoguer::{theme::ColorfulTheme, Input, Select};
 
     loop {
         println!("\n=== Plugin Management ===\n");
 
-        let plugins = plugin_manager.list_plugins();
+        let plugins = plugin_manager.get_plugins();
 
         if plugins.is_empty() {
             println!("No plugins loaded.");
             println!("\nPlugin directories:");
-            for dir in plugin_manager.plugin_dirs() {
+            for dir in plugin_manager.get_plugin_names() {
                 println!("  - {:?}", dir);
             }
             println!("\nPress Enter to continue...");
 
             let mut input = String::new();
             std::io::stdin().read_line(&mut input)?;
-            return Ok(config);
+            return Ok(());
         }
 
         // Create menu options
         let mut options: Vec<String> = plugins
             .iter()
             .enumerate()
-            .map(|(i, plugin)| {
+            .map(|(_i, plugin)| {
                 format!(
                     "🔌 Execute: {} v{} - {}",
                     plugin.name, plugin.version, plugin.description
@@ -649,7 +644,7 @@ fn show_plugins_menu(mut config: Config, plugin_manager: &plugin::PluginManager)
                 let plugin = &plugins[i];
                 let plugin_name = &plugin.name;
 
-                if let Some(plugin_instance) = plugin_manager.get_plugin(plugin_name) {
+                if let Some(_plugin_instance) = plugin_manager.get_plugin_info(plugin_name) {
                     println!("\n🎯 Executing plugin: {}", plugin_name);
                     println!("📝 Description: {}", plugin.description);
                     println!("🏷️  Version: {}", plugin.version);
@@ -671,7 +666,7 @@ fn show_plugins_menu(mut config: Config, plugin_manager: &plugin::PluginManager)
 
                     println!("\n🚀 Executing {} with args: {:?}", plugin_name, args);
 
-                    match plugin_instance.execute(&args) {
+                    match plugin_manager.execute_plugin(plugin_name, &args) {
                         Ok(_) => {
                             println!("\n✅ Plugin executed successfully!");
                         }
@@ -717,7 +712,7 @@ fn show_plugins_menu(mut config: Config, plugin_manager: &plugin::PluginManager)
 
             // Return to main menu
             i if i == plugins.len() + 3 => {
-                return Ok(config);
+                return Ok(());
             }
 
             _ => unreachable!(),
