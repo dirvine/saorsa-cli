@@ -31,7 +31,7 @@ impl BinaryRunner {
             // This part is tricky because exec replaces the current process.
             // We might not get here if exec is successful.
             // Consider using a different approach if you need to get the status.
-            return Ok(());
+            Ok(())
         }
 
         #[cfg(not(unix))]
