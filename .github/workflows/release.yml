@@ -18,8 +18,23 @@ permissions:
   contents: write
 
 jobs:
+  lint:
+    name: Lint and Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - name: Check formatting
+        run: cargo fmt --all -- --check
+      - name: Run clippy
+        run: cargo clippy --all -- --deny warnings
+
   build:
     name: Build Release - ${{ matrix.os }}
+    needs: lint
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -53,12 +68,6 @@ jobs:
       with:
         targets: ${{ matrix.target }}
 
-    - name: Install dependencies (Linux)
-      if: runner.os == 'Linux'
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y pkg-config libssl-dev
-
     - name: Build all binaries
       shell: bash
       run: |
@@ -88,7 +97,7 @@ jobs:
           sha256sum saorsa-cli-${{ matrix.target }}.tar.gz > saorsa-cli-${{ matrix.target }}.tar.gz.sha256
         else
           shasum -a 256 sb-${{ matrix.target }}.tar.gz > sb-${{ matrix.target }}.tar.gz.sha256
-          shasum -a 26 sdisk-${{ matrix.target }}.tar.gz > sdisk-${{ matrix.target }}.tar.gz.sha256
+          shasum -a 256 sdisk-${{ matrix.target }}.tar.gz > sdisk-${{ matrix.target }}.tar.gz.sha256
           shasum -a 256 cli-${{ matrix.target }}.tar.gz > cli-${{ matrix.target }}.tar.gz.sha256
           shasum -a 256 saorsa-cli-${{ matrix.target }}.tar.gz > saorsa-cli-${{ matrix.target }}.tar.gz.sha256
         fi
@@ -210,7 +219,7 @@ jobs:
 
   publish-crates:
     name: Publish to crates.io
-    needs: release
+    needs: build
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
@@ -219,19 +228,23 @@ jobs:
     - name: Install Rust
       uses: dtolnay/rust-toolchain@stable
 
-    - name: Publish sb to crates.io
-      if: contains(github.ref, 'sb-v') || startsWith(github.ref, 'refs/tags/v')
-      run: |
-        cd sb
-        cargo publish --token ${{ secrets.CRATES_IO_TOKEN }}
+    - name: Publish sb
+      if: startsWith(github.ref, 'refs/tags/v') || contains(github.ref, 'sb-v')
+      run: cargo publish --manifest-path sb/Cargo.toml --token ${{ secrets.CRATES_IO_TOKEN }}
       continue-on-error: true
 
     - name: Wait between publishes
       run: sleep 30
 
-    - name: Publish sdisk to crates.io
-      if: contains(github.ref, 'sdisk-v') || startsWith(github.ref, 'refs/tags/v')
-      run: |
-        cd sdisk
-        cargo publish --token ${{ secrets.CRATES_IO_TOKEN }}
+    - name: Publish sdisk
+      if: startsWith(github.ref, 'refs/tags/v') || contains(github.ref, 'sdisk-v')
+      run: cargo publish --manifest-path sdisk/Cargo.toml --token ${{ secrets.CRATES_IO_TOKEN }}
+      continue-on-error: true
+
+    - name: Wait between publishes
+      run: sleep 30
+
+    - name: Publish cli
+      if: startsWith(github.ref, 'refs/tags/v') || contains(github.ref, 'cli-v')
+      run: cargo publish --manifest-path cli/Cargo.toml --token ${{ secrets.CRATES_IO_TOKEN }}
       continue-on-error: true
