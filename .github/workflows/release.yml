@@ -53,32 +53,10 @@ jobs:
       with:
         targets: ${{ matrix.target }}
 
-    - name: Install system dependencies (ARM64)
-      if: matrix.target == 'aarch64-unknown-linux-gnu'
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y pkg-config libssl-dev libssl3 openssl ca-certificates build-essential
-        # Debug: show OpenSSL info
-        echo "=== OpenSSL Debug Info ==="
-        which openssl || echo "openssl not found"
-        openssl version || echo "openssl version failed"
-        pkg-config --list-all | grep ssl || echo "no ssl packages found"
-        ls -la /usr/lib/aarch64-linux-gnu/ | grep ssl || echo "no ssl libs found"
-        ls -la /usr/include/ | grep ssl || echo "no ssl includes found"
-        echo "=========================="
-
     - name: Build all binaries
       shell: bash
       run: |
-        if [[ "${{ matrix.target }}" == "aarch64-unknown-linux-gnu" ]]; then
-          echo "=== Building for ARM64 ==="
-          export OPENSSL_ROOT_DIR=/usr
-          export OPENSSL_LIBRARIES=/usr/lib/aarch64-linux-gnu
-          export PKG_CONFIG_PATH=/usr/lib/aarch64-linux-gnu/pkgconfig:$PKG_CONFIG_PATH
-          cargo build --release --target ${{ matrix.target }} --workspace --verbose
-        else
-          cargo build --release --target ${{ matrix.target }} --workspace
-        fi
+        cargo build --release --target ${{ matrix.target }} --workspace
 
     - name: Package binaries (Unix)
       if: matrix.os != 'windows-latest'

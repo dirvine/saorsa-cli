@@ -39,15 +39,18 @@ pub struct PluginManager {
 
 impl PluginManager {
     pub fn new() -> Self {
-        Self { plugins: vec![], libs: vec![] }
+        Self {
+            plugins: vec![],
+            libs: vec![],
+        }
     }
 
     pub fn load_plugin(&mut self, path: &Path) -> Result<()> {
         unsafe {
-            let lib = Library::new(path)
-                .with_context(|| format!("Failed to load plugin: {:?}", path))?;
+            let lib =
+                Library::new(path).with_context(|| format!("Failed to load plugin: {:?}", path))?;
 
-            let plugin_init: Symbol<unsafe extern fn() -> *mut dyn Plugin> = lib
+            let plugin_init: Symbol<unsafe extern "C" fn() -> *mut dyn Plugin> = lib
                 .get(b"_plugin_init")
                 .with_context(|| format!("Failed to find _plugin_init in {:?}", path))?;
 
@@ -190,7 +193,6 @@ pub fn init_plugin_system() -> Result<PluginManager> {
 
     Ok(manager)
 }
-
 
 /// Plugin metadata
 #[derive(Debug, Clone)]

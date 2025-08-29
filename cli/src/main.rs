@@ -627,9 +627,7 @@ fn show_plugins_menu(mut config: Config, plugin_manager: &plugin::PluginManager)
             .map(|(i, plugin)| {
                 format!(
                     "🔌 Execute: {} v{} - {}",
-                    plugin.name,
-                    plugin.version,
-                    plugin.description
+                    plugin.name, plugin.version, plugin.description
                 )
             })
             .collect();

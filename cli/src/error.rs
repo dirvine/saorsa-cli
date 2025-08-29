@@ -84,18 +84,25 @@ pub enum SaorsaError {
         source: std::io::Error,
     },
     #[error("Network error for url '{url}': {source}")]
-    Network {
-        url: String,
-        source: reqwest::Error,
-    },
+    Network { url: String, source: reqwest::Error },
 }
 
 impl fmt::Display for SaorsaError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            SaorsaError::Io { operation, path, source } => {
+            SaorsaError::Io {
+                operation,
+                path,
+                source,
+            } => {
                 if let Some(p) = path {
-                    write!(f, "I/O error during '{}' on '{}': {}", operation, p.display(), source)
+                    write!(
+                        f,
+                        "I/O error during '{}' on '{}': {}",
+                        operation,
+                        p.display(),
+                        source
+                    )
                 } else {
                     write!(f, "I/O error during '{}': {}", operation, source)
                 }
@@ -107,7 +114,6 @@ impl fmt::Display for SaorsaError {
     }
 }
 
-
 impl SaorsaError {
     pub fn io(operation: &str, source: std::io::Error) -> Self {
         SaorsaError::Io {
@@ -117,7 +123,11 @@ impl SaorsaError {
         }
     }
 
-    pub fn io_with_context<P: Into<PathBuf>>(operation: &str, path: P, source: std::io::Error) -> Self {
+    pub fn io_with_context<P: Into<PathBuf>>(
+        operation: &str,
+        path: P,
+        source: std::io::Error,
+    ) -> Self {
         SaorsaError::Io {
             operation: operation.to_string(),
             path: Some(path.into()),
@@ -139,4 +149,3 @@ impl SaorsaError {
         }
     }
 }
-

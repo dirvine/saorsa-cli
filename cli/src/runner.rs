@@ -29,9 +29,7 @@ impl BinaryRunner {
 
         let status = if cfg!(unix) {
             use std::os::unix::process::CommandExt;
-            Command::new(binary_path)
-                .args(args)
-                .exec();
+            Command::new(binary_path).args(args).exec();
             // This part is tricky because exec replaces the current process.
             // We might not get here if exec is successful.
             // Consider using a different approach if you need to get the status.
