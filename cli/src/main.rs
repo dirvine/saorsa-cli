@@ -110,7 +110,7 @@ async fn main() -> Result<()> {
     // Handle direct run mode
     if let Some(tool) = args.run.as_ref() {
         return run_tool_directly(
-            &tool,
+            tool,
             args.tool_args,
             &config,
             &platform,
@@ -618,8 +618,7 @@ fn show_plugins_menu(plugin_manager: &mut plugin::PluginManager) -> Result<()> {
         // Create menu options
         let mut options: Vec<String> = plugins
             .iter()
-            .enumerate()
-            .map(|(_i, plugin)| {
+            .map(|plugin| {
                 format!(
                     "🔌 Execute: {} v{} - {}",
                     plugin.name, plugin.version, plugin.description
