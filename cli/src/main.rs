@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 mod config;
 mod downloader;
 mod error;
@@ -6,13 +7,13 @@ mod platform;
 mod plugin;
 mod runner;
 
+use crate::config::Config;
+use crate::downloader::Downloader;
+use crate::menu::{Menu, MenuChoice};
+use crate::platform::Platform;
+use crate::runner::BinaryRunner;
 use anyhow::{Context, Result};
 use clap::Parser;
-use config::Config;
-use downloader::Downloader;
-use menu::{Menu, MenuChoice};
-use platform::Platform;
-use runner::BinaryRunner;
 use std::path::PathBuf;
 use tracing_subscriber::EnvFilter;
 
@@ -626,7 +627,9 @@ fn show_plugins_menu(mut config: Config, plugin_manager: &plugin::PluginManager)
             .map(|(i, plugin)| {
                 format!(
                     "🔌 Execute: {} v{} - {}",
-                    plugin.name, plugin.version, plugin.description
+                    plugin.name,
+                    plugin.version,
+                    plugin.description
                 )
             })
             .collect();

@@ -12,7 +12,7 @@ pub enum PlatformError {
 #[derive(Debug, Clone, PartialEq)]
 pub enum OS {
     Linux,
-    MacOS,
+    Macos,
     Windows,
 }
 
@@ -32,7 +32,7 @@ impl Platform {
     pub fn detect() -> Result<Self, PlatformError> {
         let os = match env::consts::OS {
             "linux" => OS::Linux,
-            "macos" => OS::MacOS,
+            "macos" => OS::Macos,
             "windows" => OS::Windows,
             other => return Err(PlatformError::UnsupportedOS(other.to_string())),
         };
@@ -50,8 +50,8 @@ impl Platform {
         match (&self.os, &self.arch) {
             (OS::Linux, Arch::X86_64) => "x86_64-unknown-linux-gnu",
             (OS::Linux, Arch::Aarch64) => "aarch64-unknown-linux-gnu",
-            (OS::MacOS, Arch::X86_64) => "x86_64-apple-darwin",
-            (OS::MacOS, Arch::Aarch64) => "aarch64-apple-darwin",
+            (OS::Macos, Arch::X86_64) => "x86_64-apple-darwin",
+            (OS::Macos, Arch::Aarch64) => "aarch64-apple-darwin",
             (OS::Windows, Arch::X86_64) => "x86_64-pc-windows-msvc",
             (OS::Windows, Arch::Aarch64) => "aarch64-pc-windows-msvc",
         }
@@ -94,7 +94,7 @@ mod tests {
     #[test]
     fn test_asset_names() {
         let platform = Platform {
-            os: OS::MacOS,
+            os: OS::Macos,
             arch: Arch::Aarch64,
         };
         assert_eq!(platform.asset_name("sb"), "sb-aarch64-apple-darwin.tar.gz");

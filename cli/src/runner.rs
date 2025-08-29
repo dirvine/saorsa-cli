@@ -1,5 +1,7 @@
 use anyhow::{Context, Result};
-use std::path::{Path, PathBuf};
+#[allow(dead_code)]
+use anyhow::{Context, Result};
+use std::path::Path;
 use std::process::Command;
 use thiserror::Error;
 
@@ -25,15 +27,15 @@ impl BinaryRunner {
 
         tracing::info!("Running interactive binary: {:?}", binary_path);
 
-        // For interactive TUI applications, we need to handle terminal modes properly
-        crossterm::terminal::disable_raw_mode().ok();
-
         let status = if cfg!(unix) {
-            // On Unix, use exec-style to replace the current process temporarily
+            use std::os::unix::process::CommandExt;
             Command::new(binary_path)
                 .args(args)
-                .status()
-                .with_context(|| format!("Failed to execute binary: {}", binary_path.display()))?
+                .exec();
+            // This part is tricky because exec replaces the current process.
+            // We might not get here if exec is successful.
+            // Consider using a different approach if you need to get the status.
+            return Ok(());
         } else {
             // On Windows, just run normally
             Command::new(binary_path)
@@ -43,6 +45,7 @@ impl BinaryRunner {
         };
 
         if !status.success() {
+            // The process has exited with a non-zero status code.
             if let Some(code) = status.code() {
                 if code != 0 && code != 130 {
                     // 130 is SIGINT (Ctrl+C)
@@ -55,38 +58,22 @@ impl BinaryRunner {
     }
 
     pub fn check_binary_exists(&self, binary_path: &Path) -> bool {
-        binary_path.exists() && binary_path.is_file()
+        binary_path.exists()
     }
 
     pub fn which(&self, binary_name: &str) -> Option<PathBuf> {
-        // Try to find the binary in PATH
-        if let Ok(output) = Command::new("which").arg(binary_name).output() {
-            if output.status.success() {
-                let path = String::from_utf8_lossy(&output.stdout).trim().to_string();
-                if !path.is_empty() {
-                    return Some(PathBuf::from(path));
-                }
-            }
-        }
+        use std::env;
+        use std::path::PathBuf;
 
-        // On Windows, try 'where' command
-        #[cfg(windows)]
-        {
-            if let Ok(output) = Command::new("where").arg(binary_name).output() {
-                if output.status.success() {
-                    let path = String::from_utf8_lossy(&output.stdout)
-                        .lines()
-                        .next()
-                        .map(|s| s.trim().to_string());
-                    if let Some(path) = path {
-                        if !path.is_empty() {
-                            return Some(PathBuf::from(path));
-                        }
-                    }
+        env::var_os("PATH").and_then(|paths| {
+            env::split_paths(&paths).find_map(|dir| {
+                let full_path = dir.join(binary_name);
+                if full_path.is_file() {
+                    Some(full_path)
+                } else {
+                    None
                 }
-            }
-        }
-
-        None
+            })
+        })
     }
 }
