@@ -26,9 +26,9 @@ jobs:
     name: Lint and Format
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
       - name: Install Rust
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
         with:
           components: clippy, rustfmt
       - name: Check formatting
@@ -55,16 +55,16 @@ jobs:
             target: aarch64-apple-darwin
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
 
     - name: Install Rust
-      uses: dtolnay/rust-toolchain@stable
+      uses: dtolnay/rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
       with:
         targets: ${{ matrix.target }}
 
     - name: Install Zig (for musl builds)
       if: contains(matrix.target, 'linux-musl')
-      uses: goto-bus-stop/setup-zig@v2
+      uses: goto-bus-stop/setup-zig@abea47f85e598557f500fa1fd2ab7464fcb39406
 
     - name: Install cargo-zigbuild
       if: contains(matrix.target, 'linux-musl')
@@ -134,7 +134,7 @@ jobs:
         pwsh -Command "(Get-FileHash 'saorsa-cli-${{ matrix.target }}.zip' -Algorithm SHA256).Hash | Out-File -Encoding ascii 'saorsa-cli-${{ matrix.target }}.zip.sha256'"
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
       with:
         name: binaries-${{ matrix.target }}
         path: |
@@ -149,10 +149,10 @@ jobs:
     needs: build
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
 
     - name: Download artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
       with:
         path: artifacts
         merge-multiple: true
@@ -213,7 +213,7 @@ jobs:
         EOF
 
     - name: Create Release
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8
       with:
         tag_name: ${{ inputs.tag_name != '' && inputs.tag_name || github.ref_name }}
         files: |
@@ -238,10 +238,10 @@ jobs:
       startsWith(github.ref, 'refs/tags/sdisk-v') ||
       startsWith(github.ref, 'refs/tags/cli-v')
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
 
     - name: Install Rust
-      uses: dtolnay/rust-toolchain@stable
+      uses: dtolnay/rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
 
     - name: Publish sb
       if: startsWith(github.ref, 'refs/tags/v') || contains(github.ref, 'sb-v')

@@ -22,16 +22,16 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         rust: [stable, beta, nightly]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
     
     - name: Install Rust
-      uses: dtolnay/rust-toolchain@stable
+      uses: dtolnay/rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
       with:
         toolchain: ${{ matrix.rust }}
         components: rustfmt, clippy
     
     - name: Cache cargo
-      uses: actions/cache@v4
+      uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809
       with:
         path: |
           ~/.cargo/registry
@@ -71,10 +71,10 @@ jobs:
           - os: macos-latest
             target: aarch64-apple-darwin
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
     
     - name: Install Rust
-      uses: dtolnay/rust-toolchain@stable
+      uses: dtolnay/rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
       with:
         targets: ${{ matrix.target }}
 
@@ -104,7 +104,7 @@ jobs:
         fi
     
     - name: Upload artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
       with:
         name: saorsa-cli-${{ matrix.target }}
         path: saorsa-cli-${{ matrix.target }}.*
