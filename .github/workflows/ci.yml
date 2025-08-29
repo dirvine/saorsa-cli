@@ -98,7 +98,7 @@ jobs:
       run: cargo zigbuild --release --target ${{ matrix.target }} --all
 
     - name: Build release (non-musl)
-      if: ${{ !contains(matrix.target, 'linux-musl') }}
+      if: ${{ contains(matrix.target, 'linux-musl') == false }}
       run: cargo build --release --target ${{ matrix.target }} --all
     
     - name: Package binaries
