@@ -21,6 +21,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  test-workflow:
+    name: Test Workflow Execution
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test basic execution
+        run: echo "Workflow is running successfully"
+
   lint:
     name: Lint and Format
     runs-on: ubuntu-22.04
