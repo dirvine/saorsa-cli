@@ -44,27 +44,8 @@ jobs:
         run: cargo clippy --all -- --deny warnings
 
   build:
-    name: Build Release - ${{ matrix.os }}
-    needs: lint
-    runs-on: ${{ matrix.os }}
-    env:
-      CARGO_HOME: ${{ runner.temp }}/cargo
-      RUSTUP_HOME: ${{ runner.temp }}/rustup
-      RUSTUP_TOOLCHAIN: stable
-    strategy:
-      matrix:
-        include:
-          - os: ubuntu-latest
-            target: x86_64-unknown-linux-musl
-          - os: ubuntu-latest
-            target: aarch64-unknown-linux-musl
-          - os: windows-latest
-            target: x86_64-pc-windows-msvc
-          - os: macos-latest
-            target: x86_64-apple-darwin
-          - os: macos-latest
-            target: aarch64-apple-darwin
-
+    name: Build Release - ubuntu
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
 
@@ -72,212 +53,43 @@ jobs:
       uses: dtolnay/rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
       with:
         toolchain: stable
-        targets: ${{ matrix.target }}
 
-    - name: Install Zig (for musl builds)
-      if: contains(matrix.target, 'linux-musl')
-      uses: goto-bus-stop/setup-zig@abea47f85e598557f500fa1fd2ab7464fcb39406
+    - name: Build all binaries
+      run: cargo build --release --workspace
 
-    - name: Install cargo-zigbuild
-      if: contains(matrix.target, 'linux-musl')
-      run: cargo install cargo-zigbuild
-
-    - name: Build all binaries (musl)
-      if: contains(matrix.target, 'linux-musl')
-      shell: bash
+    - name: Package binaries
       run: |
-        cargo zigbuild --release --target ${{ matrix.target }} --workspace
-
-    - name: Build all binaries (non-musl)
-      if: ${{ !contains(matrix.target, 'linux-musl') }}
-      shell: bash
-      run: |
-        cargo build --release --target ${{ matrix.target }} --workspace
-
-    - name: Package binaries (Unix)
-      if: matrix.os != 'windows-latest'
-      shell: bash
-      run: |
-        cd target/${{ matrix.target }}/release
-        
-        # Create individual archives for each binary
-        tar czf ../../../sb-${{ matrix.target }}.tar.gz sb
-        tar czf ../../../sdisk-${{ matrix.target }}.tar.gz sdisk
-        tar czf ../../../cli-${{ matrix.target }}.tar.gz saorsa
-        
-        # Create combined archive with all binaries
-        tar czf ../../../saorsa-cli-${{ matrix.target }}.tar.gz sb sdisk saorsa
-        
-        cd ../../../
-        
-        # Generate checksums
-        if command -v sha256sum >/dev/null 2>&1; then
-          sha256sum sb-${{ matrix.target }}.tar.gz > sb-${{ matrix.target }}.tar.gz.sha256
-          sha256sum sdisk-${{ matrix.target }}.tar.gz > sdisk-${{ matrix.target }}.tar.gz.sha256
-          sha256sum cli-${{ matrix.target }}.tar.gz > cli-${{ matrix.target }}.tar.gz.sha256
-          sha256sum saorsa-cli-${{ matrix.target }}.tar.gz > saorsa-cli-${{ matrix.target }}.tar.gz.sha256
-        else
-          shasum -a 256 sb-${{ matrix.target }}.tar.gz > sb-${{ matrix.target }}.tar.gz.sha256
-          shasum -a 256 sdisk-${{ matrix.target }}.tar.gz > sdisk-${{ matrix.target }}.tar.gz.sha256
-          shasum -a 256 cli-${{ matrix.target }}.tar.gz > cli-${{ matrix.target }}.tar.gz.sha256
-          shasum -a 256 saorsa-cli-${{ matrix.target }}.tar.gz > saorsa-cli-${{ matrix.target }}.tar.gz.sha256
-        fi
-
-    - name: Package binaries (Windows)
-      if: matrix.os == 'windows-latest'
-      shell: bash
-      run: |
-        cd target/${{ matrix.target }}/release
-
-        # Create individual archives for each binary
-        7z a ../../../sb-${{ matrix.target }}.zip sb.exe
-        7z a ../../../sdisk-${{ matrix.target }}.zip sdisk.exe
-        7z a ../../../cli-${{ matrix.target }}.zip saorsa.exe
-
-        # Create combined archive with all binaries
-        7z a ../../../saorsa-cli-${{ matrix.target }}.zip sb.exe sdisk.exe saorsa.exe
-
-        cd ../../../
-
-        # Generate checksums (PowerShell, plain hash output)
-        pwsh -Command "(Get-FileHash 'sb-${{ matrix.target }}.zip' -Algorithm SHA256).Hash | Out-File -Encoding ascii 'sb-${{ matrix.target }}.zip.sha256'"
-        pwsh -Command "(Get-FileHash 'sdisk-${{ matrix.target }}.zip' -Algorithm SHA256).Hash | Out-File -Encoding ascii 'sdisk-${{ matrix.target }}.zip.sha256'"
-        pwsh -Command "(Get-FileHash 'cli-${{ matrix.target }}.zip' -Algorithm SHA256).Hash | Out-File -Encoding ascii 'cli-${{ matrix.target }}.zip.sha256'"
-        pwsh -Command "(Get-FileHash 'saorsa-cli-${{ matrix.target }}.zip' -Algorithm SHA256).Hash | Out-File -Encoding ascii 'saorsa-cli-${{ matrix.target }}.zip.sha256'"
+        cd target/release
+        tar czf ../../sb-x86_64-unknown-linux-gnu.tar.gz sb
+        tar czf ../../sdisk-x86_64-unknown-linux-gnu.tar.gz sdisk
+        tar czf ../../cli-x86_64-unknown-linux-gnu.tar.gz saorsa
+        cd ../..
 
     - name: Upload artifacts
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
       with:
-        name: binaries-${{ matrix.target }}
+        name: binaries-linux
         path: |
-          sb-${{ matrix.target }}.*
-          sdisk-${{ matrix.target }}.*
-          cli-${{ matrix.target }}.*
-          saorsa-cli-${{ matrix.target }}.*
+          sb-*.tar.gz
+          sdisk-*.tar.gz
+          cli-*.tar.gz
         retention-days: 7
 
   release:
     name: Create Release
-    needs: build
-    runs-on: ubuntu-22.04
-    env:
-      CARGO_HOME: ${{ runner.temp }}/cargo
-      RUSTUP_HOME: ${{ runner.temp }}/rustup
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
-
-    - name: Download artifacts
-      uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
-      with:
-        path: artifacts
-        merge-multiple: true
-
-    - name: Generate release notes
-      run: |
-        cat > RELEASE_NOTES.md << 'EOF'
-        ## Saorsa CLI Tools
-
-        This release includes three tools:
-
-        ### 🔍 sb (Saorsa Browser)
-        Terminal Markdown Browser/Editor with Git integration, syntax highlighting, and media support.
-
-        ### 💾 sdisk (Saorsa Disk)
-        Cross-platform CLI to analyze disk usage and suggest safe cleanups.
-
-        ### 📱 saorsa (CLI Menu)
-        Interactive menu system for Saorsa tools with automatic binary management.
-
-        ## Installation
-
-        ### Quick Install (using the CLI menu)
-        1. Download `cli-<platform>` archive for your system
-        2. Extract and run `saorsa` (or `saorsa.exe` on Windows)
-        3. The menu will automatically download other tools as needed
-
-        ### Manual Install (all tools)
-        1. Download `saorsa-cli-<platform>` archive for your system
-        2. Extract all binaries
-        3. Move to a directory in your PATH (e.g., `/usr/local/bin` on Unix)
-
-        ### Platform Archives
-
-        - **macOS Apple Silicon (M1/M2)**: `*-aarch64-apple-darwin.tar.gz`
-        - **macOS Intel**: `*-x86_64-apple-darwin.tar.gz`
-        - **Linux x86_64 (musl)**: `*-x86_64-unknown-linux-musl.tar.gz`
-        - **Linux ARM64 (musl)**: `*-aarch64-unknown-linux-musl.tar.gz`
-        - **Windows x86_64**: `*-x86_64-pc-windows-msvc.zip`
-
-        ## Checksums
-
-        SHA256 checksums are provided for each archive (`.sha256` files).
-
-        ## Usage
-
-        ```bash
-        # Interactive menu
-        saorsa
-
-        # Run tools directly
-        sb                    # Markdown browser
-        sdisk                 # Disk utility
-        saorsa --run sb       # Run sb through menu
-        saorsa --run sdisk    # Run sdisk through menu
-        ```
-
-        EOF
-
     - name: Create Release
       uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8
       with:
-        # Use provided tag when dispatched manually; otherwise use the current ref name
-        tag_name: ${{ inputs.tag_name || github.ref_name }}
-        files: |
-          artifacts/sb-*
-          artifacts/sdisk-*
-          artifacts/cli-*
-          artifacts/saorsa-cli-*
-        body_path: RELEASE_NOTES.md
+        tag_name: ${{ github.ref_name }}
+        body: |
+          ## Release ${{ github.ref_name }}
+
+          This is an automated release using GH_RELEASE_TOKEN.
         draft: false
         prerelease: false
-        generate_release_notes: false
       env:
         GITHUB_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
 
-  publish-crates:
-    name: Publish to crates.io
-    needs: build
-    runs-on: ubuntu-22.04
-    if: |
-      startsWith(github.ref, 'refs/tags/v') ||
-      startsWith(github.ref, 'refs/tags/sb-v') ||
-      startsWith(github.ref, 'refs/tags/sdisk-v') ||
-      startsWith(github.ref, 'refs/tags/cli-v')
-    steps:
-    - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
 
-    - name: Install Rust
-      uses: dtolnay/rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
-      with:
-        toolchain: stable
-
-    - name: Publish sb
-      if: startsWith(github.ref, 'refs/tags/v') || contains(github.ref, 'sb-v')
-      run: cargo publish --manifest-path sb/Cargo.toml --token ${{ secrets.CRATES_IO_TOKEN }}
-      continue-on-error: true
-
-    - name: Wait between publishes
-      run: sleep 30
-
-    - name: Publish sdisk
-      if: startsWith(github.ref, 'refs/tags/v') || contains(github.ref, 'sdisk-v')
-      run: cargo publish --manifest-path sdisk/Cargo.toml --token ${{ secrets.CRATES_IO_TOKEN }}
-      continue-on-error: true
-
-    - name: Wait between publishes
-      run: sleep 30
-
-    - name: Publish cli
-      if: startsWith(github.ref, 'refs/tags/v') || contains(github.ref, 'cli-v')
-      run: cargo publish --manifest-path cli/Cargo.toml --token ${{ secrets.CRATES_IO_TOKEN }}
-      continue-on-error: true
