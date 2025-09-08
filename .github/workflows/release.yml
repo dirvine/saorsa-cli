@@ -90,7 +90,7 @@ jobs:
         cargo zigbuild --release --target ${{ matrix.target }} --workspace
 
     - name: Build all binaries (non-musl)
-      if: ${{ contains(matrix.target, 'linux-musl') == false }}
+      if: ${{ !contains(matrix.target, 'linux-musl') }}
       shell: bash
       run: |
         cargo build --release --target ${{ matrix.target }} --workspace
