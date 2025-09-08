@@ -1,5 +1,4 @@
 name: Release-v2
-
 on:
   push:
     tags:
@@ -17,7 +16,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: release-${{ github.ref }}
+  group: release-${{ github.workflow_ref }}
   cancel-in-progress: true
 
 jobs:
