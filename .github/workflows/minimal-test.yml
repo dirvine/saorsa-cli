@@ -1,0 +1,12 @@
+name: Minimal Test
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: echo "Tag push triggered successfully"
