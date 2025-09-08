@@ -4,9 +4,6 @@ on:
   push:
     tags:
       - 'v*'
-      - 'sb-v*'
-      - 'sdisk-v*'
-      - 'cli-v*'
   workflow_dispatch:
     inputs:
       tag_name:
