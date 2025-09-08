@@ -1,0 +1,2163 @@
+time="2025-08-29T21:22:41+01:00" level=debug msg="Handling container host and socket"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Defaulting container socket to DOCKER_HOST"
+time="2025-08-29T21:22:41+01:00" level=info msg="Using docker host 'unix:///var/run/docker.sock', and daemon socket 'unix:///var/run/docker.sock'"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Loading environment from /Users/davidirvine/Desktop/Devel/projects/saorsa-cli/.env"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Loading action inputs from /Users/davidirvine/Desktop/Devel/projects/saorsa-cli/.input"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Loading secrets from /Users/davidirvine/Desktop/Devel/projects/saorsa-cli/.secrets"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Conditional GET for notices etag=28e1c9b0-1fa2-4c0f-9e71-1981e331c9bc"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Loading vars from /Users/davidirvine/Desktop/Devel/projects/saorsa-cli/.vars"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Evaluated matrix inclusions: map[]"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Loading workflow '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli/.github/workflows/release.yml'"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Reading workflow '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli/.github/workflows/release.yml'"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Using first passed in arguments event for filtering: push"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Preparing plan with a job: lint"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Using first passed in arguments event: push"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Planning job: lint"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Reading event.json from /Users/davidirvine/Desktop/Devel/projects/saorsa-cli/.act/tag_push.json"
+time="2025-08-29T21:22:41+01:00" level=debug msg="gc: 2025-08-29 21:22:41.130228 +0100 BST m=+0.056496626" module=artifactcache
+time="2025-08-29T21:22:41+01:00" level=debug msg="Plan Stages: [0x14000118858]"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Stages Runs: [Lint and Format]"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Name: Lint and Format"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.RawNeeds: {0 0    <nil> []    0 0}"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.RawRunsOn: {8 0 !!str ubuntu-22.04  <nil> []    27 14}"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Env: {0 0    <nil> []    0 0}"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.If: {0 0  success()  <nil> []    0 0}"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Steps: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Steps: Install Rust"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Steps: Check formatting"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Steps: Run clippy"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.TimeoutMinutes: "
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Services: map[]"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Strategy: <nil>"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.RawContainer: {0 0    <nil> []    0 0}"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Defaults.Run.Shell: "
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Defaults.Run.WorkingDirectory: "
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Outputs: map[]"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Uses: "
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.With: map[]"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job.Result: "
+time="2025-08-29T21:22:41+01:00" level=debug msg="Empty Strategy, matrixes=[map[]]"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Job Matrices: [map[]]"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Runner Matrices: map[]"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Final matrix after applying user inclusions '[map[]]'"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Detected CPUs: 12"
+time="2025-08-29T21:22:41+01:00" level=debug msg="PlanExecutor concurrency: 12"
+time="2025-08-29T21:22:41+01:00" level=debug msg="Detected CPUs: 12"
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'success()'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'success()' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Set up job
+[33m[Release-v2/Lint and Format] [0m🚀  Start image=catthehacker/ubuntu:act-22.04
+time="2025-08-29T21:22:41+01:00" level=debug msg="Parallel tasks (0) below minimum, setting to 1"
+[33m[Release-v2/Lint and Format] [0m  🐳  docker pull image=catthehacker/ubuntu:act-22.04 platform=linux/amd64 username= forcePull=true
+[33m[Release-v2/Lint and Format] [0m[DEBUG]   🐳  docker pull catthehacker/ubuntu:act-22.04
+[33m[Release-v2/Lint and Format] [0m[DEBUG] pulling image 'docker.io/catthehacker/ubuntu:act-22.04' (linux/amd64)
+time="2025-08-29T21:22:42+01:00" level=debug msg="Saving notices etag=28e1c9b0-1fa2-4c0f-9e71-1981e331c9bc"
+time="2025-08-29T21:22:42+01:00" level=debug msg="No new notices"
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Pulling from catthehacker/ubuntu :: act-22.04
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Digest: sha256:2c42f3d5c2eb71ca2a2786aeb5e31809f24d5f5f6b026cf60435dc6133556d49 :: 
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Status: Image is up to date for catthehacker/ubuntu:act-22.04 :: 
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Removed container: cb0650160a662b69a9487ec945e3bab7e6844430e0938a6ffff828665a9a53db
+[33m[Release-v2/Lint and Format] [0m[DEBUG]   🐳  docker volume rm act-Release-v2-Lint-and-Format-9d09b69100f15792fd1bab81c2a439d6d620e9f5b22bde2dbc9d2c9909bdaa6b
+[33m[Release-v2/Lint and Format] [0m[DEBUG]   🐳  docker volume rm act-Release-v2-Lint-and-Format-9d09b69100f15792fd1bab81c2a439d6d620e9f5b22bde2dbc9d2c9909bdaa6b-env
+time="2025-08-29T21:22:43+01:00" level=debug msg="Parallel tasks (0) below minimum, setting to 1"
+[33m[Release-v2/Lint and Format] [0m  🐳  docker create image=catthehacker/ubuntu:act-22.04 platform=linux/amd64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Common container.Config ==> &{Hostname: Domainname: User: AttachStdin:false AttachStdout:false AttachStderr:false ExposedPorts:map[] Tty:false OpenStdin:false StdinOnce:false Env:[RUNNER_TOOL_CACHE=/opt/hostedtoolcache RUNNER_OS=Linux RUNNER_ARCH=ARM64 RUNNER_TEMP=/tmp LANG=C.UTF-8] Cmd:[] Healthcheck:<nil> ArgsEscaped:false Image:catthehacker/ubuntu:act-22.04 Volumes:map[] WorkingDir:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli Entrypoint:[] NetworkDisabled:false MacAddress: OnBuild:[] Labels:map[] StopSignal: StopTimeout:<nil> Shell:[]}
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Common container.HostConfig ==> &{Binds:[/var/run/docker.sock:/var/run/docker.sock] ContainerIDFile: LogConfig:{Type: Config:map[]} NetworkMode:host PortBindings:map[] RestartPolicy:{Name: MaximumRetryCount:0} AutoRemove:false VolumeDriver: VolumesFrom:[] ConsoleSize:[0 0] Annotations:map[] CapAdd:[] CapDrop:[] CgroupnsMode: DNS:[] DNSOptions:[] DNSSearch:[] ExtraHosts:[] GroupAdd:[] IpcMode: Cgroup: Links:[] OomScoreAdj:0 PidMode: Privileged:false PublishAllPorts:false ReadonlyRootfs:false SecurityOpt:[] StorageOpt:map[] Tmpfs:map[] UTSMode: UsernsMode: ShmSize:0 Sysctls:map[] Runtime: Isolation: Resources:{CPUShares:0 Memory:0 NanoCPUs:0 CgroupParent: BlkioWeight:0 BlkioWeightDevice:[] BlkioDeviceReadBps:[] BlkioDeviceWriteBps:[] BlkioDeviceReadIOps:[] BlkioDeviceWriteIOps:[] CPUPeriod:0 CPUQuota:0 CPURealtimePeriod:0 CPURealtimeRuntime:0 CpusetCpus: CpusetMems: Devices:[] DeviceCgroupRules:[] DeviceRequests:[] KernelMemory:0 KernelMemoryTCP:0 MemoryReservation:0 MemorySwap:0 MemorySwappiness:<nil> OomKillDisable:<nil> PidsLimit:<nil> Ulimits:[] CPUCount:0 CPUPercent:0 IOMaximumIOps:0 IOMaximumBandwidth:0} Mounts:[{Type:volume Source:act-toolcache Target:/opt/hostedtoolcache ReadOnly:false Consistency: BindOptions:<nil> VolumeOptions:<nil> ImageOptions:<nil> TmpfsOptions:<nil> ClusterOptions:<nil>} {Type:volume Source:act-Release-v2-Lint-and-Format-9d09b69100f15792fd1bab81c2a439d6d620e9f5b22bde2dbc9d2c9909bdaa6b-env Target:/var/run/act ReadOnly:false Consistency: BindOptions:<nil> VolumeOptions:<nil> ImageOptions:<nil> TmpfsOptions:<nil> ClusterOptions:<nil>} {Type:volume Source:act-Release-v2-Lint-and-Format-9d09b69100f15792fd1bab81c2a439d6d620e9f5b22bde2dbc9d2c9909bdaa6b Target:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli ReadOnly:false Consistency: BindOptions:<nil> VolumeOptions:<nil> ImageOptions:<nil> TmpfsOptions:<nil> ClusterOptions:<nil>}] MaskedPaths:[] ReadonlyPaths:[] Init:<nil>}
+[33m[Release-v2/Lint and Format] [0m[DEBUG] input.NetworkAliases ==> [Lint and Format]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Created container name=act-Release-v2-Lint-and-Format-9d09b69100f15792fd1bab81c2a439d6d620e9f5b22bde2dbc9d2c9909bdaa6b id=545051372c6e02e1b352e95c02c97a932a354b1808aeb4911c74270eaadb40ac from image catthehacker/ubuntu:act-22.04 (platform: linux/amd64)
+[33m[Release-v2/Lint and Format] [0m[DEBUG] ENV ==> [RUNNER_TOOL_CACHE=/opt/hostedtoolcache RUNNER_OS=Linux RUNNER_ARCH=ARM64 RUNNER_TEMP=/tmp LANG=C.UTF-8]
+[33m[Release-v2/Lint and Format] [0m  🐳  docker run image=catthehacker/ubuntu:act-22.04 platform=linux/amd64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Starting container: 545051372c6e02e1b352e95c02c97a932a354b1808aeb4911c74270eaadb40ac
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Started container: 545051372c6e02e1b352e95c02c97a932a354b1808aeb4911c74270eaadb40ac
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/event.json len:29
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act/'
+time="2025-08-29T21:22:43+01:00" level=debug msg="Parallel tasks (0) below minimum, setting to 1"
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[node --no-warnings -e console.log(process.execPath)]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Set up job
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Skipping local actions/checkout because workdir was already copied
+[33m[Release-v2/Lint and Format] [0m[DEBUG] skip pre step for 'actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955': no action model available
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m  ☁  git clone 'https://github.com/dtolnay/rust-toolchain' # ref=5d458579430fc14a04a08a1e7d3694f545e91ce6
+[33m[Release-v2/Lint and Format] [0m[DEBUG]   cloning https://github.com/dtolnay/rust-toolchain to /Users/davidirvine/.cache/act/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Cloned https://github.com/dtolnay/rust-toolchain to /Users/davidirvine/.cache/act/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Checked out 5d458579430fc14a04a08a1e7d3694f545e91ce6
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Read action &{rustup toolchain install David Tolnay Install the Rust toolchain map[components:{Comma-separated list of components to be additionally installed false } target:{Alias for `targets` false } targets:{Comma-separated list of target triples to install for this toolchain false } toolchain:{Rust toolchain specification -- see https://rust-lang.github.io/rustup/concepts/toolchains.html#toolchain-specification false stable}] map[cachekey:{A short hash of the rustc version, appropriate for use as a cache key. "20220627a831" ${{steps.rustc-version.outputs.cachekey}}} name:{Rustup's name for the selected version of the toolchain. "1.62.0" ${{steps.parse.outputs.toolchain}}}] {composite map[]   always()  always()     [] [{parse {0 0    <nil> []    0 0}   : parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "'toolchain' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then
+  if [[ ${{runner.os}} == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+   bash {4 0 !!map   <nil> [0x140004bc280 0x140004bc320]    55 9} map[]  } {flags {0 0    <nil> []    0 0}   : construct rustup command line
+echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade=${{steps.parse.outputs.toolchain == 'nightly' && inputs.components && ' --allow-downgrade' || ''}}" >> $GITHUB_OUTPUT
+   bash {4 0 !!map   <nil> [0x140004bca00 0x140004bcaa0 0x140004bcb40 0x140004bcbe0]    65 9} map[]  } { {0 0    <nil> []    0 0}   : set $CARGO_HOME
+echo CARGO_HOME=${CARGO_HOME:-"${{runner.os == 'Windows' && '$USERPROFILE\.cargo' || '$HOME/.cargo'}}"} >> $GITHUB_ENV
+   bash {0 0    <nil> []    0 0} map[]  } { {8 0 !!str runner.os != 'Windows'  <nil> []    80 11}   : install rustup if needed
+if ! command -v rustup &>/dev/null; then
+  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+  echo "$CARGO_HOME/bin" >> $GITHUB_PATH
+fi
+   bash {0 0    <nil> []    0 0} map[]  } { {8 0 !!str runner.os == 'Windows'  <nil> []    90 11}   : install rustup if needed on windows
+if ! command -v rustup &>/dev/null; then
+  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://win.rustup.rs/${{runner.arch == 'ARM64' && 'aarch64' || 'x86_64'}} --output '${{runner.temp}}\rustup-init.exe'
+  '${{runner.temp}}\rustup-init.exe' --default-toolchain none --no-modify-path -y
+  echo "$CARGO_HOME\bin" >> $GITHUB_PATH
+fi
+   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0} rustup toolchain install ${{steps.parse.outputs.toolchain}}  rustup toolchain install ${{steps.parse.outputs.toolchain}}${{steps.flags.outputs.targets}}${{steps.flags.outputs.components}} --profile minimal${{steps.flags.outputs.downgrade}} --no-self-update   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0}   rustup default ${{steps.parse.outputs.toolchain}}   bash {0 0    <nil> []    0 0} map[] true } {rustc-version {0 0    <nil> []    0 0}   : create cachekey
+DATE=$(rustc +${{steps.parse.outputs.toolchain}} --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+HASH=$(rustc +${{steps.parse.outputs.toolchain}} --version --verbose | sed -ne 's/^commit-hash: //p')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0}   : disable incremental compilation
+if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV
+fi
+   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0}   : enable colors in Cargo output
+if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV
+fi
+   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0}   : enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "${{runner.temp}}"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +${{steps.parse.outputs.toolchain}} --version --verbose | grep -q '^release: 1\.6[89]\.'; then
+    touch "${{runner.temp}}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +${{steps.parse.outputs.toolchain}} --version --verbose | grep -q '^release: 1\.6[67]\.'; then
+    touch "${{runner.temp}}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0}   : work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +${{steps.parse.outputs.toolchain}} --version --verbose | grep -q '^release: 1\.7[01]\.'; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0}   rustc +${{steps.parse.outputs.toolchain}} --version --verbose   bash {0 0    <nil> []    0 0} map[]  }]} {purple activity}} from 'Unknown'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CI:true GITHUB_ACTION:1 GITHUB_ACTIONS:true GITHUB_ACTION_PATH: GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'always()'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'always()' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Pre Install Rust
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] run pre step for 'Install Rust'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Pre Install Rust [14.72625ms]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Skipping local actions/checkout because workdir was already copied
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CI:true GITHUB_ACTION:0 GITHUB_ACTIONS:true GITHUB_ACTION_PATH: GITHUB_ACTION_REF:08eba0b27e820071cde6df949e0beb9ba4906955 GITHUB_ACTION_REPOSITORY:actions/checkout GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m  🐳  docker cp src=/Users/davidirvine/Desktop/Devel/projects/saorsa-cli/. dst=/Users/davidirvine/Desktop/Devel/projects/saorsa-cli
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing tarball /var/folders/yj/_jckx7bd6sz7w8jg7pts5whh0000gn/T/act3569367221 from /Users/davidirvine/Desktop/Devel/projects/saorsa-cli/.
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Stripping prefix:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli/ src:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli/.
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content from '/var/folders/yj/_jckx7bd6sz7w8jg7pts5whh0000gn/T/act3569367221' to '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 [85.909167ms]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CI:true GITHUB_ACTION:1 GITHUB_ACTIONS:true GITHUB_ACTION_PATH: GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main Install Rust
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] About to run action &{rustup toolchain install David Tolnay Install the Rust toolchain map[components:{Comma-separated list of components to be additionally installed false } target:{Alias for `targets` false } targets:{Comma-separated list of target triples to install for this toolchain false } toolchain:{Rust toolchain specification -- see https://rust-lang.github.io/rustup/concepts/toolchains.html#toolchain-specification false stable}] map[cachekey:{A short hash of the rustc version, appropriate for use as a cache key. "20220627a831" ${{steps.rustc-version.outputs.cachekey}}} name:{Rustup's name for the selected version of the toolchain. "1.62.0" ${{steps.parse.outputs.toolchain}}}] {composite map[]   always()  always()     [] [{parse {0 0    <nil> []    0 0}   : parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "'toolchain' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then
+  if [[ ${{runner.os}} == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+   bash {4 0 !!map   <nil> [0x140004bc280 0x140004bc320]    55 9} map[]  } {flags {0 0    <nil> []    0 0}   : construct rustup command line
+echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade=${{steps.parse.outputs.toolchain == 'nightly' && inputs.components && ' --allow-downgrade' || ''}}" >> $GITHUB_OUTPUT
+   bash {4 0 !!map   <nil> [0x140004bca00 0x140004bcaa0 0x140004bcb40 0x140004bcbe0]    65 9} map[]  } { {0 0    <nil> []    0 0}   : set $CARGO_HOME
+echo CARGO_HOME=${CARGO_HOME:-"${{runner.os == 'Windows' && '$USERPROFILE\.cargo' || '$HOME/.cargo'}}"} >> $GITHUB_ENV
+   bash {0 0    <nil> []    0 0} map[]  } { {8 0 !!str runner.os != 'Windows'  <nil> []    80 11}   : install rustup if needed
+if ! command -v rustup &>/dev/null; then
+  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+  echo "$CARGO_HOME/bin" >> $GITHUB_PATH
+fi
+   bash {0 0    <nil> []    0 0} map[]  } { {8 0 !!str runner.os == 'Windows'  <nil> []    90 11}   : install rustup if needed on windows
+if ! command -v rustup &>/dev/null; then
+  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://win.rustup.rs/${{runner.arch == 'ARM64' && 'aarch64' || 'x86_64'}} --output '${{runner.temp}}\rustup-init.exe'
+  '${{runner.temp}}\rustup-init.exe' --default-toolchain none --no-modify-path -y
+  echo "$CARGO_HOME\bin" >> $GITHUB_PATH
+fi
+   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0} rustup toolchain install ${{steps.parse.outputs.toolchain}}  rustup toolchain install ${{steps.parse.outputs.toolchain}}${{steps.flags.outputs.targets}}${{steps.flags.outputs.components}} --profile minimal${{steps.flags.outputs.downgrade}} --no-self-update   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0}   rustup default ${{steps.parse.outputs.toolchain}}   bash {0 0    <nil> []    0 0} map[] true } {rustc-version {0 0    <nil> []    0 0}   : create cachekey
+DATE=$(rustc +${{steps.parse.outputs.toolchain}} --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+HASH=$(rustc +${{steps.parse.outputs.toolchain}} --version --verbose | sed -ne 's/^commit-hash: //p')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0}   : disable incremental compilation
+if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV
+fi
+   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0}   : enable colors in Cargo output
+if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV
+fi
+   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0}   : enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "${{runner.temp}}"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +${{steps.parse.outputs.toolchain}} --version --verbose | grep -q '^release: 1\.6[89]\.'; then
+    touch "${{runner.temp}}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +${{steps.parse.outputs.toolchain}} --version --verbose | grep -q '^release: 1\.6[67]\.'; then
+    touch "${{runner.temp}}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0}   : work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +${{steps.parse.outputs.toolchain}} --version --verbose | grep -q '^release: 1\.7[01]\.'; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+   bash {0 0    <nil> []    0 0} map[]  } { {0 0    <nil> []    0 0}   rustc +${{steps.parse.outputs.toolchain}} --version --verbose   bash {0 0    <nil> []    0 0} map[]  }]} {purple activity}}
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] type=remote-action actionDir=/Users/davidirvine/.cache/act/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 actionPath= workdir=/Users/davidirvine/Desktop/Devel/projects/saorsa-cli actionCacheDir=/Users/davidirvine/.cache/act actionName=dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 containerActionDir=/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
+[33m[Release-v2/Lint and Format] [0m[DEBUG] /var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
+[33m[Release-v2/Lint and Format] [0m  🐳  docker cp src=/Users/davidirvine/.cache/act/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6/ dst=/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6/
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing tarball /var/folders/yj/_jckx7bd6sz7w8jg7pts5whh0000gn/T/act3455371498 from /Users/davidirvine/.cache/act/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6/
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Stripping prefix:/Users/davidirvine/.cache/act/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6/ src:/Users/davidirvine/.cache/act/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6/
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content from '/var/folders/yj/_jckx7bd6sz7w8jg7pts5whh0000gn/T/act3455371498' to '/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6/'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '${{inputs.toolchain}}' rewritten to 'format('{0}', inputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format('{0}', inputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format('{0}', inputs.toolchain)' evaluated to '%!t(string=stable)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CI:true GITHUB_ACTION:parse GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID: toolchain:stable]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression ': parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "'toolchain' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then
+  if [[ ${{runner.os}} == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+' rewritten to 'format(': parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "''toolchain'' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable'' ''[0-9]+'' ''(year|month|week|day)s?'' ''ago$ ]]; then
+  if [[ {0} == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed ''s/stable \([0-9]*\) \(.\).*/\1\2/'' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${{toolchain#stable }}" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable'' ''minus'' ''[0-9]+'' ''releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${{toolchain//[^0-9]/}}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${{toolchain#1.}}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+', runner.os)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format(': parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "''toolchain'' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable'' ''[0-9]+'' ''(year|month|week|day)s?'' ''ago$ ]]; then
+  if [[ {0} == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed ''s/stable \([0-9]*\) \(.\).*/\1\2/'' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${{toolchain#stable }}" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable'' ''minus'' ''[0-9]+'' ''releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${{toolchain//[^0-9]/}}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${{toolchain#1.}}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+', runner.os)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format(': parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "''toolchain'' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable'' ''[0-9]+'' ''(year|month|week|day)s?'' ''ago$ ]]; then
+  if [[ {0} == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed ''s/stable \([0-9]*\) \(.\).*/\1\2/'' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${{toolchain#stable }}" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable'' ''minus'' ''[0-9]+'' ''releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${{toolchain//[^0-9]/}}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${{toolchain#1.}}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+', runner.os)' evaluated to '%!t(string=: parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "'toolchain' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then
+  if [[ Linux == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+)'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main : parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "'toolchain' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then
+  if [[ Linux == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression ': parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "'toolchain' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then
+  if [[ ${{runner.os}} == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+' rewritten to 'format(': parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "''toolchain'' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable'' ''[0-9]+'' ''(year|month|week|day)s?'' ''ago$ ]]; then
+  if [[ {0} == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed ''s/stable \([0-9]*\) \(.\).*/\1\2/'' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${{toolchain#stable }}" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable'' ''minus'' ''[0-9]+'' ''releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${{toolchain//[^0-9]/}}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${{toolchain#1.}}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+', runner.os)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format(': parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "''toolchain'' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable'' ''[0-9]+'' ''(year|month|week|day)s?'' ''ago$ ]]; then
+  if [[ {0} == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed ''s/stable \([0-9]*\) \(.\).*/\1\2/'' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${{toolchain#stable }}" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable'' ''minus'' ''[0-9]+'' ''releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${{toolchain//[^0-9]/}}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${{toolchain#1.}}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+', runner.os)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format(': parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "''toolchain'' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable'' ''[0-9]+'' ''(year|month|week|day)s?'' ''ago$ ]]; then
+  if [[ {0} == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed ''s/stable \([0-9]*\) \(.\).*/\1\2/'' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${{toolchain#stable }}" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable'' ''minus'' ''[0-9]+'' ''releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${{toolchain//[^0-9]/}}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${{toolchain#1.}}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+', runner.os)' evaluated to '%!t(string=: parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "'toolchain' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then
+  if [[ Linux == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+: parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "'toolchain' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then
+  if [[ Linux == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+
+
+ to 'workflow/1-composite-parse.sh'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/1-composite-parse.sh len:989
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-parse.sh] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-parse.sh]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main : parse toolchain version
+if [[ -z $toolchain ]]; then
+  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070
+  echo "'toolchain' is a required input" >&2
+  exit 1
+elif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then
+  if [[ Linux == macOS ]]; then
+    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  else
+    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT
+  fi
+elif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then
+  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT
+elif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then
+  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT
+else
+  echo "toolchain=$toolchain" >> $GITHUB_OUTPUT
+fi
+ [92.320667ms]
+[33m[Release-v2/Lint and Format] [0m  ⚙  ::set-output:: toolchain=stable
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '${{inputs.targets || inputs.target || ''}}' rewritten to 'format('{0}', inputs.targets || inputs.target || '')'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format('{0}', inputs.targets || inputs.target || '')'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format('{0}', inputs.targets || inputs.target || '')' evaluated to '%!t(string=)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '${{inputs.components}}' rewritten to 'format('{0}', inputs.components)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format('{0}', inputs.components)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format('{0}', inputs.components)' evaluated to '%!t(string=clippy, rustfmt)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CI:true GITHUB_ACTION:flags GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID: components:clippy, rustfmt targets:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression ': construct rustup command line
+echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade=${{steps.parse.outputs.toolchain == 'nightly' && inputs.components && ' --allow-downgrade' || ''}}" >> $GITHUB_OUTPUT
+' rewritten to 'format(': construct rustup command line
+echo "targets=$(for t in ${{targets//,/ }}; do echo -n '' --target'' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${{components//,/ }}; do echo -n '' --component'' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade={0}" >> $GITHUB_OUTPUT
+', steps.parse.outputs.toolchain == 'nightly' && inputs.components && ' --allow-downgrade' || '')'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format(': construct rustup command line
+echo "targets=$(for t in ${{targets//,/ }}; do echo -n '' --target'' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${{components//,/ }}; do echo -n '' --component'' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade={0}" >> $GITHUB_OUTPUT
+', steps.parse.outputs.toolchain == 'nightly' && inputs.components && ' --allow-downgrade' || '')'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format(': construct rustup command line
+echo "targets=$(for t in ${{targets//,/ }}; do echo -n '' --target'' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${{components//,/ }}; do echo -n '' --component'' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade={0}" >> $GITHUB_OUTPUT
+', steps.parse.outputs.toolchain == 'nightly' && inputs.components && ' --allow-downgrade' || '')' evaluated to '%!t(string=: construct rustup command line
+echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade=" >> $GITHUB_OUTPUT
+)'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main : construct rustup command line
+echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade=" >> $GITHUB_OUTPUT
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression ': construct rustup command line
+echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade=${{steps.parse.outputs.toolchain == 'nightly' && inputs.components && ' --allow-downgrade' || ''}}" >> $GITHUB_OUTPUT
+' rewritten to 'format(': construct rustup command line
+echo "targets=$(for t in ${{targets//,/ }}; do echo -n '' --target'' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${{components//,/ }}; do echo -n '' --component'' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade={0}" >> $GITHUB_OUTPUT
+', steps.parse.outputs.toolchain == 'nightly' && inputs.components && ' --allow-downgrade' || '')'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format(': construct rustup command line
+echo "targets=$(for t in ${{targets//,/ }}; do echo -n '' --target'' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${{components//,/ }}; do echo -n '' --component'' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade={0}" >> $GITHUB_OUTPUT
+', steps.parse.outputs.toolchain == 'nightly' && inputs.components && ' --allow-downgrade' || '')'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format(': construct rustup command line
+echo "targets=$(for t in ${{targets//,/ }}; do echo -n '' --target'' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${{components//,/ }}; do echo -n '' --component'' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade={0}" >> $GITHUB_OUTPUT
+', steps.parse.outputs.toolchain == 'nightly' && inputs.components && ' --allow-downgrade' || '')' evaluated to '%!t(string=: construct rustup command line
+echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade=" >> $GITHUB_OUTPUT
+)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+: construct rustup command line
+echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade=" >> $GITHUB_OUTPUT
+
+
+ to 'workflow/1-composite-flags.sh'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/1-composite-flags.sh len:267
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-flags.sh] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-flags.sh]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main : construct rustup command line
+echo "targets=$(for t in ${targets//,/ }; do echo -n ' --target' $t; done)" >> $GITHUB_OUTPUT
+echo "components=$(for c in ${components//,/ }; do echo -n ' --component' $c; done)" >> $GITHUB_OUTPUT
+echo "downgrade=" >> $GITHUB_OUTPUT
+ [106.233625ms]
+[33m[Release-v2/Lint and Format] [0m  ⚙  ::set-output:: targets=
+[33m[Release-v2/Lint and Format] [0m  ⚙  ::set-output:: components= --component clippy --component rustfmt
+[33m[Release-v2/Lint and Format] [0m  ⚙  ::set-output:: downgrade=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CI:true GITHUB_ACTION:2 GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression ': set $CARGO_HOME
+echo CARGO_HOME=${CARGO_HOME:-"${{runner.os == 'Windows' && '$USERPROFILE\.cargo' || '$HOME/.cargo'}}"} >> $GITHUB_ENV
+' rewritten to 'format(': set $CARGO_HOME
+echo CARGO_HOME=${{CARGO_HOME:-"{0}"}} >> $GITHUB_ENV
+', runner.os == 'Windows' && '$USERPROFILE\.cargo' || '$HOME/.cargo')'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format(': set $CARGO_HOME
+echo CARGO_HOME=${{CARGO_HOME:-"{0}"}} >> $GITHUB_ENV
+', runner.os == 'Windows' && '$USERPROFILE\.cargo' || '$HOME/.cargo')'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format(': set $CARGO_HOME
+echo CARGO_HOME=${{CARGO_HOME:-"{0}"}} >> $GITHUB_ENV
+', runner.os == 'Windows' && '$USERPROFILE\.cargo' || '$HOME/.cargo')' evaluated to '%!t(string=: set $CARGO_HOME
+echo CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV
+)'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main : set $CARGO_HOME
+echo CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression ': set $CARGO_HOME
+echo CARGO_HOME=${CARGO_HOME:-"${{runner.os == 'Windows' && '$USERPROFILE\.cargo' || '$HOME/.cargo'}}"} >> $GITHUB_ENV
+' rewritten to 'format(': set $CARGO_HOME
+echo CARGO_HOME=${{CARGO_HOME:-"{0}"}} >> $GITHUB_ENV
+', runner.os == 'Windows' && '$USERPROFILE\.cargo' || '$HOME/.cargo')'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format(': set $CARGO_HOME
+echo CARGO_HOME=${{CARGO_HOME:-"{0}"}} >> $GITHUB_ENV
+', runner.os == 'Windows' && '$USERPROFILE\.cargo' || '$HOME/.cargo')'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format(': set $CARGO_HOME
+echo CARGO_HOME=${{CARGO_HOME:-"{0}"}} >> $GITHUB_ENV
+', runner.os == 'Windows' && '$USERPROFILE\.cargo' || '$HOME/.cargo')' evaluated to '%!t(string=: set $CARGO_HOME
+echo CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV
+)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+: set $CARGO_HOME
+echo CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV
+
+
+ to 'workflow/1-composite-2.sh'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/1-composite-2.sh len:81
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-2.sh] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-2.sh]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main : set $CARGO_HOME
+echo CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV
+ [89.95525ms]
+[33m[Release-v2/Lint and Format] [0m  ⚙  ::set-env:: CARGO_HOME=/root/.cargo
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CI:true GITHUB_ACTION:3 GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'runner.os != 'Windows''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'runner.os != 'Windows'' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main : install rustup if needed
+if ! command -v rustup &>/dev/null; then
+  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+  echo "$CARGO_HOME/bin" >> $GITHUB_PATH
+fi
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+: install rustup if needed
+if ! command -v rustup &>/dev/null; then
+  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+  echo "$CARGO_HOME/bin" >> $GITHUB_PATH
+fi
+
+
+ to 'workflow/1-composite-3.sh'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/1-composite-3.sh len:279
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-3.sh] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-3.sh]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m|[0m info: downloading installer
+[33m|[0m info: profile set to 'default'
+[33m|[0m info: default host triple is x86_64-unknown-linux-gnu
+[33m|[0m info: skipping toolchain installation
+[33m|[0m 
+[33m|[0m 
+[33m|[0m Rust is installed now. Great!
+[33m|[0m 
+[33m|[0m To get started you may need to restart your current shell.
+[33m|[0m This would reload your PATH environment variable to include
+[33m|[0m Cargo's bin directory ($HOME/.cargo/bin).
+[33m|[0m 
+[33m|[0m To configure your current shell, you need to source
+[33m|[0m the corresponding env file under $HOME/.cargo.
+[33m|[0m 
+[33m|[0m This is usually done by running one of the following (note the leading DOT):
+[33m|[0m . "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
+[33m|[0m source "$HOME/.cargo/env.fish"  # For fish
+[33m|[0m source $"($nu.home-path)/.cargo/env.nu"  # For nushell
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main : install rustup if needed
+if ! command -v rustup &>/dev/null; then
+  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+  echo "$CARGO_HOME/bin" >> $GITHUB_PATH
+fi
+ [32.772429333s]
+[33m[Release-v2/Lint and Format] [0m  ⚙  ::add-path:: /root/.cargo/bin
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CI:true GITHUB_ACTION:4 GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'runner.os == 'Windows''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'runner.os == 'Windows'' evaluated to 'false'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Skipping step ': install rustup if needed on windows
+if ! command -v rustup &>/dev/null; then
+  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://win.rustup.rs/${{runner.arch == 'ARM64' && 'aarch64' || 'x86_64'}} --output '${{runner.temp}}\rustup-init.exe'
+  '${{runner.temp}}\rustup-init.exe' --default-toolchain none --no-modify-path -y
+  echo "$CARGO_HOME\bin" >> $GITHUB_PATH
+fi
+' due to 'runner.os == 'Windows''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CI:true GITHUB_ACTION:5 GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'rustup toolchain install ${{steps.parse.outputs.toolchain}}' rewritten to 'format('rustup toolchain install {0}', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format('rustup toolchain install {0}', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format('rustup toolchain install {0}', steps.parse.outputs.toolchain)' evaluated to '%!t(string=rustup toolchain install stable)'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main rustup toolchain install stable
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'rustup toolchain install ${{steps.parse.outputs.toolchain}}${{steps.flags.outputs.targets}}${{steps.flags.outputs.components}} --profile minimal${{steps.flags.outputs.downgrade}} --no-self-update' rewritten to 'format('rustup toolchain install {0}{1}{2} --profile minimal{3} --no-self-update', steps.parse.outputs.toolchain, steps.flags.outputs.targets, steps.flags.outputs.components, steps.flags.outputs.downgrade)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format('rustup toolchain install {0}{1}{2} --profile minimal{3} --no-self-update', steps.parse.outputs.toolchain, steps.flags.outputs.targets, steps.flags.outputs.components, steps.flags.outputs.downgrade)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format('rustup toolchain install {0}{1}{2} --profile minimal{3} --no-self-update', steps.parse.outputs.toolchain, steps.flags.outputs.targets, steps.flags.outputs.components, steps.flags.outputs.downgrade)' evaluated to '%!t(string=rustup toolchain install stable --component clippy --component rustfmt --profile minimal --no-self-update)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+rustup toolchain install stable --component clippy --component rustfmt --profile minimal --no-self-update
+
+ to 'workflow/1-composite-5.sh'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/1-composite-5.sh len:107
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-5.sh] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-5.sh]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m|[0m info: syncing channel updates for 'stable-x86_64-unknown-linux-gnu'
+[33m|[0m info: latest update on 2025-08-07, rust version 1.89.0 (29483883e 2025-08-04)
+[33m|[0m info: downloading component 'cargo'
+[33m|[0m info: downloading component 'clippy'
+[33m|[0m info: downloading component 'rust-std'
+[33m|[0m info: downloading component 'rustc'
+[33m|[0m info: downloading component 'rustfmt'
+[33m|[0m info: installing component 'cargo'
+[33m|[0m info: installing component 'clippy'
+[33m|[0m info: installing component 'rust-std'
+[33m|[0m info: installing component 'rustc'
+[33m|[0m info: installing component 'rustfmt'
+[33m|[0m 
+[33m|[0m   stable-x86_64-unknown-linux-gnu installed - rustc 1.89.0 (29483883e 2025-08-04)
+[33m|[0m 
+[33m|[0m info: default toolchain set to 'stable-x86_64-unknown-linux-gnu'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main rustup toolchain install stable [1m28.902390208s]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CI:true GITHUB_ACTION:6 GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'rustup default ${{steps.parse.outputs.toolchain}}' rewritten to 'format('rustup default {0}', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format('rustup default {0}', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format('rustup default {0}', steps.parse.outputs.toolchain)' evaluated to '%!t(string=rustup default stable)'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main rustup default stable
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'rustup default ${{steps.parse.outputs.toolchain}}' rewritten to 'format('rustup default {0}', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format('rustup default {0}', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format('rustup default {0}', steps.parse.outputs.toolchain)' evaluated to '%!t(string=rustup default stable)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+rustup default stable
+
+ to 'workflow/1-composite-6.sh'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/1-composite-6.sh len:23
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-6.sh] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-6.sh]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m|[0m info: using existing install for 'stable-x86_64-unknown-linux-gnu'
+[33m|[0m info: default toolchain set to 'stable-x86_64-unknown-linux-gnu'
+[33m|[0m 
+[33m|[0m   stable-x86_64-unknown-linux-gnu unchanged - rustc 1.89.0 (29483883e 2025-08-04)
+[33m|[0m 
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main rustup default stable [1.271378584s]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CI:true GITHUB_ACTION:rustc-version GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression ': create cachekey
+DATE=$(rustc +${{steps.parse.outputs.toolchain}} --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+HASH=$(rustc +${{steps.parse.outputs.toolchain}} --version --verbose | sed -ne 's/^commit-hash: //p')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+' rewritten to 'format(': create cachekey
+DATE=$(rustc +{0} --version --verbose | sed -ne ''s/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p'')
+HASH=$(rustc +{1} --version --verbose | sed -ne ''s/^commit-hash: //p'')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+', steps.parse.outputs.toolchain, steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format(': create cachekey
+DATE=$(rustc +{0} --version --verbose | sed -ne ''s/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p'')
+HASH=$(rustc +{1} --version --verbose | sed -ne ''s/^commit-hash: //p'')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+', steps.parse.outputs.toolchain, steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format(': create cachekey
+DATE=$(rustc +{0} --version --verbose | sed -ne ''s/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p'')
+HASH=$(rustc +{1} --version --verbose | sed -ne ''s/^commit-hash: //p'')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+', steps.parse.outputs.toolchain, steps.parse.outputs.toolchain)' evaluated to '%!t(string=: create cachekey
+DATE=$(rustc +stable --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+HASH=$(rustc +stable --version --verbose | sed -ne 's/^commit-hash: //p')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+)'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main : create cachekey
+DATE=$(rustc +stable --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+HASH=$(rustc +stable --version --verbose | sed -ne 's/^commit-hash: //p')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression ': create cachekey
+DATE=$(rustc +${{steps.parse.outputs.toolchain}} --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+HASH=$(rustc +${{steps.parse.outputs.toolchain}} --version --verbose | sed -ne 's/^commit-hash: //p')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+' rewritten to 'format(': create cachekey
+DATE=$(rustc +{0} --version --verbose | sed -ne ''s/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p'')
+HASH=$(rustc +{1} --version --verbose | sed -ne ''s/^commit-hash: //p'')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+', steps.parse.outputs.toolchain, steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format(': create cachekey
+DATE=$(rustc +{0} --version --verbose | sed -ne ''s/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p'')
+HASH=$(rustc +{1} --version --verbose | sed -ne ''s/^commit-hash: //p'')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+', steps.parse.outputs.toolchain, steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format(': create cachekey
+DATE=$(rustc +{0} --version --verbose | sed -ne ''s/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p'')
+HASH=$(rustc +{1} --version --verbose | sed -ne ''s/^commit-hash: //p'')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+', steps.parse.outputs.toolchain, steps.parse.outputs.toolchain)' evaluated to '%!t(string=: create cachekey
+DATE=$(rustc +stable --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+HASH=$(rustc +stable --version --verbose | sed -ne 's/^commit-hash: //p')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+: create cachekey
+DATE=$(rustc +stable --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+HASH=$(rustc +stable --version --verbose | sed -ne 's/^commit-hash: //p')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+
+
+ to 'workflow/1-composite-rustc-version.sh'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/1-composite-rustc-version.sh len:285
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-rustc-version.sh] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-rustc-version.sh]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main : create cachekey
+DATE=$(rustc +stable --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+HASH=$(rustc +stable --version --verbose | sed -ne 's/^commit-hash: //p')
+echo "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT
+ [1.273064417s]
+[33m[Release-v2/Lint and Format] [0m  ⚙  ::set-output:: cachekey=202508042948
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CI:true GITHUB_ACTION:8 GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main : disable incremental compilation
+if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV
+fi
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+: disable incremental compilation
+if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV
+fi
+
+
+ to 'workflow/1-composite-8.sh'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/1-composite-8.sh len:124
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-8.sh] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-8.sh]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main : disable incremental compilation
+if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV
+fi
+ [355.339083ms]
+[33m[Release-v2/Lint and Format] [0m  ⚙  ::set-env:: CARGO_INCREMENTAL=0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CARGO_INCREMENTAL:0 CI:true GITHUB_ACTION:9 GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main : enable colors in Cargo output
+if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV
+fi
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+: enable colors in Cargo output
+if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV
+fi
+
+
+ to 'workflow/1-composite-9.sh'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/1-composite-9.sh len:125
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-9.sh] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-9.sh]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main : enable colors in Cargo output
+if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV
+fi
+ [383.962333ms]
+[33m[Release-v2/Lint and Format] [0m  ⚙  ::set-env:: CARGO_TERM_COLOR=always
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CARGO_INCREMENTAL:0 CARGO_TERM_COLOR:always CI:true GITHUB_ACTION:10 GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression ': enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "${{runner.temp}}"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +${{steps.parse.outputs.toolchain}} --version --verbose | grep -q '^release: 1\.6[89]\.'; then
+    touch "${{runner.temp}}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +${{steps.parse.outputs.toolchain}} --version --verbose | grep -q '^release: 1\.6[67]\.'; then
+    touch "${{runner.temp}}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+' rewritten to 'format(': enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${{CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}}" -o -f "{0}"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +{1} --version --verbose | grep -q ''^release: 1\.6[89]\.''; then
+    touch "{2}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +{3} --version --verbose | grep -q ''^release: 1\.6[67]\.''; then
+    touch "{4}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+', runner.temp, steps.parse.outputs.toolchain, runner.temp, steps.parse.outputs.toolchain, runner.temp)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format(': enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${{CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}}" -o -f "{0}"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +{1} --version --verbose | grep -q ''^release: 1\.6[89]\.''; then
+    touch "{2}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +{3} --version --verbose | grep -q ''^release: 1\.6[67]\.''; then
+    touch "{4}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+', runner.temp, steps.parse.outputs.toolchain, runner.temp, steps.parse.outputs.toolchain, runner.temp)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format(': enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${{CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}}" -o -f "{0}"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +{1} --version --verbose | grep -q ''^release: 1\.6[89]\.''; then
+    touch "{2}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +{3} --version --verbose | grep -q ''^release: 1\.6[67]\.''; then
+    touch "{4}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+', runner.temp, steps.parse.outputs.toolchain, runner.temp, steps.parse.outputs.toolchain, runner.temp)' evaluated to '%!t(string=: enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/tmp"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +stable --version --verbose | grep -q '^release: 1\.6[89]\.'; then
+    touch "/tmp"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +stable --version --verbose | grep -q '^release: 1\.6[67]\.'; then
+    touch "/tmp"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+)'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main : enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/tmp"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +stable --version --verbose | grep -q '^release: 1\.6[89]\.'; then
+    touch "/tmp"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +stable --version --verbose | grep -q '^release: 1\.6[67]\.'; then
+    touch "/tmp"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression ': enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "${{runner.temp}}"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +${{steps.parse.outputs.toolchain}} --version --verbose | grep -q '^release: 1\.6[89]\.'; then
+    touch "${{runner.temp}}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +${{steps.parse.outputs.toolchain}} --version --verbose | grep -q '^release: 1\.6[67]\.'; then
+    touch "${{runner.temp}}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+' rewritten to 'format(': enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${{CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}}" -o -f "{0}"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +{1} --version --verbose | grep -q ''^release: 1\.6[89]\.''; then
+    touch "{2}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +{3} --version --verbose | grep -q ''^release: 1\.6[67]\.''; then
+    touch "{4}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+', runner.temp, steps.parse.outputs.toolchain, runner.temp, steps.parse.outputs.toolchain, runner.temp)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format(': enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${{CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}}" -o -f "{0}"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +{1} --version --verbose | grep -q ''^release: 1\.6[89]\.''; then
+    touch "{2}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +{3} --version --verbose | grep -q ''^release: 1\.6[67]\.''; then
+    touch "{4}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+', runner.temp, steps.parse.outputs.toolchain, runner.temp, steps.parse.outputs.toolchain, runner.temp)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format(': enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${{CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}}" -o -f "{0}"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +{1} --version --verbose | grep -q ''^release: 1\.6[89]\.''; then
+    touch "{2}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +{3} --version --verbose | grep -q ''^release: 1\.6[67]\.''; then
+    touch "{4}"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+', runner.temp, steps.parse.outputs.toolchain, runner.temp, steps.parse.outputs.toolchain, runner.temp)' evaluated to '%!t(string=: enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/tmp"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +stable --version --verbose | grep -q '^release: 1\.6[89]\.'; then
+    touch "/tmp"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +stable --version --verbose | grep -q '^release: 1\.6[67]\.'; then
+    touch "/tmp"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+: enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/tmp"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +stable --version --verbose | grep -q '^release: 1\.6[89]\.'; then
+    touch "/tmp"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +stable --version --verbose | grep -q '^release: 1\.6[67]\.'; then
+    touch "/tmp"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+
+
+ to 'workflow/1-composite-10.sh'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/1-composite-10.sh len:656
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-10.sh] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-10.sh]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main : enable Cargo sparse registry
+# implemented in 1.66, stabilized in 1.68, made default in 1.70
+if [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/tmp"/.implicit_cargo_registries_crates_io_protocol ]; then
+  if rustc +stable --version --verbose | grep -q '^release: 1\.6[89]\.'; then
+    touch "/tmp"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV
+  elif rustc +stable --version --verbose | grep -q '^release: 1\.6[67]\.'; then
+    touch "/tmp"/.implicit_cargo_registries_crates_io_protocol || true
+    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV
+  fi
+fi
+ [1.349384667s]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CARGO_INCREMENTAL:0 CARGO_TERM_COLOR:always CI:true GITHUB_ACTION:11 GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression ': work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +${{steps.parse.outputs.toolchain}} --version --verbose | grep -q '^release: 1\.7[01]\.'; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+' rewritten to 'format(': work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +{0} --version --verbose | grep -q ''^release: 1\.7[01]\.''; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format(': work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +{0} --version --verbose | grep -q ''^release: 1\.7[01]\.''; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format(': work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +{0} --version --verbose | grep -q ''^release: 1\.7[01]\.''; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+', steps.parse.outputs.toolchain)' evaluated to '%!t(string=: work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +stable --version --verbose | grep -q '^release: 1\.7[01]\.'; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+)'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main : work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +stable --version --verbose | grep -q '^release: 1\.7[01]\.'; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression ': work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +${{steps.parse.outputs.toolchain}} --version --verbose | grep -q '^release: 1\.7[01]\.'; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+' rewritten to 'format(': work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +{0} --version --verbose | grep -q ''^release: 1\.7[01]\.''; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format(': work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +{0} --version --verbose | grep -q ''^release: 1\.7[01]\.''; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format(': work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +{0} --version --verbose | grep -q ''^release: 1\.7[01]\.''; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+', steps.parse.outputs.toolchain)' evaluated to '%!t(string=: work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +stable --version --verbose | grep -q '^release: 1\.7[01]\.'; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+: work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +stable --version --verbose | grep -q '^release: 1\.7[01]\.'; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+
+
+ to 'workflow/1-composite-11.sh'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/1-composite-11.sh len:277
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-11.sh] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-11.sh]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main : work around spurious network errors in curl 8.0
+# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+if rustc +stable --version --verbose | grep -q '^release: 1\.7[01]\.'; then
+  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV
+fi
+ [809.558583ms]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CARGO_INCREMENTAL:0 CARGO_TERM_COLOR:always CI:true GITHUB_ACTION:12 GITHUB_ACTIONS:true GITHUB_ACTION_PATH:/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TARGET: INPUT_TARGETS: INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'rustc +${{steps.parse.outputs.toolchain}} --version --verbose' rewritten to 'format('rustc +{0} --version --verbose', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format('rustc +{0} --version --verbose', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format('rustc +{0} --version --verbose', steps.parse.outputs.toolchain)' evaluated to '%!t(string=rustc +stable --version --verbose)'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main rustc +stable --version --verbose
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'rustc +${{steps.parse.outputs.toolchain}} --version --verbose' rewritten to 'format('rustc +{0} --version --verbose', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format('rustc +{0} --version --verbose', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format('rustc +{0} --version --verbose', steps.parse.outputs.toolchain)' evaluated to '%!t(string=rustc +stable --version --verbose)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+rustc +stable --version --verbose
+
+ to 'workflow/1-composite-12.sh'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/1-composite-12.sh len:35
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-12.sh] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1-composite-12.sh]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m|[0m rustc 1.89.0 (29483883e 2025-08-04)
+[33m|[0m binary: rustc
+[33m|[0m commit-hash: 29483883eed69d5fb4db01964cdf2af4d86e9cb2
+[33m|[0m commit-date: 2025-08-04
+[33m|[0m host: x86_64-unknown-linux-gnu
+[33m|[0m release: 1.89.0
+[33m|[0m LLVM version: 20.1.7
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main rustc +stable --version --verbose [992.14125ms]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '${{steps.rustc-version.outputs.cachekey}}' rewritten to 'format('{0}', steps.rustc-version.outputs.cachekey)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format('{0}', steps.rustc-version.outputs.cachekey)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format('{0}', steps.rustc-version.outputs.cachekey)' evaluated to '%!t(string=202508042948)'
+[33m[Release-v2/Lint and Format] [0m  ⚙  ::set-output:: cachekey=202508042948
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '${{steps.parse.outputs.toolchain}}' rewritten to 'format('{0}', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'format('{0}', steps.parse.outputs.toolchain)'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'format('{0}', steps.parse.outputs.toolchain)' evaluated to '%!t(string=stable)'
+[33m[Release-v2/Lint and Format] [0m  ⚙  ::set-output:: name=stable
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main Install Rust [2m10.153302083s]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CARGO_INCREMENTAL:0 CARGO_TERM_COLOR:always CI:true GITHUB_ACTION:2 GITHUB_ACTIONS:true GITHUB_ACTION_PATH: GITHUB_ACTION_REF: GITHUB_ACTION_REPOSITORY: GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main Check formatting
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+cargo fmt --all -- --check
+
+ to 'workflow/2'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/2 len:28
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash -e /var/run/act/workflow/2] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash -e /var/run/act/workflow/2]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Main Check formatting [5.319534416s]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CARGO_INCREMENTAL:0 CARGO_TERM_COLOR:always CI:true GITHUB_ACTION:3 GITHUB_ACTIONS:true GITHUB_ACTION_PATH: GITHUB_ACTION_REF: GITHUB_ACTION_REPOSITORY: GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression ''
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression '' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Main Run clippy
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Wrote command 
+
+cargo clippy --all -- --deny warnings
+
+ to 'workflow/3'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/3 len:39
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m  🐳  docker exec cmd=[bash -e /var/run/act/workflow/3] user= workdir=
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Exec command '[bash -e /var/run/act/workflow/3]'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Working directory '/Users/davidirvine/Desktop/Devel/projects/saorsa-cli'
+[33m|[0m [1m[33mwarning[0m[1m:[0m profiles for the non root package will be ignored, specify profiles at the workspace root:
+[33m|[0m package:   /Users/davidirvine/Desktop/Devel/projects/saorsa-cli/sb/Cargo.toml
+[33m|[0m workspace: /Users/davidirvine/Desktop/Devel/projects/saorsa-cli/Cargo.toml
+[33m|[0m [1m[32m    Updating[0m crates.io index
+[33m|[0m [1m[32m Downloading[0m crates ...
+[33m|[0m [1m[32m  Downloaded[0m block-buffer v0.10.4
+[33m|[0m [1m[32m  Downloaded[0m cfg_aliases v0.2.1
+[33m|[0m [1m[32m  Downloaded[0m equivalent v1.0.2
+[33m|[0m [1m[32m  Downloaded[0m strum v0.26.3
+[33m|[0m [1m[32m  Downloaded[0m scopeguard v1.2.0
+[33m|[0m [1m[32m  Downloaded[0m tokio-macros v2.5.0
+[33m|[0m [1m[32m  Downloaded[0m slab v0.4.11
+[33m|[0m [1m[32m  Downloaded[0m bitflags v1.3.2
+[33m|[0m [1m[32m  Downloaded[0m byteorder-lite v0.1.0
+[33m|[0m [1m[32m  Downloaded[0m form_urlencoded v1.2.1
+[33m|[0m [1m[32m  Downloaded[0m generic-array v0.14.7
+[33m|[0m [1m[32m  Downloaded[0m tower-service v0.3.3
+[33m|[0m [1m[32m  Downloaded[0m futures-macro v0.3.31
+[33m|[0m [1m[32m  Downloaded[0m tinyvec_macros v0.1.1
+[33m|[0m [1m[32m  Downloaded[0m heck v0.5.0
+[33m|[0m [1m[32m  Downloaded[0m futures-executor v0.3.31
+[33m|[0m [1m[32m  Downloaded[0m futures-timer v3.0.3
+[33m|[0m [1m[32m  Downloaded[0m sync_wrapper v1.0.2
+[33m|[0m [1m[32m  Downloaded[0m getopts v0.2.23
+[33m|[0m [1m[32m  Downloaded[0m try-lock v0.2.5
+[33m|[0m [1m[32m  Downloaded[0m stable_deref_trait v1.2.0
+[33m|[0m [1m[32m  Downloaded[0m shell-words v1.1.0
+[33m|[0m [1m[32m  Downloaded[0m getrandom v0.2.16
+[33m|[0m [1m[32m  Downloaded[0m tracing-serde v0.2.0
+[33m|[0m [1m[32m  Downloaded[0m same-file v1.0.6
+[33m|[0m [1m[32m  Downloaded[0m dialoguer v0.11.0
+[33m|[0m [1m[32m  Downloaded[0m darling v0.20.11
+[33m|[0m [1m[32m  Downloaded[0m crossbeam-deque v0.8.6
+[33m|[0m [1m[32m  Downloaded[0m futures-channel v0.3.31
+[33m|[0m [1m[32m  Downloaded[0m time-core v0.1.4
+[33m|[0m [1m[32m  Downloaded[0m foldhash v0.1.5
+[33m|[0m [1m[32m  Downloaded[0m synstructure v0.13.2
+[33m|[0m [1m[32m  Downloaded[0m clap_derive v4.5.45
+[33m|[0m [1m[32m  Downloaded[0m simd-adler32 v0.3.7
+[33m|[0m [1m[32m  Downloaded[0m bitflags v2.9.2
+[33m|[0m [1m[32m  Downloaded[0m bzip2 v0.5.2
+[33m|[0m [1m[32m  Downloaded[0m anyhow v1.0.99
+[33m|[0m [1m[32m  Downloaded[0m cpufeatures v0.2.17
+[33m|[0m [1m[32m  Downloaded[0m console v0.15.11
+[33m|[0m [1m[32m  Downloaded[0m toml_write v0.1.2
+[33m|[0m [1m[32m  Downloaded[0m toml_datetime v0.6.11
+[33m|[0m [1m[32m  Downloaded[0m thread_local v1.1.9
+[33m|[0m [1m[32m  Downloaded[0m thiserror-impl v1.0.69
+[33m|[0m [1m[32m  Downloaded[0m hmac v0.12.1
+[33m|[0m [1m[32m  Downloaded[0m glob v0.3.3
+[33m|[0m [1m[32m  Downloaded[0m subtle v2.6.1
+[33m|[0m [1m[32m  Downloaded[0m thiserror-impl v2.0.15
+[33m|[0m [1m[32m  Downloaded[0m strsim v0.11.1
+[33m|[0m [1m[32m  Downloaded[0m inotify-sys v0.1.5
+[33m|[0m [1m[32m  Downloaded[0m ident_case v1.0.1
+[33m|[0m [1m[32m  Downloaded[0m zeroize_derive v1.4.2
+[33m|[0m [1m[32m  Downloaded[0m tui-markdown v0.3.5
+[33m|[0m [1m[32m  Downloaded[0m powerfmt v0.2.0
+[33m|[0m [1m[32m  Downloaded[0m percent-encoding v2.3.1
+[33m|[0m [1m[32m  Downloaded[0m ppv-lite86 v0.2.21
+[33m|[0m [1m[32m  Downloaded[0m allocator-api2 v0.2.21
+[33m|[0m [1m[32m  Downloaded[0m rustc_version v0.4.1
+[33m|[0m [1m[32m  Downloaded[0m bytes v1.10.1
+[33m|[0m [1m[32m  Downloaded[0m relative-path v1.9.3
+[33m|[0m [1m[32m  Downloaded[0m derive_more v2.0.1
+[33m|[0m [1m[32m  Downloaded[0m matchers v0.1.0
+[33m|[0m [1m[32m  Downloaded[0m tui-tree-widget v0.23.1
+[33m|[0m [1m[32m  Downloaded[0m untrusted v0.9.0
+[33m|[0m [1m[32m  Downloaded[0m humansize v2.1.3
+[33m|[0m [1m[32m  Downloaded[0m thiserror v1.0.69
+[33m|[0m [1m[32m  Downloaded[0m idna_adapter v1.2.1
+[33m|[0m [1m[32m  Downloaded[0m zeroize v1.8.1
+[33m|[0m [1m[32m  Downloaded[0m zerofrom-derive v0.1.6
+[33m|[0m [1m[32m  Downloaded[0m quinn-udp v0.5.13
+[33m|[0m [1m[32m  Downloaded[0m time-macros v0.2.22
+[33m|[0m [1m[32m  Downloaded[0m quote v1.0.40
+[33m|[0m [1m[32m  Downloaded[0m compact_str v0.8.1
+[33m|[0m [1m[32m  Downloaded[0m pin-utils v0.1.0
+[33m|[0m [1m[32m  Downloaded[0m getrandom v0.3.3
+[33m|[0m [1m[32m  Downloaded[0m option-ext v0.2.0
+[33m|[0m [1m[32m  Downloaded[0m lock_api v0.4.13
+[33m|[0m [1m[32m  Downloaded[0m num-conv v0.1.0
+[33m|[0m [1m[32m  Downloaded[0m xattr v1.5.1
+[33m|[0m [1m[32m  Downloaded[0m zerovec-derive v0.11.1
+[33m|[0m [1m[32m  Downloaded[0m inotify v0.11.0
+[33m|[0m [1m[32m  Downloaded[0m tinystr v0.8.1
+[33m|[0m [1m[32m  Downloaded[0m rand_core v0.9.3
+[33m|[0m [1m[32m  Downloaded[0m thiserror v2.0.15
+[33m|[0m [1m[32m  Downloaded[0m unicase v2.8.1
+[33m|[0m [1m[32m  Downloaded[0m unicode-truncate v1.1.0
+[33m|[0m [1m[32m  Downloaded[0m lzma-rs v0.3.0
+[33m|[0m [1m[32m  Downloaded[0m pulldown-cmark-escape v0.11.0
+[33m|[0m [1m[32m  Downloaded[0m parking_lot v0.12.4
+[33m|[0m [1m[32m  Downloaded[0m overload v0.1.1
+[33m|[0m [1m[32m  Downloaded[0m utf8parse v0.2.2
+[33m|[0m [1m[32m  Downloaded[0m tokio-rustls v0.26.2
+[33m|[0m [1m[32m  Downloaded[0m tracing-log v0.2.0
+[33m|[0m [1m[32m  Downloaded[0m simdutf8 v0.1.5
+[33m|[0m [1m[32m  Downloaded[0m indoc v2.0.6
+[33m|[0m [1m[32m  Downloaded[0m strum_macros v0.26.4
+[33m|[0m [1m[32m  Downloaded[0m smallvec v1.15.1
+[33m|[0m [1m[32m  Downloaded[0m writeable v0.6.1
+[33m|[0m [1m[32m  Downloaded[0m rand_core v0.6.4
+[33m|[0m [1m[32m  Downloaded[0m rand_chacha v0.9.0
+[33m|[0m [1m[32m  Downloaded[0m rand_chacha v0.3.1
+[33m|[0m [1m[32m  Downloaded[0m derive_more-impl v2.0.1
+[33m|[0m [1m[32m  Downloaded[0m flate2 v1.1.2
+[33m|[0m [1m[32m  Downloaded[0m httpdate v1.0.3
+[33m|[0m [1m[32m  Downloaded[0m is_terminal_polyfill v1.70.1
+[33m|[0m [1m[32m  Downloaded[0m lru-slab v0.1.2
+[33m|[0m [1m[32m  Downloaded[0m indicatif v0.17.11
+[33m|[0m [1m[32m  Downloaded[0m semver v1.0.26
+[33m|[0m [1m[32m  Downloaded[0m rstest v0.25.0
+[33m|[0m [1m[32m  Downloaded[0m utf8_iter v1.0.4
+[33m|[0m [1m[32m  Downloaded[0m lazy_static v1.5.0
+[33m|[0m [1m[32m  Downloaded[0m xz2 v0.1.7
+[33m|[0m [1m[32m  Downloaded[0m zopfli v0.8.2
+[33m|[0m [1m[32m  Downloaded[0m icu_locale_core v2.0.0
+[33m|[0m [1m[32m  Downloaded[0m yoke-derive v0.8.0
+[33m|[0m [1m[32m  Downloaded[0m zstd-safe v7.2.4
+[33m|[0m [1m[32m  Downloaded[0m rand v0.8.5
+[33m|[0m [1m[32m  Downloaded[0m aes v0.8.4
+[33m|[0m [1m[32m  Downloaded[0m pkg-config v0.3.32
+[33m|[0m [1m[32m  Downloaded[0m http-body-util v0.1.3
+[33m|[0m [1m[32m  Downloaded[0m linked-hash-map v0.5.6
+[33m|[0m [1m[32m  Downloaded[0m rustls-webpki v0.103.4
+[33m|[0m [1m[32m  Downloaded[0m num-traits v0.2.19
+[33m|[0m [1m[32m  Downloaded[0m tracing-attributes v0.1.30
+[33m|[0m [1m[32m  Downloaded[0m tinyvec v1.10.0
+[33m|[0m [1m[32m  Downloaded[0m socket2 v0.5.10
+[33m|[0m [1m[32m  Downloaded[0m tower v0.5.2
+[33m|[0m [1m[32m  Downloaded[0m walkdir v2.5.0
+[33m|[0m [1m[32m  Downloaded[0m signal-hook v0.3.18
+[33m|[0m [1m[32m  Downloaded[0m openssl-probe v0.1.6
+[33m|[0m [1m[32m  Downloaded[0m instability v0.3.9
+[33m|[0m [1m[32m  Downloaded[0m inout v0.1.4
+[33m|[0m [1m[32m  Downloaded[0m hyper-rustls v0.27.7
+[33m|[0m [1m[32m  Downloaded[0m onig v6.5.1
+[33m|[0m [1m[32m  Downloaded[0m yoke v0.8.0
+[33m|[0m [1m[32m  Downloaded[0m hashbrown v0.15.5
+[33m|[0m [1m[32m  Downloaded[0m opener v0.8.2
+[33m|[0m [1m[32m  Downloaded[0m icu_collections v2.0.0
+[33m|[0m [1m[32m  Downloaded[0m itoa v1.0.15
+[33m|[0m [1m[32m  Downloaded[0m icu_normalizer_data v2.0.0
+[33m|[0m [1m[32m  Downloaded[0m quinn v0.11.8
+[33m|[0m [1m[32m  Downloaded[0m indexmap v2.10.0
+[33m|[0m [1m[32m  Downloaded[0m crossterm v0.28.1
+[33m|[0m [1m[32m  Downloaded[0m icu_provider v2.0.0
+[33m|[0m [1m[32m  Downloaded[0m proc-macro2 v1.0.101
+[33m|[0m [1m[32m  Downloaded[0m minimal-lexical v0.2.1
+[33m|[0m [1m[32m  Downloaded[0m memchr v2.7.5
+[33m|[0m [1m[32m  Downloaded[0m hyper-util v0.1.16
+[33m|[0m [1m[32m  Downloaded[0m pbkdf2 v0.12.2
+[33m|[0m [1m[32m  Downloaded[0m futures-util v0.3.31
+[33m|[0m [1m[32m  Downloaded[0m clap_builder v4.5.44
+[33m|[0m [1m[32m  Downloaded[0m litemap v0.8.0
+[33m|[0m [1m[32m  Downloaded[0m zune-jpeg v0.4.20
+[33m|[0m [1m[32m  Downloaded[0m ipnet v2.11.0
+[33m|[0m [1m[32m  Downloaded[0m notify v8.2.0
+[33m|[0m [1m[32m  Downloaded[0m tracing v0.1.41
+[33m|[0m [1m[32m  Downloaded[0m rstest_macros v0.25.0
+[33m|[0m [1m[32m  Downloaded[0m url v2.5.4
+[33m|[0m [1m[32m  Downloaded[0m once_cell v1.21.3
+[33m|[0m [1m[32m  Downloaded[0m tui-textarea v0.7.0
+[33m|[0m [1m[32m  Downloaded[0m rayon-core v1.13.0
+[33m|[0m [1m[32m  Downloaded[0m miniz_oxide v0.8.9
+[33m|[0m [1m[32m  Downloaded[0m zerotrie v0.2.2
+[33m|[0m [1m[32m  Downloaded[0m litrs v0.4.2
+[33m|[0m [1m[32m  Downloaded[0m yaml-rust v0.4.5
+[33m|[0m [1m[32m  Downloaded[0m typenum v1.18.0
+[33m|[0m [1m[32m  Downloaded[0m toml_edit v0.22.27
+[33m|[0m [1m[32m  Downloaded[0m crossterm v0.29.0
+[33m|[0m [1m[32m  Downloaded[0m httparse v1.10.1
+[33m|[0m [1m[32m  Downloaded[0m rand v0.9.2
+[33m|[0m [1m[32m  Downloaded[0m toml v0.8.23
+[33m|[0m [1m[32m  Downloaded[0m mio v1.0.4
+[33m|[0m [1m[32m  Downloaded[0m idna v1.0.3
+[33m|[0m [1m[32m  Downloaded[0m h2 v0.4.12
+[33m|[0m [1m[32m  Downloaded[0m plist v1.7.4
+[33m|[0m [1m[32m  Downloaded[0m png v0.17.16
+[33m|[0m [1m[32m  Downloaded[0m libm v0.2.15
+[33m|[0m [1m[32m  Downloaded[0m icu_properties_data v2.0.1
+[33m|[0m [1m[32m  Downloaded[0m unicode-segmentation v1.12.0
+[33m|[0m [1m[32m  Downloaded[0m rustls-pki-types v1.12.0
+[33m|[0m [1m[32m  Downloaded[0m zip v2.4.2
+[33m|[0m [1m[32m  Downloaded[0m aho-corasick v1.1.3
+[33m|[0m [1m[32m  Downloaded[0m git2 v0.20.2
+[33m|[0m [1m[32m  Downloaded[0m pretty_assertions v1.4.1
+[33m|[0m [1m[32m  Downloaded[0m tar v0.4.44
+[33m|[0m [1m[32m  Downloaded[0m socket2 v0.6.0
+[33m|[0m [1m[32m  Downloaded[0m winnow v0.7.12
+[33m|[0m [1m[32m  Downloaded[0m sharded-slab v0.1.7
+[33m|[0m [1m[32m  Downloaded[0m serde_derive v1.0.219
+[33m|[0m [1m[32m  Downloaded[0m itertools v0.13.0
+[33m|[0m [1m[32m  Downloaded[0m tower-http v0.6.6
+[33m|[0m [1m[32m  Downloaded[0m image v0.25.6
+[33m|[0m [1m[32m  Downloaded[0m tokio-util v0.7.16
+[33m|[0m [1m[32m  Downloaded[0m vcpkg v0.2.15
+[33m|[0m [1m[32m  Downloaded[0m zerovec v0.11.4
+[33m|[0m [1m[32m  Downloaded[0m nom v7.1.3
+[33m|[0m [1m[32m  Downloaded[0m quinn-proto v0.11.12
+[33m|[0m [1m[32m  Downloaded[0m time v0.3.41
+[33m|[0m [1m[32m  Downloaded[0m zerocopy v0.8.26
+[33m|[0m [1m[32m  Downloaded[0m serde_json v1.0.143
+[33m|[0m [1m[32m  Downloaded[0m bstr v1.12.0
+[33m|[0m [1m[32m  Downloaded[0m iri-string v0.7.8
+[33m|[0m [1m[32m  Downloaded[0m sysinfo v0.30.13
+[33m|[0m [1m[32m  Downloaded[0m rayon v1.11.0
+[33m|[0m [1m[32m  Downloaded[0m reqwest v0.12.23
+[33m|[0m [1m[32m  Downloaded[0m regex-automata v0.1.10
+[33m|[0m [1m[32m  Downloaded[0m yansi v1.0.1
+[33m|[0m [1m[32m  Downloaded[0m pulldown-cmark v0.13.0
+[33m|[0m [1m[32m  Downloaded[0m hyper v1.7.0
+[33m|[0m [1m[32m  Downloaded[0m itertools v0.14.0
+[33m|[0m [1m[32m  Downloaded[0m portable-atomic v1.11.1
+[33m|[0m [1m[32m  Downloaded[0m quick-xml v0.38.2
+[33m|[0m [1m[32m  Downloaded[0m http v1.3.1
+[33m|[0m [1m[32m  Downloaded[0m notify-types v2.0.0
+[33m|[0m [1m[32m  Downloaded[0m version_check v0.9.5
+[33m|[0m [1m[32m  Downloaded[0m log v0.4.27
+[33m|[0m [1m[32m  Downloaded[0m icu_properties v2.0.1
+[33m|[0m [1m[32m  Downloaded[0m icu_normalizer v2.0.0
+[33m|[0m [1m[32m  Downloaded[0m similar v2.7.0
+[33m|[0m [1m[32m  Downloaded[0m unicode-ident v1.0.18
+[33m|[0m [1m[32m  Downloaded[0m tracing-subscriber v0.3.19
+[33m|[0m [1m[32m  Downloaded[0m tracing-core v0.1.34
+[33m|[0m [1m[32m  Downloaded[0m ryu v1.0.20
+[33m|[0m [1m[32m  Downloaded[0m cc v1.2.33
+[33m|[0m [1m[32m  Downloaded[0m tempfile v3.20.0
+[33m|[0m [1m[32m  Downloaded[0m pin-project-lite v0.2.16
+[33m|[0m [1m[32m  Downloaded[0m openssl-sys v0.9.109
+[33m|[0m [1m[32m  Downloaded[0m bumpalo v3.19.0
+[33m|[0m [1m[32m  Downloaded[0m zerofrom v0.1.6
+[33m|[0m [1m[32m  Downloaded[0m want v0.3.1
+[33m|[0m [1m[32m  Downloaded[0m nu-ansi-term v0.46.0
+[33m|[0m [1m[32m  Downloaded[0m lru v0.12.5
+[33m|[0m [1m[32m  Downloaded[0m jobserver v0.1.33
+[33m|[0m [1m[32m  Downloaded[0m zune-core v0.4.12
+[33m|[0m [1m[32m  Downloaded[0m proc-macro-crate v3.3.0
+[33m|[0m [1m[32m  Downloaded[0m potential_utf v0.1.2
+[33m|[0m [1m[32m  Downloaded[0m libloading v0.8.8
+[33m|[0m [1m[32m  Downloaded[0m zstd v0.13.3
+[33m|[0m [1m[32m  Downloaded[0m pathdiff v0.2.3
+[33m|[0m [1m[32m  Downloaded[0m paste v1.0.15
+[33m|[0m [1m[32m  Downloaded[0m serde v1.0.219
+[33m|[0m [1m[32m  Downloaded[0m fancy-regex v0.11.0
+[33m|[0m [1m[32m  Downloaded[0m crc32fast v1.5.0
+[33m|[0m [1m[32m  Downloaded[0m number_prefix v0.4.0
+[33m|[0m [1m[32m  Downloaded[0m base64 v0.21.7
+[33m|[0m [1m[32m  Downloaded[0m parking_lot_core v0.9.11
+[33m|[0m [1m[32m  Downloaded[0m rustversion v1.0.22
+[33m|[0m [1m[32m  Downloaded[0m shlex v1.3.0
+[33m|[0m [1m[32m  Downloaded[0m clap v4.5.45
+[33m|[0m [1m[32m  Downloaded[0m base64 v0.22.1
+[33m|[0m [1m[32m  Downloaded[0m darling_core v0.20.11
+[33m|[0m [1m[32m  Downloaded[0m signal-hook-registry v1.4.6
+[33m|[0m [1m[32m  Downloaded[0m sha1 v0.10.6
+[33m|[0m [1m[32m  Downloaded[0m static_assertions v1.1.0
+[33m|[0m [1m[32m  Downloaded[0m rustc-hash v2.1.1
+[33m|[0m [1m[32m  Downloaded[0m crossbeam-utils v0.8.21
+[33m|[0m [1m[32m  Downloaded[0m crossbeam-epoch v0.9.18
+[33m|[0m [1m[32m  Downloaded[0m futures v0.3.31
+[33m|[0m [1m[32m  Downloaded[0m fdeflate v0.3.7
+[33m|[0m [1m[32m  Downloaded[0m diff v0.1.13
+[33m|[0m [1m[32m  Downloaded[0m clap_lex v0.7.5
+[33m|[0m [1m[32m  Downloaded[0m tower-layer v0.3.3
+[33m|[0m [1m[32m  Downloaded[0m byteorder v1.5.0
+[33m|[0m [1m[32m  Downloaded[0m bit-set v0.5.3
+[33m|[0m [1m[32m  Downloaded[0m anstream v0.6.20
+[33m|[0m [1m[32m  Downloaded[0m ansi-to-tui v7.0.0
+[33m|[0m [1m[32m  Downloaded[0m futures-task v0.3.31
+[33m|[0m [1m[32m  Downloaded[0m digest v0.10.7
+[33m|[0m [1m[32m  Downloaded[0m bytemuck v1.23.2
+[33m|[0m [1m[32m  Downloaded[0m bincode v1.3.3
+[33m|[0m [1m[32m  Downloaded[0m hex v0.4.3
+[33m|[0m [1m[32m  Downloaded[0m futures-sink v0.3.31
+[33m|[0m [1m[32m  Downloaded[0m dirs v5.0.1
+[33m|[0m [1m[32m  Downloaded[0m either v1.15.0
+[33m|[0m [1m[32m  Downloaded[0m crc-catalog v2.4.0
+[33m|[0m [1m[32m  Downloaded[0m dirs-sys v0.4.1
+[33m|[0m [1m[32m  Downloaded[0m http-body v1.0.1
+[33m|[0m [1m[32m  Downloaded[0m fnv v1.0.7
+[33m|[0m [1m[32m  Downloaded[0m crypto-common v0.1.6
+[33m|[0m [1m[32m  Downloaded[0m crc v3.3.0
+[33m|[0m [1m[32m  Downloaded[0m futures-io v0.3.31
+[33m|[0m [1m[32m  Downloaded[0m futures-core v0.3.31
+[33m|[0m [1m[32m  Downloaded[0m fastrand v2.3.0
+[33m|[0m [1m[32m  Downloaded[0m errno v0.3.13
+[33m|[0m [1m[32m  Downloaded[0m filetime v0.2.25
+[33m|[0m [1m[32m  Downloaded[0m document-features v0.2.11
+[33m|[0m [1m[32m  Downloaded[0m displaydoc v0.2.5
+[33m|[0m [1m[32m  Downloaded[0m deranged v0.4.0
+[33m|[0m [1m[32m  Downloaded[0m deflate64 v0.1.9
+[33m|[0m [1m[32m  Downloaded[0m convert_case v0.7.1
+[33m|[0m [1m[32m  Downloaded[0m colorchoice v1.0.4
+[33m|[0m [1m[32m  Downloaded[0m cipher v0.4.4
+[33m|[0m [1m[32m  Downloaded[0m anstyle v1.0.11
+[33m|[0m [1m[32m  Downloaded[0m atomic-waker v1.1.2
+[33m|[0m [1m[32m  Downloaded[0m sha2 v0.10.9
+[33m|[0m [1m[32m  Downloaded[0m autocfg v1.5.0
+[33m|[0m [1m[32m  Downloaded[0m anstyle-query v1.1.4
+[33m|[0m [1m[32m  Downloaded[0m anstyle-parse v0.2.7
+[33m|[0m [1m[32m  Downloaded[0m signal-hook-mio v0.2.4
+[33m|[0m [1m[32m  Downloaded[0m serde_urlencoded v0.7.1
+[33m|[0m [1m[32m  Downloaded[0m serde_spanned v0.6.9
+[33m|[0m [1m[32m  Downloaded[0m cfg-if v1.0.3
+[33m|[0m [1m[32m  Downloaded[0m castaway v0.2.4
+[33m|[0m [1m[32m  Downloaded[0m cassowary v0.3.0
+[33m|[0m [1m[32m  Downloaded[0m bit-vec v0.6.3
+[33m|[0m [1m[32m  Downloaded[0m adler2 v2.0.1
+[33m|[0m [1m[32m  Downloaded[0m darling_macro v0.20.11
+[33m|[0m [1m[32m  Downloaded[0m constant_time_eq v0.3.1
+[33m|[0m [1m[32m  Downloaded[0m regex v1.11.1
+[33m|[0m [1m[32m  Downloaded[0m unicode-width v0.1.14
+[33m|[0m [1m[32m  Downloaded[0m unicode-width v0.2.0
+[33m|[0m [1m[32m  Downloaded[0m webpki-roots v1.0.2
+[33m|[0m [1m[32m  Downloaded[0m regex-syntax v0.6.29
+[33m|[0m [1m[32m  Downloaded[0m bzip2-sys v0.1.13+1.0.8
+[33m|[0m [1m[32m  Downloaded[0m syn v2.0.106
+[33m|[0m [1m[32m  Downloaded[0m rustix v0.38.44
+[33m|[0m [1m[32m  Downloaded[0m icy_sixel v0.1.3
+[33m|[0m [1m[32m  Downloaded[0m regex-syntax v0.8.5
+[33m|[0m [1m[32m  Downloaded[0m rustls v0.23.31
+[33m|[0m [1m[32m  Downloaded[0m rustix v1.0.8
+[33m|[0m [1m[32m  Downloaded[0m lzma-sys v0.1.20
+[33m|[0m [1m[32m  Downloaded[0m libc v0.2.175
+[33m|[0m [1m[32m  Downloaded[0m ratatui v0.29.0
+[33m|[0m [1m[32m  Downloaded[0m zstd-sys v2.0.15+zstd.1.5.7
+[33m|[0m [1m[32m  Downloaded[0m regex-automata v0.4.9
+[33m|[0m [1m[32m  Downloaded[0m libssh2-sys v0.3.1
+[33m|[0m [1m[32m  Downloaded[0m onig_sys v69.9.1
+[33m|[0m [1m[32m  Downloaded[0m syntect v5.2.0
+[33m|[0m [1m[32m  Downloaded[0m tokio v1.47.1
+[33m|[0m [1m[32m  Downloaded[0m libz-sys v1.1.22
+[33m|[0m [1m[32m  Downloaded[0m ring v0.17.14
+[33m|[0m [1m[32m  Downloaded[0m libgit2-sys v0.18.2+1.9.1
+[33m|[0m [1m[32m  Downloaded[0m linux-raw-sys v0.4.15
+[33m|[0m [1m[32m  Downloaded[0m linux-raw-sys v0.9.4
+[33m|[0m [1m[32m  Downloaded[0m ratatui-image v8.0.1
+[33m|[0m [1m[32m  Downloaded[0m openssl-src v300.5.2+3.5.2
+[33m|[0m [1m[32m   Compiling[0m libc v0.2.175
+[33m|[0m [1m[32m   Compiling[0m proc-macro2 v1.0.101
+[33m|[0m [1m[32m   Compiling[0m unicode-ident v1.0.18
+[33m|[0m [1m[32m    Checking[0m cfg-if v1.0.3
+[33m|[0m [1m[32m   Compiling[0m shlex v1.3.0
+[33m|[0m [1m[32m   Compiling[0m pkg-config v0.3.32
+[33m|[0m [1m[32m    Checking[0m memchr v2.7.5
+[33m|[0m [1m[32m   Compiling[0m autocfg v1.5.0
+[33m|[0m [1m[32m    Checking[0m smallvec v1.15.1
+[33m|[0m [1m[32m    Checking[0m log v0.4.27
+[33m|[0m [1m[32m    Checking[0m bitflags v2.9.2
+[33m|[0m [1m[32m    Checking[0m itoa v1.0.15
+[33m|[0m [1m[32m   Compiling[0m parking_lot_core v0.9.11
+[33m|[0m [1m[32m    Checking[0m once_cell v1.21.3
+[33m|[0m [1m[32m    Checking[0m scopeguard v1.2.0
+[33m|[0m [1m[32m    Checking[0m pin-project-lite v0.2.16
+[33m|[0m [1m[32m   Compiling[0m serde v1.0.219
+[33m|[0m [1m[32m    Checking[0m futures-core v0.3.31
+[33m|[0m [1m[32m    Checking[0m stable_deref_trait v1.2.0
+[33m|[0m [1m[32m    Checking[0m allocator-api2 v0.2.21
+[33m|[0m [1m[32m    Checking[0m equivalent v1.0.2
+[33m|[0m [1m[32m    Checking[0m foldhash v0.1.5
+[33m|[0m [1m[32m    Checking[0m futures-sink v0.3.31
+[33m|[0m [1m[32m   Compiling[0m lock_api v0.4.13
+[33m|[0m [1m[32m   Compiling[0m typenum v1.18.0
+[33m|[0m [1m[32m   Compiling[0m version_check v0.9.5
+[33m|[0m [1m[32m   Compiling[0m rustversion v1.0.22
+[33m|[0m [1m[32m    Checking[0m ryu v1.0.20
+[33m|[0m [1m[32m    Checking[0m unicode-width v0.2.0
+[33m|[0m [1m[32m    Checking[0m either v1.15.0
+[33m|[0m [1m[32m    Checking[0m hashbrown v0.15.5
+[33m|[0m [1m[32m    Checking[0m bytes v1.10.1
+[33m|[0m [1m[32m    Checking[0m futures-channel v0.3.31
+[33m|[0m [1m[32m   Compiling[0m heck v0.5.0
+[33m|[0m [1m[32m    Checking[0m signal-hook-registry v1.4.6
+[33m|[0m [1m[32m    Checking[0m mio v1.0.4
+[33m|[0m [1m[32m   Compiling[0m jobserver v0.1.33
+[33m|[0m [1m[32m   Compiling[0m generic-array v0.14.7
+[33m|[0m [1m[32m   Compiling[0m signal-hook v0.3.18
+[33m|[0m [1m[32m    Checking[0m pin-utils v0.1.0
+[33m|[0m [1m[32m    Checking[0m getrandom v0.2.16
+[33m|[0m [1m[32m    Checking[0m futures-task v0.3.31
+[33m|[0m [1m[32m    Checking[0m simd-adler32 v0.3.7
+[33m|[0m [1m[32m   Compiling[0m vcpkg v0.2.15
+[33m|[0m [1m[32m    Checking[0m parking_lot v0.12.4
+[33m|[0m [1m[32m   Compiling[0m strsim v0.11.1
+[33m|[0m [1m[32m   Compiling[0m quote v1.0.40
+[33m|[0m [1m[32m   Compiling[0m cc v1.2.33
+[33m|[0m [1m[32m    Checking[0m futures-io v0.3.31
+[33m|[0m [1m[32m    Checking[0m fnv v1.0.7
+[33m|[0m [1m[32m    Checking[0m slab v0.4.11
+[33m|[0m [1m[32m   Compiling[0m ident_case v1.0.1
+[33m|[0m [1m[32m   Compiling[0m crc32fast v1.5.0
+[33m|[0m [1m[32m   Compiling[0m syn v2.0.106
+[33m|[0m [1m[32m    Checking[0m socket2 v0.6.0
+[33m|[0m [1m[32m    Checking[0m writeable v0.6.1
+[33m|[0m [1m[32m   Compiling[0m rustix v0.38.44
+[33m|[0m [1m[32m    Checking[0m litemap v0.8.0
+[33m|[0m [1m[32m    Checking[0m tracing-core v0.1.34
+[33m|[0m [1m[32m    Checking[0m aho-corasick v1.1.3
+[33m|[0m [1m[32m    Checking[0m adler2 v2.0.1
+[33m|[0m [1m[32m   Compiling[0m paste v1.0.15
+[33m|[0m [1m[32m    Checking[0m signal-hook-mio v0.2.4
+[33m|[0m [1m[32m   Compiling[0m thiserror v1.0.69
+[33m|[0m [1m[32m   Compiling[0m icu_normalizer_data v2.0.0
+[33m|[0m [1m[32m    Checking[0m subtle v2.6.1
+[33m|[0m [1m[32m   Compiling[0m instability v0.3.9
+[33m|[0m [1m[32m   Compiling[0m rustix v1.0.8
+[33m|[0m [1m[32m    Checking[0m regex-syntax v0.8.5
+[33m|[0m [1m[32m    Checking[0m linux-raw-sys v0.4.15
+[33m|[0m [1m[32m   Compiling[0m icu_properties_data v2.0.1
+[33m|[0m [1m[32m    Checking[0m miniz_oxide v0.8.9
+[33m|[0m [1m[32m   Compiling[0m openssl-src v300.5.2+3.5.2
+[33m|[0m [1m[32m    Checking[0m castaway v0.2.4
+[33m|[0m [1m[32m    Checking[0m itertools v0.13.0
+[33m|[0m [1m[32m   Compiling[0m indoc v2.0.6
+[33m|[0m [1m[32m    Checking[0m static_assertions v1.1.0
+[33m|[0m [1m[32m    Checking[0m unicode-width v0.1.14
+[33m|[0m [1m[32m    Checking[0m unicode-segmentation v1.12.0
+[33m|[0m [1m[32m    Checking[0m percent-encoding v2.3.1
+[33m|[0m [1m[32m    Checking[0m linux-raw-sys v0.9.4
+[33m|[0m [1m[32m   Compiling[0m semver v1.0.26
+[33m|[0m [1m[32m   Compiling[0m openssl-sys v0.9.109
+[33m|[0m [1m[32m    Checking[0m flate2 v1.1.2
+[33m|[0m [1m[32m   Compiling[0m synstructure v0.13.2
+[33m|[0m [1m[32m   Compiling[0m darling_core v0.20.11
+[33m|[0m [1m[32m    Checking[0m regex-automata v0.4.9
+[33m|[0m [1m[32m    Checking[0m compact_str v0.8.1
+[33m|[0m [1m[32m    Checking[0m unicode-truncate v1.1.0
+[33m|[0m [1m[32m   Compiling[0m libz-sys v1.1.22
+[33m|[0m [1m[32m   Compiling[0m ring v0.17.14
+[33m|[0m [1m[32m   Compiling[0m serde_derive v1.0.219
+[33m|[0m [1m[32m   Compiling[0m displaydoc v0.2.5
+[33m|[0m [1m[32m   Compiling[0m zerovec-derive v0.11.1
+[33m|[0m [1m[32m   Compiling[0m futures-macro v0.3.31
+[33m|[0m [1m[32m   Compiling[0m zerofrom-derive v0.1.6
+[33m|[0m [1m[32m   Compiling[0m yoke-derive v0.8.0
+[33m|[0m [1m[32m   Compiling[0m zeroize_derive v1.4.2
+[33m|[0m [1m[32m   Compiling[0m tokio-macros v2.5.0
+[33m|[0m [1m[32m   Compiling[0m thiserror-impl v1.0.69
+[33m|[0m [1m[32m   Compiling[0m strum_macros v0.26.4
+[33m|[0m [1m[32m    Checking[0m crossterm v0.28.1
+[33m|[0m [1m[32m   Compiling[0m darling_macro v0.20.11
+[33m|[0m [1m[32m   Compiling[0m tracing-attributes v0.1.30
+[33m|[0m [1m[32m    Checking[0m futures-util v0.3.31
+[33m|[0m [1m[32m    Checking[0m crypto-common v0.1.6
+[33m|[0m [1m[32m    Checking[0m indexmap v2.10.0
+[33m|[0m [1m[32m    Checking[0m lru v0.12.5
+[33m|[0m [1m[32m    Checking[0m zerofrom v0.1.6
+[33m|[0m [1m[32m    Checking[0m zeroize v1.8.1
+[33m|[0m [1m[32m   Compiling[0m serde_json v1.0.143
+[33m|[0m [1m[32m    Checking[0m tokio v1.47.1
+[33m|[0m [1m[32m    Checking[0m powerfmt v0.2.0
+[33m|[0m [1m[32m   Compiling[0m darling v0.20.11
+[33m|[0m [1m[32m    Checking[0m yoke v0.8.0
+[33m|[0m [1m[32m    Checking[0m cassowary v0.3.0
+[33m|[0m [1m[32m    Checking[0m base64 v0.22.1
+[33m|[0m [1m[32m    Checking[0m deranged v0.4.0
+[33m|[0m [1m[32m    Checking[0m zerovec v0.11.4
+[33m|[0m [1m[32m    Checking[0m zerotrie v0.2.2
+[33m|[0m [1m[32m    Checking[0m strum v0.26.3
+[33m|[0m [1m[32m    Checking[0m tracing v0.1.41
+[33m|[0m [1m[32m    Checking[0m http v1.3.1
+[33m|[0m [1m[32m    Checking[0m num-conv v0.1.0
+[33m|[0m [1m[32m    Checking[0m time-core v0.1.4
+[33m|[0m [1m[32m   Compiling[0m crossbeam-utils v0.8.21
+[33m|[0m [1m[32m   Compiling[0m zerocopy v0.8.26
+[33m|[0m [1m[32m    Checking[0m tinystr v0.8.1
+[33m|[0m [1m[32m    Checking[0m potential_utf v0.1.2
+[33m|[0m [1m[32m    Checking[0m ratatui v0.29.0
+[33m|[0m [1m[32m    Checking[0m icu_collections v2.0.0
+[33m|[0m [1m[32m    Checking[0m http-body v1.0.1
+[33m|[0m [1m[32m   Compiling[0m rustc_version v0.4.1
+[33m|[0m [1m[32m    Checking[0m icu_locale_core v2.0.0
+[33m|[0m [1m[32m    Checking[0m time v0.3.41
+[33m|[0m [1m[32m    Checking[0m rustls-pki-types v1.12.0
+[33m|[0m [1m[32m    Checking[0m regex v1.11.1
+[33m|[0m [1m[32m    Checking[0m form_urlencoded v1.2.1
+[33m|[0m [1m[32m   Compiling[0m onig_sys v69.9.1
+[33m|[0m [1m[32m    Checking[0m icu_provider v2.0.0
+[33m|[0m [1m[32m   Compiling[0m libssh2-sys v0.3.1
+[33m|[0m [1m[32m   Compiling[0m zstd-sys v2.0.15+zstd.1.5.7
+[33m|[0m [1m[32m    Checking[0m block-buffer v0.10.4
+[33m|[0m [1m[32m   Compiling[0m winnow v0.7.12
+[33m|[0m [1m[32m    Checking[0m utf8_iter v1.0.4
+[33m|[0m [1m[32m   Compiling[0m toml_datetime v0.6.11
+[33m|[0m [1m[32m   Compiling[0m getrandom v0.3.3
+[33m|[0m [1m[32m    Checking[0m bitflags v1.3.2
+[33m|[0m [1m[32m    Checking[0m icu_normalizer v2.0.0
+[33m|[0m [1m[32m    Checking[0m icu_properties v2.0.1
+[33m|[0m [1m[32m   Compiling[0m httparse v1.10.1
+[33m|[0m [1m[32m    Checking[0m untrusted v0.9.0
+[33m|[0m [1m[32m    Checking[0m same-file v1.0.6
+[33m|[0m [1m[32m    Checking[0m digest v0.10.7
+[33m|[0m [1m[32m    Checking[0m walkdir v2.5.0
+[33m|[0m [1m[32m   Compiling[0m rstest_macros v0.25.0
+[33m|[0m [1m[32m   Compiling[0m convert_case v0.7.1
+[33m|[0m [1m[32m   Compiling[0m toml_edit v0.22.27
+[33m|[0m [1m[32m    Checking[0m idna_adapter v1.2.1
+[33m|[0m [1m[32m   Compiling[0m num-traits v0.2.19
+[33m|[0m [1m[32m    Checking[0m idna v1.0.3
+[33m|[0m [1m[32m   Compiling[0m thiserror v2.0.15
+[33m|[0m [1m[32m    Checking[0m utf8parse v0.2.2
+[33m|[0m [1m[32m    Checking[0m regex-syntax v0.6.29
+[33m|[0m [1m[32m    Checking[0m tower-service v0.3.3
+[33m|[0m [1m[32m   Compiling[0m anyhow v1.0.99
+[33m|[0m [1m[32m    Checking[0m bit-vec v0.6.3
+[33m|[0m [1m[32m    Checking[0m try-lock v0.2.5
+[33m|[0m [1m[32m   Compiling[0m rustls v0.23.31
+[33m|[0m [1m[32m    Checking[0m ppv-lite86 v0.2.21
+[33m|[0m [1m[32m    Checking[0m bit-set v0.5.3
+[33m|[0m [1m[32m    Checking[0m want v0.3.1
+[33m|[0m [1m[32m   Compiling[0m proc-macro-crate v3.3.0
+[33m|[0m [1m[32m    Checking[0m regex-automata v0.1.10
+[33m|[0m [1m[32m    Checking[0m anstyle-parse v0.2.7
+[33m|[0m [1m[32m    Checking[0m url v2.5.4
+[33m|[0m [1m[32m    Checking[0m crossbeam-epoch v0.9.18
+[33m|[0m [1m[32m   Compiling[0m derive_more-impl v2.0.1
+[33m|[0m [1m[32m   Compiling[0m thiserror-impl v2.0.15
+[33m|[0m [1m[32m   Compiling[0m lzma-sys v0.1.20
+[33m|[0m [1m[32m   Compiling[0m libgit2-sys v0.18.2+1.9.1
+[33m|[0m [1m[32m   Compiling[0m bzip2-sys v0.1.13+1.0.8
+[33m|[0m [1m[32m    Checking[0m rand_core v0.6.4
+[33m|[0m [1m[32m    Checking[0m fdeflate v0.3.7
+[33m|[0m [1m[32m    Checking[0m quick-xml v0.38.2
+[33m|[0m [1m[32m    Checking[0m anstyle-query v1.1.4
+[33m|[0m [1m[32m   Compiling[0m glob v0.3.3
+[33m|[0m [1m[32m   Compiling[0m relative-path v1.9.3
+[33m|[0m [1m[32m    Checking[0m atomic-waker v1.1.2
+[33m|[0m [1m[32m    Checking[0m cpufeatures v0.2.17
+[33m|[0m [1m[32m    Checking[0m lazy_static v1.5.0
+[33m|[0m [1m[32m    Checking[0m is_terminal_polyfill v1.70.1
+[33m|[0m [1m[32m    Checking[0m rustls-webpki v0.103.4
+[33m|[0m [1m[32m    Checking[0m anstyle v1.0.11
+[33m|[0m [1m[32m    Checking[0m linked-hash-map v0.5.6
+[33m|[0m [1m[32m    Checking[0m colorchoice v1.0.4
+[33m|[0m [1m[32m   Compiling[0m zstd-safe v7.2.4
+[33m|[0m [1m[32m   Compiling[0m litrs v0.4.2
+[33m|[0m [1m[32m   Compiling[0m pulldown-cmark v0.13.0
+[33m|[0m [1m[32m   Compiling[0m rayon-core v1.13.0
+[33m|[0m [1m[32m    Checking[0m minimal-lexical v0.2.1
+[33m|[0m [1m[32m   Compiling[0m portable-atomic v1.11.1
+[33m|[0m [1m[32m    Checking[0m overload v0.1.1
+[33m|[0m [1m[32m    Checking[0m zune-core v0.4.12
+[33m|[0m [1m[32m    Checking[0m nu-ansi-term v0.46.0
+[33m|[0m [1m[32m    Checking[0m anstream v0.6.20
+[33m|[0m [1m[32m    Checking[0m yaml-rust v0.4.5
+[33m|[0m [1m[32m    Checking[0m nom v7.1.3
+[33m|[0m [1m[32m    Checking[0m zune-jpeg v0.4.20
+[33m|[0m [1m[32m   Compiling[0m document-features v0.2.11
+[33m|[0m [1m[32m    Checking[0m plist v1.7.4
+[33m|[0m [1m[32m    Checking[0m sharded-slab v0.1.7
+[33m|[0m [1m[32m    Checking[0m hyper v1.7.0
+[33m|[0m [1m[32m    Checking[0m png v0.17.16
+[33m|[0m [1m[32m    Checking[0m derive_more v2.0.1
+[33m|[0m [1m[32m    Checking[0m rand_chacha v0.3.1
+[33m|[0m [1m[32m    Checking[0m crossbeam-deque v0.8.6
+[33m|[0m [1m[32m    Checking[0m matchers v0.1.0
+[33m|[0m [1m[32m    Checking[0m fancy-regex v0.11.0
+[33m|[0m [1m[32m    Checking[0m tracing-serde v0.2.0
+[33m|[0m [1m[32m    Checking[0m bincode v1.3.3
+[33m|[0m [1m[32m    Checking[0m tracing-log v0.2.0
+[33m|[0m [1m[32m    Checking[0m inout v0.1.4
+[33m|[0m [1m[32m    Checking[0m inotify-sys v0.1.5
+[33m|[0m [1m[32m    Checking[0m console v0.15.11
+[33m|[0m [1m[32m    Checking[0m getopts v0.2.23
+[33m|[0m [1m[32m    Checking[0m sync_wrapper v1.0.2
+[33m|[0m [1m[32m    Checking[0m thread_local v1.1.9
+[33m|[0m [1m[32m    Checking[0m clap_lex v0.7.5
+[33m|[0m [1m[32m    Checking[0m byteorder-lite v0.1.0
+[33m|[0m [1m[32m    Checking[0m yansi v1.0.1
+[33m|[0m [1m[32m    Checking[0m crc-catalog v2.4.0
+[33m|[0m [1m[32m    Checking[0m pulldown-cmark-escape v0.11.0
+[33m|[0m [1m[32m    Checking[0m diff v0.1.13
+[33m|[0m [1m[32m    Checking[0m futures-timer v3.0.3
+[33m|[0m [1m[32m    Checking[0m unicase v2.8.1
+[33m|[0m [1m[32m   Compiling[0m libm v0.2.15
+[33m|[0m [1m[32m    Checking[0m ipnet v2.11.0
+[33m|[0m [1m[32m    Checking[0m fastrand v2.3.0
+[33m|[0m [1m[32m    Checking[0m bytemuck v1.23.2
+[33m|[0m [1m[32m    Checking[0m simdutf8 v0.1.5
+[33m|[0m [1m[32m    Checking[0m tower-layer v0.3.3
+[33m|[0m [1m[32m    Checking[0m pretty_assertions v1.4.1
+[33m|[0m [1m[32m    Checking[0m tempfile v3.20.0
+[33m|[0m [1m[32m    Checking[0m hyper-util v0.1.16
+[33m|[0m [1m[32m    Checking[0m image v0.25.6
+[33m|[0m [1m[32m    Checking[0m rstest v0.25.0
+[33m|[0m [1m[32m    Checking[0m ansi-to-tui v7.0.0
+[33m|[0m [1m[32m    Checking[0m tower v0.5.2
+[33m|[0m [1m[32m    Checking[0m clap_builder v4.5.44
+[33m|[0m [1m[32m    Checking[0m crc v3.3.0
+[33m|[0m [1m[32m    Checking[0m tracing-subscriber v0.3.19
+[33m|[0m [1m[32m    Checking[0m inotify v0.11.0
+[33m|[0m [1m[32m    Checking[0m cipher v0.4.4
+[33m|[0m [1m[32m    Checking[0m tokio-rustls v0.26.2
+[33m|[0m [1m[32m    Checking[0m rand v0.8.5
+[33m|[0m [1m[32m    Checking[0m crossterm v0.29.0
+[33m|[0m [1m[32m    Checking[0m hmac v0.12.1
+[33m|[0m [1m[32m    Checking[0m webpki-roots v1.0.2
+[33m|[0m [1m[32m    Checking[0m serde_spanned v0.6.9
+[33m|[0m [1m[32m    Checking[0m bstr v1.12.0
+[33m|[0m [1m[32m   Compiling[0m clap_derive v4.5.45
+[33m|[0m [1m[32m    Checking[0m itertools v0.14.0
+[33m|[0m [1m[32m    Checking[0m filetime v0.2.25
+[33m|[0m [1m[32m    Checking[0m iri-string v0.7.8
+[33m|[0m [1m[32m    Checking[0m icy_sixel v0.1.3
+[33m|[0m [1m[32m    Checking[0m number_prefix v0.4.0
+[33m|[0m [1m[32m    Checking[0m notify-types v2.0.0
+[33m|[0m [1m[32m    Checking[0m byteorder v1.5.0
+[33m|[0m [1m[32m    Checking[0m openssl-probe v0.1.6
+[33m|[0m [1m[32m    Checking[0m option-ext v0.2.0
+[33m|[0m [1m[32m   Compiling[0m zip v2.4.2
+[33m|[0m [1m[32m    Checking[0m bumpalo v3.19.0
+[33m|[0m [1m[32m    Checking[0m onig v6.5.1
+[33m|[0m [1m[32m    Checking[0m shell-words v1.1.0
+[33m|[0m [1m[32m    Checking[0m base64 v0.21.7
+[33m|[0m [1m[32m    Checking[0m toml_write v0.1.2
+[33m|[0m [1m[32m    Checking[0m dirs-sys v0.4.1
+[33m|[0m [1m[32m    Checking[0m dialoguer v0.11.0
+[33m|[0m [1m[32m    Checking[0m lzma-rs v0.3.0
+[33m|[0m [1m[32m    Checking[0m zopfli v0.8.2
+[33m|[0m [1m[32m    Checking[0m indicatif v0.17.11
+[33m|[0m [1m[32m    Checking[0m syntect v5.2.0
+[33m|[0m [1m[32m    Checking[0m notify v8.2.0
+[33m|[0m [1m[32m    Checking[0m opener v0.8.2
+[33m|[0m [1m[32m    Checking[0m ratatui-image v8.0.1
+[33m|[0m [1m[32m    Checking[0m tower-http v0.6.6
+[33m|[0m [1m[32m    Checking[0m zstd v0.13.3
+[33m|[0m [1m[32m    Checking[0m pbkdf2 v0.12.2
+[33m|[0m [1m[32m    Checking[0m rayon v1.11.0
+[33m|[0m [1m[32m    Checking[0m hyper-rustls v0.27.7
+[33m|[0m [1m[32m    Checking[0m xz2 v0.1.7
+[33m|[0m [1m[32m    Checking[0m aes v0.8.4
+[33m|[0m [1m[32m    Checking[0m bzip2 v0.5.2
+[33m|[0m [1m[32m    Checking[0m sha1 v0.10.6
+[33m|[0m [1m[32m    Checking[0m serde_urlencoded v0.7.1
+[33m|[0m [1m[32m    Checking[0m clap v4.5.45
+[33m|[0m [1m[32m    Checking[0m tui-textarea v0.7.0
+[33m|[0m [1m[32m    Checking[0m tui-tree-widget v0.23.1
+[33m|[0m [1m[32m    Checking[0m tui-markdown v0.3.5
+[33m|[0m [1m[32m    Checking[0m http-body-util v0.1.3
+[33m|[0m [1m[32m    Checking[0m tokio-util v0.7.16
+[33m|[0m [1m[32m    Checking[0m futures-executor v0.3.31
+[33m|[0m [1m[32m    Checking[0m xattr v1.5.1
+[33m|[0m [1m[32m    Checking[0m deflate64 v0.1.9
+[33m|[0m [1m[32m    Checking[0m pathdiff v0.2.3
+[33m|[0m [1m[32m    Checking[0m constant_time_eq v0.3.1
+[33m|[0m [1m[32m    Checking[0m similar v2.7.0
+[33m|[0m [1m[32m    Checking[0m humansize v2.1.3
+[33m|[0m [1m[32m    Checking[0m dirs v5.0.1
+[33m|[0m [1m[32m    Checking[0m tar v0.4.44
+[33m|[0m [1m[32m    Checking[0m futures v0.3.31
+[33m|[0m [1m[32m    Checking[0m sha2 v0.10.9
+[33m|[0m [1m[32m    Checking[0m libloading v0.8.8
+[33m|[0m [1m[32m    Checking[0m hex v0.4.3
+[33m|[0m [1m[32m    Checking[0m reqwest v0.12.23
+[33m|[0m [1m[32m    Checking[0m toml v0.8.23
+[33m|[0m [1m[32m    Checking[0m sysinfo v0.30.13
+[33m|[0m [1m[32m    Checking[0m sdisk v0.1.0 (/Users/davidirvine/Desktop/Devel/projects/saorsa-cli/sdisk)
+[33m|[0m [1m[32m    Checking[0m cli v0.1.0 (/Users/davidirvine/Desktop/Devel/projects/saorsa-cli/cli)
+[33m|[0m [0m[1m[38;5;9merror[0m[0m[1m: unneeded `return` statement[0m
+[33m|[0m [0m  [0m[0m[1m[38;5;12m--> [0m[0mcli/src/runner.rs:34:13[0m
+[33m|[0m [0m   [0m[0m[1m[38;5;12m|[0m
+[33m|[0m [0m[1m[38;5;12m34[0m[0m [0m[0m[1m[38;5;12m|[0m[0m [0m[0m            return Ok(());[0m
+[33m|[0m [0m   [0m[0m[1m[38;5;12m|[0m[0m             [0m[0m[1m[38;5;9m^^^^^^^^^^^^^[0m
+[33m|[0m [0m   [0m[0m[1m[38;5;12m|[0m
+[33m|[0m [0m   [0m[0m[1m[38;5;12m= [0m[0m[1mhelp[0m[0m: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return[0m
+[33m|[0m [0m   [0m[0m[1m[38;5;12m= [0m[0m[1mnote[0m[0m: `-D clippy::needless-return` implied by `-D warnings`[0m
+[33m|[0m [0m   [0m[0m[1m[38;5;12m= [0m[0m[1mhelp[0m[0m: to override `-D warnings` add `#[allow(clippy::needless_return)]`[0m
+[33m|[0m [0m[1m[38;5;14mhelp[0m[0m: remove `return`[0m
+[33m|[0m [0m   [0m[0m[1m[38;5;12m|[0m
+[33m|[0m [0m[1m[38;5;12m34[0m[0m [0m[0m[38;5;9m- [0m[0m            [0m[0m[38;5;9mreturn Ok(());[0m
+[33m|[0m [0m[1m[38;5;12m34[0m[0m [0m[0m[38;5;10m+ [0m[0m            [0m[0m[38;5;10mOk(())[0m
+[33m|[0m [0m   [0m[0m[1m[38;5;12m|[0m
+[33m|[0m 
+[33m|[0m [1m[31merror[0m[1m:[0m could not compile `cli` (bin "saorsa") due to 1 previous error
+[33m|[0m [1m[33mwarning[0m[1m:[0m build failed, waiting for other jobs to finish...
+[33m[Release-v2/Lint and Format] [0m  ❌  Failure - Main Run clippy [4m17.837758875s]
+[33m[Release-v2/Lint and Format] [0mexitcode '101': failure
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] setupEnv => map[ACT:true ACTIONS_CACHE_URL:http://192.168.1.23:56952/ CARGO_HOME:/root/.cargo CARGO_INCREMENTAL:0 CARGO_TERM_COLOR:always CI:true GITHUB_ACTION:1 GITHUB_ACTIONS:true GITHUB_ACTION_PATH: GITHUB_ACTION_REF:5d458579430fc14a04a08a1e7d3694f545e91ce6 GITHUB_ACTION_REPOSITORY:dtolnay/rust-toolchain GITHUB_ACTOR:nektos/act GITHUB_API_URL:https://api.github.com GITHUB_BASE_REF: GITHUB_ENV:/var/run/act/workflow/envs.txt GITHUB_EVENT_NAME:push GITHUB_EVENT_PATH:/var/run/act/workflow/event.json GITHUB_GRAPHQL_URL:https://api.github.com/graphql GITHUB_HEAD_REF: GITHUB_JOB:lint GITHUB_OUTPUT:/var/run/act/workflow/outputcmd.txt GITHUB_PATH:/var/run/act/workflow/pathcmd.txt GITHUB_REF:refs/tags/v0.1.0 GITHUB_REF_NAME:v0.1.0 GITHUB_REF_TYPE:tag GITHUB_REPOSITORY:dirvine/saorsa-cli GITHUB_REPOSITORY_OWNER:dirvine GITHUB_RETENTION_DAYS:0 GITHUB_RUN_ATTEMPT:1 GITHUB_RUN_ID:1 GITHUB_RUN_NUMBER:1 GITHUB_SERVER_URL:https://github.com GITHUB_SHA:b09ea5f1137265a5d0ca42b8ea400b36413a7249 GITHUB_STATE:/var/run/act/workflow/statecmd.txt GITHUB_STEP_SUMMARY:/var/run/act/workflow/SUMMARY.md GITHUB_WORKFLOW:Release-v2 GITHUB_WORKSPACE:/Users/davidirvine/Desktop/Devel/projects/saorsa-cli INPUT_COMPONENTS:clippy, rustfmt INPUT_TOOLCHAIN:stable ImageOS:ubuntu22 RUNNER_PERFLOG:/dev/null RUNNER_TRACKING_ID:]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m[DEBUG] evaluating expression 'always()'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] expression 'always()' evaluated to 'true'
+[33m[Release-v2/Lint and Format] [0m⭐ Run Post Install Rust
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/outputcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/statecmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/pathcmd.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/envs.txt len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing entry to tarball workflow/SUMMARY.md len:0
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content to '/var/run/act'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] run post step for 'Install Rust'
+[33m[Release-v2/Lint and Format] [0m[DEBUG] /var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6
+[33m[Release-v2/Lint and Format] [0m  🐳  docker cp src=/Users/davidirvine/.cache/act/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6/ dst=/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6/
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Writing tarball /var/folders/yj/_jckx7bd6sz7w8jg7pts5whh0000gn/T/act2162882878 from /Users/davidirvine/.cache/act/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6/
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Stripping prefix:/Users/davidirvine/.cache/act/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6/ src:/Users/davidirvine/.cache/act/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6/
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Extracting content from '/var/folders/yj/_jckx7bd6sz7w8jg7pts5whh0000gn/T/act2162882878' to '/var/run/act/actions/dtolnay-rust-toolchain@5d458579430fc14a04a08a1e7d3694f545e91ce6/'
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Post Install Rust [69.754458ms]
+[33m[Release-v2/Lint and Format] [0m[DEBUG] skipping post step for 'actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955': no action model available
+[33m[Release-v2/Lint and Format] [0m⭐ Run Complete job
+[33m[Release-v2/Lint and Format] [0m[DEBUG] Found revision: b09ea5f1137265a5d0ca42b8ea400b36413a7249
+[33m[Release-v2/Lint and Format] [0m  ✅  Success - Complete job
+[33m[Release-v2/Lint and Format] [0m🏁  Job failed
+Error: Job 'Lint and Format' failed
